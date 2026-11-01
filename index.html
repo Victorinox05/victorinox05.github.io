@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Víctor Casanova · Electrónica, embebidos y robótica</title>
+  <meta name="description" content="Portfolio de Víctor Casanova, estudiante de Ingeniería Electrónica Industrial y Automática (UPM): sistemas embebidos, FPGA, robótica y automatización.">
+  <meta name="author" content="Víctor Humberto Casanova Bernal">
+  <meta name="theme-color" content="#0b0f15">
+  <link rel="canonical" href="https://victorinox05.github.io/">
+  <link rel="alternate" hreflang="es" href="https://victorinox05.github.io/">
+  <link rel="alternate" hreflang="en" href="https://victorinox05.github.io/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://victorinox05.github.io/">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Tarjeta al compartir el enlace (LinkedIn, WhatsApp...). Los robots no ejecutan JS: va aquí -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://victorinox05.github.io/">
+  <meta property="og:title" content="Víctor Casanova · Portfolio">
+  <meta property="og:description" content="Estudiante de Ingeniería Electrónica Industrial y Automática (UPM). Sistemas embebidos, FPGA, robótica y automatización.">
+  <meta property="og:image" content="https://victorinox05.github.io/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fuentes/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fuentes/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="estilos.css">
+
+  <!-- Antes de pintar: tema e idioma guardados, para que no parpadee -->
+  <script>
+    (function () {
+      var tema = null;
+      try { tema = localStorage.getItem('tema'); } catch (e) {}
+      if (!tema) tema = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = tema;
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Víctor Humberto Casanova Bernal",
+    "alternateName": "Víctor Casanova",
+    "url": "https://victorinox05.github.io/",
+    "image": "https://victorinox05.github.io/assets/foto.webp",
+    "jobTitle": "Estudiante de Ingeniería Electrónica Industrial y Automática",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Politécnica de Madrid" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
+    "knowsAbout": ["Sistemas embebidos", "FPGA", "VHDL", "Robótica", "Automatización industrial", "PLC", "ESP32", "Python", "C++"],
+    "sameAs": ["https://www.linkedin.com/in/victor-casanova-bernal"]
+  }
+  </script>
+</head>
+<body>
+  <a class="saltar" href="#contenido" data-t="saltar">Saltar al contenido</a>
+  <canvas id="fondo" aria-hidden="true"></canvas>
+
+  <header class="cabecera" id="cabecera">
+    <nav class="nav contenedor" aria-label="Principal">
+      <a class="logo" href="#inicio" aria-label="Inicio">
+        <span class="logo-chip" aria-hidden="true">VC</span>
+        <span class="logo-texto">Víctor Casanova</span>
+      </a>
+      <ul class="nav-enlaces" id="nav-enlaces">
+        <li><a href="#sobre-mi" data-t="navSobreMi">Sobre mí</a></li>
+        <li><a href="#proyectos" data-t="navProyectos">Proyectos</a></li>
+        <li><a href="#experiencia" data-t="navExperiencia">Experiencia</a></li>
+        <li><a href="#skills" data-t="navSkills">Skills</a></li>
+        <li><a href="#contacto" data-t="navContacto">Contacto</a></li>
+      </ul>
+      <div class="nav-botones">
+        <button class="boton-icono boton-idioma" id="boton-idioma" type="button" data-t-title="idioma" title="Read in English">
+          <span class="idioma-actual">ES</span><span class="idioma-sep">/</span><span class="idioma-otro">EN</span>
+        </button>
+        <button class="boton-icono" id="boton-tema" type="button" data-t-aria="tema" aria-label="Cambiar entre tema claro y oscuro">
+          <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        </button>
+        <button class="boton-icono boton-menu" id="boton-menu" type="button" aria-expanded="false" aria-controls="nav-enlaces" data-t-aria="menu" aria-label="Abrir el menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- PORTADA -->
+    <section class="portada contenedor" id="inicio">
+      <div class="portada-texto">
+        <p class="distintivo"><span class="punto" aria-hidden="true"></span><span id="distintivo"></span></p>
+        <h1 class="portada-titulo"><span data-t="hola">Hola, soy</span> <span class="degradado" id="nombre">Víctor Casanova</span></h1>
+        <p class="portada-rol"><span data-t="apasionado">Apasionado por</span> <span class="escribiendo" id="escribiendo"></span><span class="cursor" aria-hidden="true">_</span></p>
+        <p class="portada-bio" id="bio"></p>
+        <div class="portada-botones">
+          <a class="boton boton-principal" href="#proyectos"><span data-t="verProyectos">Ver proyectos</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="boton boton-secundario" id="boton-linkedin" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="relleno"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4z"/></svg>
+            <span data-t="conectar">Conectemos</span></a>
+          <a class="boton boton-secundario" id="boton-cv" href="#" download hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+            <span data-t="descargarCV">Descargar CV</span></a>
+        </div>
+      </div>
+      <figure class="portada-foto">
+        <div class="foto-marco">
+          <img id="foto" src="assets/foto.webp" alt="Víctor Casanova" width="720" height="900" fetchpriority="high">
+        </div>
+        <figcaption class="foto-etiqueta etiqueta-premio">
+          <span aria-hidden="true">🏆</span><span id="etiqueta-premio"></span>
+        </figcaption>
+        <span class="foto-etiqueta etiqueta-chip mono" aria-hidden="true">ESP32 · FPGA · PLC</span>
+      </figure>
+      <ul class="cifras" id="cifras" aria-label="Datos rápidos"></ul>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="seccion contenedor" id="sobre-mi">
+      <h2 class="seccion-titulo"><span class="mono numero">01</span> <span data-t="tituloSobreMi">Sobre mí</span></h2>
+      <div class="sobre-mi">
+        <div class="sobre-mi-texto" id="sobre-mi-texto"></div>
+        <aside class="tarjeta ahora" aria-labelledby="ahora-titulo">
+          <h3 id="ahora-titulo"><span class="punto punto-vivo" aria-hidden="true"></span> <span data-t="ahoraMismo">Ahora mismo</span></h3>
+          <ul id="ahora-lista"></ul>
+          <p class="ahora-fecha mono"><span data-t="actualizado">Actualizado en</span> <span id="actualizado"></span></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="seccion contenedor" id="proyectos">
+      <h2 class="seccion-titulo"><span class="mono numero">02</span> <span data-t="tituloProyectos">Proyectos</span></h2>
+      <p class="seccion-sub" data-t="subProyectos"></p>
+      <div class="filtros" id="filtros" role="toolbar" aria-label="Filtrar proyectos"></div>
+      <p class="filtro-skill" id="filtro-skill" hidden></p>
+      <div class="rejilla-proyectos" id="rejilla-proyectos"></div>
+    </section>
+
+    <!-- PREMIOS -->
+    <section class="seccion contenedor" id="premios">
+      <h2 class="seccion-titulo"><span class="mono numero">03</span> <span data-t="tituloPremios">Premios y certificados</span></h2>
+      <div id="premio"></div>
+      <div class="certificados" id="certificados"></div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="seccion contenedor" id="experiencia">
+      <h2 class="seccion-titulo"><span class="mono numero">04</span> <span data-t="tituloExperiencia">Experiencia y formación</span></h2>
+      <div class="dos-columnas">
+        <div>
+          <h3 class="columna-titulo"><span class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><span data-t="trabajo">Experiencia</span></h3>
+          <ol class="linea-tiempo" id="lista-experiencia"></ol>
+        </div>
+        <div>
+          <h3 class="columna-titulo"><span class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></span><span data-t="estudios">Formación</span></h3>
+          <ol class="linea-tiempo" id="lista-formacion"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="seccion contenedor" id="skills">
+      <h2 class="seccion-titulo"><span class="mono numero">05</span> <span data-t="tituloSkills">Skills</span></h2>
+      <p class="seccion-sub" data-t="subSkills"></p>
+      <div class="rejilla-skills" id="rejilla-skills"></div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="seccion contenedor" id="contacto">
+      <h2 class="seccion-titulo"><span class="mono numero">06</span> <span data-t="tituloContacto">Contacto</span></h2>
+      <p class="seccion-sub" data-t="subContacto"></p>
+      <div class="contacto">
+        <div class="tarjeta contacto-datos">
+          <h3 data-t="datosContacto">Dónde encontrarme</h3>
+          <ul class="contacto-lista" id="contacto-lista"></ul>
+        </div>
+        <form class="tarjeta formulario" id="formulario" novalidate>
+          <div class="campo">
+            <label for="f-nombre" data-t="tuNombre">Tu nombre</label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="f-correo" data-t="tuCorreo">Tu correo</label>
+            <input id="f-correo" name="correo" type="email" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="f-mensaje" data-t="mensaje">Mensaje</label>
+            <textarea id="f-mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+          <button class="boton boton-principal" type="submit"><span data-t="enviar">Enviar mensaje</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2-7z"/></svg></button>
+          <p class="formulario-aviso" id="formulario-aviso" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie contenedor">
+    <p>© <span id="anio">2026</span> Víctor Humberto Casanova Bernal</p>
+    <p class="pie-nota" data-t="pie"></p>
+  </footer>
+
+  <!-- Ventana de cada proyecto -->
+  <dialog class="ventana" id="ventana" aria-labelledby="ventana-titulo">
+    <div class="ventana-caja" id="ventana-caja"></div>
+  </dialog>
+
+  <noscript><p class="sin-js">Esta web necesita JavaScript para mostrar el contenido. · This site needs JavaScript.</p></noscript>
+
+  <script src="datos.js"></script>
+  <script src="diagramas.js"></script>
+  <script src="fondo.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

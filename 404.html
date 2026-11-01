@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- GitHub Pages la sirve para cualquier dirección que no exista. Rutas absolutas (/...)
+     porque puede abrirse desde cualquier carpeta. -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 · Víctor Casanova</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/estilos.css">
+  <script>
+    (function () {
+      var tema = null;
+      try { tema = localStorage.getItem('tema'); } catch (e) {}
+      if (!tema) tema = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = tema;
+    })();
+  </script>
+  <style>
+    .error { min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 40px 20px; }
+    .error svg { width: min(420px, 90vw); height: auto; margin: 0 auto 28px; }
+    .error h1 { font-size: clamp(3.5rem, 12vw, 6rem); margin-bottom: 8px; }
+    .error p { color: var(--texto-2); max-width: 30em; margin: 0 auto 28px; }
+    .pista { fill: none; stroke: var(--acento); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .pad { fill: var(--acento); }
+    .agujero { fill: var(--fondo); }
+    .chispa { stroke: var(--acento-2); stroke-width: 2.5; stroke-linecap: round; animation: chispa 1.4s ease-in-out infinite; }
+    @keyframes chispa { 50% { opacity: .2; } }
+  </style>
+</head>
+<body>
+  <canvas id="fondo" aria-hidden="true"></canvas>
+  <main class="error">
+    <div>
+      <svg viewBox="0 0 420 120" aria-hidden="true">
+        <path class="pista" d="M20 90 H110 L150 50 H190"/>
+        <path class="pista" d="M232 50 H270 L310 90 H400"/>
+        <circle class="pad" cx="20" cy="90" r="9"/><circle class="agujero" cx="20" cy="90" r="3.5"/>
+        <circle class="pad" cx="400" cy="90" r="9"/><circle class="agujero" cx="400" cy="90" r="3.5"/>
+        <path class="chispa" d="M200 36l6 10M211 30v14M222 36l-6 10M200 64l6-10M222 64l-6-10"/>
+      </svg>
+      <h1 class="degradado">404</h1>
+      <p id="texto">Esta pista está cortada: la página que buscas no existe o ha cambiado de sitio.</p>
+      <a class="boton boton-principal" href="/" id="volver">Volver al inicio</a>
+    </div>
+  </main>
+  <script>
+    var en = false;
+    try { en = (localStorage.getItem('idioma') || navigator.language).toLowerCase().indexOf('es') !== 0; } catch (e) {}
+    if (en) {
+      document.documentElement.lang = 'en';
+      document.getElementById('texto').textContent = 'This trace is cut: the page you are looking for does not exist or has moved.';
+      document.getElementById('volver').textContent = 'Back to the home page';
+    }
+  </script>
+  <script src="/fondo.js"></script>
+</body>
+</html>
