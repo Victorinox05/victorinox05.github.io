@@ -393,7 +393,25 @@
     return D.proyectos.filter(p => s.tags.some(tag => tagsDe(p).includes(tag))).length;
   }
 
+  // Dos formas de ver las skills: «dibujos» (una tarjeta con dibujo por familia) o «detalle»
+  // (todas, y las que salen en algún proyecto se pueden pulsar para filtrar).
+  let vistaSkills = guardado('vistaSkills') === 'detalle' ? 'detalle' : 'dibujos';
+
   function pintarSkills() {
+    const dibujos = vistaSkills === 'dibujos';
+    $('#sub-skills').textContent = tx(dibujos ? 'subSkillsDibujos' : 'subSkills');
+    $('#vista-skills').innerHTML = ['dibujos', 'detalle'].map(v =>
+      `<button type="button" data-vista="${v}" aria-pressed="${v === vistaSkills}">${tx(v === 'dibujos' ? 'vistaDibujos' : 'vistaDetalle')}</button>`).join('');
+    $('#rejilla-skills').className = dibujos ? 'rejilla-dibujos' : 'rejilla-skills';
+    if (dibujos) {
+      $('#rejilla-skills').innerHTML = D.skillsDibujos.map(g => `
+        <article class="tarjeta tarjeta-dibujo revelar">
+          <div class="dibujo" aria-hidden="true">${window.DIBUJOS[g.dibujo] || ''}</div>
+          <h3>${t(g.titulo)}</h3>
+          <p>${t(g.texto)}</p>
+        </article>`).join('');
+      return;
+    }
     $('#rejilla-skills').innerHTML = D.skills.map((g, gi) => `
       <article class="tarjeta grupo-skills revelar">
         <h3><span class="skill-icono">${icono(g.icono)}</span>${t(g.titulo)}</h3>
@@ -407,6 +425,15 @@
         </ul>
       </article>`).join('');
   }
+
+  $('#vista-skills').addEventListener('click', e => {
+    const b = e.target.closest('button[data-vista]');
+    if (!b || b.dataset.vista === vistaSkills) return;
+    vistaSkills = b.dataset.vista;
+    guardar('vistaSkills', vistaSkills);
+    pintarSkills();
+    prepararAparicion(true);
+  });
 
   $('#rejilla-skills').addEventListener('click', e => {
     const b = e.target.closest('button.skill');
@@ -506,7 +533,7 @@
   // ---------- Tema e idioma ----------
   function ponerTema(tema) {
     document.documentElement.dataset.theme = tema;
-    $('meta[name="theme-color"]').content = tema === 'dark' ? '#0b0f15' : '#f6f3ee';
+    $('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue('--fondo').trim();
     if (window.fondoPCB) window.fondoPCB.redibujar();
   }
   $('#boton-tema').addEventListener('click', () => {
@@ -542,6 +569,6 @@
   pintarTodo(false);
   leerHash();
 
-  console.log('%c¡Hola! 👋', 'font: 700 20px sans-serif; color: #e8964a');
+  console.log('%c¡Hola! 👋', 'font: 700 20px sans-serif; color: #5aa8ff');
   console.log('Si estás mirando el código: HTML, CSS y JavaScript sin frameworks, hecho con ayuda de Claude Code. Todo el contenido sale de datos.js.\nIf you are reading the source: plain HTML, CSS and JavaScript, built with help from Claude Code. All content comes from datos.js.');
 })();

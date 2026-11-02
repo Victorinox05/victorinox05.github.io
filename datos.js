@@ -379,6 +379,22 @@ const DATOS = {
     }
   ],
 
+  // Modo «Dibujos» de la sección de skills: una tarjeta con dibujo por familia (los dibujos, en dibujos.js)
+  skillsDibujos: [
+    { dibujo: 'codigo', titulo: { es: 'Programación', en: 'Programming' }, texto: 'C · C++ · Python' },
+    { dibujo: 'micro', titulo: { es: 'Microcontroladores', en: 'Microcontrollers' }, texto: 'ESP32 · STM32 · Arduino · Raspberry Pi · I2C' },
+    { dibujo: 'fpga', titulo: 'FPGA', texto: 'VHDL · Vivado' },
+    { dibujo: 'plc', titulo: { es: 'Automatización', en: 'Automation' }, texto: 'PLC S7-1500 · TIA Portal · GRAFCET · RFID' },
+    { dibujo: 'pcb', titulo: { es: 'Electrónica', en: 'Electronics' }, texto: { es: 'Diseño de circuitos · OrCAD · OBD-II', en: 'Circuit design · OrCAD · OBD-II' } },
+    { dibujo: 'simulacion', titulo: { es: 'Simulación', en: 'Simulation' }, texto: 'MATLAB · FlexSim' },
+    { dibujo: 'cad', titulo: { es: 'Diseño 3D', en: '3D design' }, texto: { es: 'Fusion 360 · Impresión 3D', en: 'Fusion 360 · 3D printing' } },
+    { dibujo: 'vision', titulo: { es: 'Visión y gráficos', en: 'Vision & graphics' }, texto: 'OpenCV · OpenGL' },
+    { dibujo: 'nube', titulo: 'Cloud y DevOps', texto: 'Azure · Docker · Kubernetes · Terraform · GitHub Actions' },
+    { dibujo: 'ia', titulo: { es: 'IA', en: 'AI' }, texto: 'Claude Code · MCP · Prompt engineering' },
+    { dibujo: 'terminal', titulo: { es: 'Desarrollo', en: 'Development' }, texto: 'Git · Linux · FastAPI · React · Home Assistant' },
+    { dibujo: 'idiomas', titulo: { es: 'Idiomas', en: 'Languages' }, texto: { es: 'Español nativo · Inglés B2', en: 'Spanish (native) · English B2' } }
+  ],
+
   // Textos fijos de la interfaz
   textos: {
     es: {
@@ -396,7 +412,8 @@ const DATOS = {
       anterior: 'Anterior', siguiente: 'Siguiente', copiarEnlace: 'Copiar enlace', enlaceCopiado: '¡Enlace copiado!',
       tituloPremios: 'Premios y certificados', verPost: 'Ver en LinkedIn', verificar: 'Verificar',
       tituloExperiencia: 'Experiencia y formación', trabajo: 'Experiencia', estudios: 'Formación', actual: 'Actual',
-      tituloSkills: 'Skills', subSkills: 'Pulsa una para ver los proyectos donde la he usado.', proyecto: 'proyecto', proyectos: 'proyectos',
+      tituloSkills: 'Skills', subSkills: 'Pulsa una para ver los proyectos donde la he usado.',
+      subSkillsDibujos: 'Con lo que trabajo, de un vistazo. En «Detalle», pulsa una para ver dónde la he usado.', vistaDibujos: 'Dibujos', vistaDetalle: 'Detalle', vistaSkills: 'Cómo ver las skills', proyecto: 'proyecto', proyectos: 'proyectos',
       tituloContacto: 'Contacto', subContacto: '¿Un proyecto, una oferta o simplemente hablar de robots? Escríbeme.',
       datosContacto: 'Dónde encontrarme', correo: 'Correo', ubicacion: 'Ubicación',
       tuNombre: 'Tu nombre', tuCorreo: 'Tu correo', mensaje: 'Mensaje', enviar: 'Enviar mensaje',
@@ -421,7 +438,8 @@ const DATOS = {
       anterior: 'Previous', siguiente: 'Next', copiarEnlace: 'Copy link', enlaceCopiado: 'Link copied!',
       tituloPremios: 'Awards and certificates', verPost: 'See on LinkedIn', verificar: 'Verify',
       tituloExperiencia: 'Experience and education', trabajo: 'Experience', estudios: 'Education', actual: 'Current',
-      tituloSkills: 'Skills', subSkills: 'Click one to see the projects where I have used it.', proyecto: 'project', proyectos: 'projects',
+      tituloSkills: 'Skills', subSkills: 'Click one to see the projects where I have used it.',
+      subSkillsDibujos: 'What I work with, at a glance. In “Detail”, click one to see where I have used it.', vistaDibujos: 'Icons', vistaDetalle: 'Detail', vistaSkills: 'How to show the skills', proyecto: 'project', proyectos: 'projects',
       tituloContacto: 'Contact', subContacto: 'A project, a job opening or just a chat about robots? Drop me a line.',
       datosContacto: 'Where to find me', correo: 'Email', ubicacion: 'Location',
       tuNombre: 'Your name', tuCorreo: 'Your email', mensaje: 'Message', enviar: 'Send message',

@@ -8,7 +8,8 @@ Built with plain HTML, CSS and JavaScript, with help from Claude Code: no framew
 
 - `datos.js`: all the content (projects, experience, skills), in Spanish and English
 - `main.js`: renders the page and handles the interaction (filters, project viewer, language and theme)
-- `fondo.js`: animated background (canvas). By default, a digital timing diagram like a logic simulator's; other modes with `?fondo=pcb|osciloscopio|fpga|puntos`
+- `fondo.js`: animated background (canvas). By default, a printed circuit board (chips, 45° buses, vias, silkscreen) with pulses running along the traces; other modes with `?fondo=cronograma|osciloscopio|fpga|puntos`
+- `dibujos.js`: hand-made SVG drawings for the «Icons» view of the skills section
 - `diagramas.js`: hand-written SVG diagrams
 - Fonts: Space Grotesk, Inter and JetBrains Mono (SIL Open Font License), self-hosted in `assets/fuentes/`
 

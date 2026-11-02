@@ -1,6 +1,7 @@
 /* =========================================================================
    Portfolio de Víctor Casanova
-   Colores en las variables de abajo: cobre (pistas de un PCB) + verde azulado.
+   Colores en las variables de abajo: azul y blanco, como una placa de circuito (desde el 02/11/2026;
+   antes, cobre y verde azulado).
    ========================================================================= */
 
 @font-face { font-family: 'Space Grotesk'; src: url('assets/fuentes/space-grotesk.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
@@ -22,54 +23,58 @@
 /* Tema oscuro (por defecto) */
 :root, [data-theme="dark"] {
   color-scheme: dark;
-  --fondo: #0b0f15;
-  --superficie: rgba(17, 23, 32, .82);
-  --superficie-solida: #121923;
-  --superficie-2: #18212d;
+  --fondo: #071022;
+  --superficie: rgba(12, 24, 44, .82);
+  --superficie-solida: #0d1a30;
+  --superficie-2: #13233d;
   --borde: rgba(148, 163, 184, .14);
   --borde-fuerte: rgba(148, 163, 184, .28);
   --texto: #e8edf3;
   --texto-2: #a6b3c3;
   --texto-3: #74849a;
-  --acento: #e8964a;
-  --acento-fuerte: #f5b06e;
-  --acento-suave: rgba(232, 150, 74, .13);
-  --acento-2: #3ec9b5;
-  --acento-2-suave: rgba(62, 201, 181, .12);
-  --degradado: linear-gradient(100deg, #f0a35b 0%, #f6c983 55%, #e8964a 100%);
+  --acento: #5aa8ff;
+  --acento-fuerte: #9ccbff;
+  --acento-suave: rgba(90, 168, 255, .13);
+  --acento-2: #cfe4ff;
+  --acento-2-suave: rgba(207, 228, 255, .1);
+  --degradado: linear-gradient(100deg, #6fb4ff 0%, #eaf3ff 55%, #5aa8ff 100%);
   --sombra: 0 24px 50px -24px rgba(0, 0, 0, .7);
-  --brillo: 0 0 0 1px rgba(232, 150, 74, .4), 0 18px 50px -18px rgba(232, 150, 74, .38);
+  --brillo: 0 0 0 1px rgba(90, 168, 255, .4), 0 18px 50px -18px rgba(90, 168, 255, .38);
   --velo: rgba(5, 8, 12, .72);
-  --pista: rgba(232, 150, 74, .085);
-  --pad: rgba(232, 150, 74, .16);
-  --pulso: 245, 176, 110;
-  --pulso-2: 62, 201, 181;
+  --pista: rgba(90, 168, 255, .17);
+  --pad: rgba(160, 200, 255, .22);
+  --pulso: 240, 247, 255;
+  --pulso-2: 90, 168, 255;
+  --sobre-acento: #06101f;
+  --serigrafia: rgba(235, 243, 255, .16);
 }
 
 [data-theme="light"] {
   color-scheme: light;
-  --fondo: #f6f3ee;
-  --superficie: rgba(255, 255, 255, .86);
-  --superficie-solida: #ffffff;
-  --superficie-2: #f1ece4;
-  --borde: rgba(30, 41, 59, .11);
-  --borde-fuerte: rgba(30, 41, 59, .22);
+  --fondo: #e9edf3;
+  --superficie: rgba(250, 251, 253, .84);
+  --superficie-solida: #f8fafc;
+  --superficie-2: #e1e7ef;
+  --borde: rgba(30, 41, 59, .1);
+  --borde-fuerte: rgba(30, 41, 59, .2);
   --texto: #151a21;
   --texto-2: #475263;
   --texto-3: #657083;
-  --acento: #b35a1b;
-  --acento-fuerte: #974a12;
-  --acento-suave: rgba(179, 90, 27, .1);
-  --acento-2: #0d7f71;
-  --acento-2-suave: rgba(13, 127, 113, .09);
-  --degradado: linear-gradient(100deg, #b35a1b 0%, #d4892f 55%, #a24e14 100%);
+  --acento: #1f5fcc;
+  --acento-fuerte: #174a9f;
+  --acento-suave: rgba(31, 95, 204, .1);
+  --acento-2: #0b78bd;
+  --acento-2-suave: rgba(11, 120, 189, .09);
+  --degradado: linear-gradient(100deg, #1f5fcc 0%, #3d8be8 55%, #174a9f 100%);
   --sombra: 0 22px 44px -26px rgba(30, 41, 59, .35);
-  --brillo: 0 0 0 1px rgba(179, 90, 27, .35), 0 18px 44px -20px rgba(179, 90, 27, .35);
+  --brillo: 0 0 0 1px rgba(31, 95, 204, .35), 0 18px 44px -20px rgba(31, 95, 204, .35);
   --velo: rgba(20, 24, 30, .45);
-  --pista: rgba(179, 90, 27, .07);
-  --pad: rgba(179, 90, 27, .13);
-  --pulso: 196, 104, 36;
-  --pulso-2: 13, 127, 113;
+  --pista: rgba(31, 95, 204, .13);
+  --pad: rgba(31, 95, 204, .17);
+  --pulso: 31, 95, 204;
+  --pulso-2: 11, 120, 189;
+  --sobre-acento: #fff;
+  --serigrafia: rgba(15, 30, 60, .14);
 }
 
 /* ---------- Base ---------- */
@@ -183,7 +188,7 @@ body::before {
 .boton svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .boton svg.relleno { fill: currentColor; stroke: none; }
 .boton-principal { background: var(--acento); color: #fff; box-shadow: 0 10px 28px -10px var(--acento); }
-[data-theme="dark"] .boton-principal { color: #1a0f05; }
+[data-theme="dark"] .boton-principal { color: var(--sobre-acento); }
 .boton-principal:hover { transform: translateY(-2px); background: var(--acento-fuerte); }
 .boton-principal:hover svg { transform: translateX(3px); transition: transform .25s; }
 .boton-secundario { background: var(--superficie); border: 1px solid var(--borde-fuerte); color: var(--texto); }
@@ -283,7 +288,7 @@ body::before {
 }
 .filtro:hover { color: var(--texto); border-color: var(--acento); }
 .filtro[aria-pressed="true"] { background: var(--acento); border-color: var(--acento); color: #fff; }
-[data-theme="dark"] .filtro[aria-pressed="true"] { color: #1a0f05; }
+[data-theme="dark"] .filtro[aria-pressed="true"] { color: var(--sobre-acento); }
 .filtro-cuenta { font-family: var(--f-mono); font-size: .75rem; opacity: .7; margin-left: 4px; }
 .filtro-skill {
   display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;
@@ -471,6 +476,30 @@ button.skill { transition: border-color .2s, color .2s, transform .2s; }
 button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); transform: translateY(-1px); }
 .skill-cuenta { font-family: var(--f-mono); font-size: .68rem; font-weight: 600; min-width: 18px; height: 18px; padding: 0 5px; display: grid; place-items: center; border-radius: 6px; background: var(--acento-2-suave); color: var(--acento-2); }
 
+/* Modo «Dibujos»: tarjetas con un dibujo por familia de skills */
+.vista-skills { display: inline-flex; gap: 4px; padding: 4px; margin: -6px 0 24px; border-radius: 999px; border: 1px solid var(--borde-fuerte); background: var(--superficie); }
+.vista-skills button { padding: 7px 16px; border-radius: 999px; font-size: .86rem; font-weight: 500; color: var(--texto-2); transition: background-color .2s, color .2s; }
+.vista-skills button:hover { color: var(--texto); }
+.vista-skills button[aria-pressed="true"] { background: var(--acento); color: var(--sobre-acento); }
+.rejilla-dibujos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.tarjeta-dibujo { padding: 28px 18px 22px; display: grid; justify-items: center; align-content: start; gap: 10px; text-align: center; transition: transform .35s var(--curva), border-color .3s; }
+.tarjeta-dibujo:hover { transform: translateY(-4px); border-color: var(--acento); }
+.tarjeta-dibujo h3 { font-size: 1.02rem; margin-top: 4px; }
+.tarjeta-dibujo p { font-size: .86rem; line-height: 1.5; color: var(--texto-2); }
+.dibujo { width: 76px; height: 76px; }
+.dibujo svg { width: 100%; height: 100%; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .45s var(--curva); }
+.tarjeta-dibujo:hover .dibujo svg { transform: scale(1.08) rotate(-3deg); }
+.dibujo .l { stroke: var(--texto-2); }
+.dibujo .la { stroke: var(--acento); stroke-width: 2.6; }
+.dibujo .la2 { stroke: var(--acento-2); }
+.dibujo .f1 { fill: var(--acento); }
+.dibujo .f2 { fill: var(--acento-suave); }
+.dibujo .f3 { fill: var(--superficie-2); }
+.dibujo .f4 { fill: var(--acento-2); }
+.dibujo .verde { fill: #34d399; } .dibujo .rojo { fill: #f87171; } .dibujo .ambar { fill: #fbbf24; }
+.dibujo text { font: 700 10px var(--f-mono); }
+.dibujo .t1 { fill: var(--acento); } .dibujo .t2 { fill: var(--sobre-acento); }
+
 /* ---------- Contacto ---------- */
 .contacto { display: grid; grid-template-columns: 1fr 1.35fr; gap: 24px; align-items: start; }
 .contacto-datos { padding: 28px; }
@@ -532,6 +561,7 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
 
 /* ---------- Pantallas medianas ---------- */
 @media (max-width: 980px) {
+  .rejilla-dibujos { grid-template-columns: repeat(3, 1fr); }
   .portada { grid-template-columns: 1fr; text-align: left; padding-top: 28px; row-gap: 44px; }
   .portada-foto { grid-row: 1; width: min(300px, 78%); justify-self: start; margin-left: 30px; }
   .cifras { grid-template-columns: repeat(2, 1fr); }
@@ -545,6 +575,7 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
 
 /* ---------- Móvil ---------- */
 @media (max-width: 760px) {
+  .rejilla-dibujos { grid-template-columns: repeat(2, 1fr); }
   :root { --cabecera: 62px; }
   body { font-size: 16px; }
   .contenedor { width: calc(100% - 32px); }
@@ -578,6 +609,9 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
 }
 
 @media (max-width: 420px) {
+  .rejilla-dibujos { gap: 12px; }
+  .tarjeta-dibujo { padding: 22px 12px 18px; }
+  .dibujo { width: 60px; height: 60px; }
   .cifras li { padding: 16px; }
   .cifra { font-size: 1.6rem; }
   .cifra-texto { font-size: .8rem; }
