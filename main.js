@@ -88,7 +88,7 @@
     const cifras = [
       [idioma === 'es' ? '4.º' : '4th', tx('statCurso')],
       [aniosCrea + '+', tx('statCrea')],
-      [D.proyectos.length, tx('statProyectos')],
+      [PROYECTOS.length, tx('statProyectos')],
       [idioma === 'es' ? '1.er' : '1st', tx('statPremio')]
     ];
     $('#cifras').innerHTML = cifras
@@ -139,18 +139,27 @@
     return `<img src="${p.portada}" alt="" loading="lazy" decoding="async">`;
   }
 
+  // Los concursos (concurso: true) salen en «Premios, concursos y certificados», no en la rejilla
+  const PROYECTOS = D.proyectos.filter(p => !p.concurso);
+  const CONCURSOS = D.proyectos.filter(p => p.concurso);
+
   function etiquetaEstado(p) {
     return p.etiquetaEstado ? t(p.etiquetaEstado) : tx(p.estado === 'en-curso' ? 'enCurso' : 'terminado');
   }
 
   function pintarProyectos() {
     const cats = Object.keys(D.categorias);
-    const cuenta = c => D.proyectos.filter(p => p.categorias.includes(c)).length;
+    const cuenta = c => PROYECTOS.filter(p => p.categorias.includes(c)).length;
     $('#filtros').innerHTML =
-      `<button class="filtro" type="button" data-cat="todos">${tx('todos')}<span class="filtro-cuenta">${D.proyectos.length}</span></button>` +
+      `<button class="filtro" type="button" data-cat="todos">${tx('todos')}<span class="filtro-cuenta">${PROYECTOS.length}</span></button>` +
       cats.map(c => `<button class="filtro" type="button" data-cat="${c}">${t(D.categorias[c])}<span class="filtro-cuenta">${cuenta(c)}</span></button>`).join('');
 
-    $('#rejilla-proyectos').innerHTML = D.proyectos.map(p => `
+    $('#rejilla-proyectos').innerHTML = PROYECTOS.map(tarjetaProyecto).join('');
+    aplicarFiltro();
+  }
+
+  function tarjetaProyecto(p) {
+    return `
       <article class="proyecto revelar${p.destacado ? ' ancho' : ''}" data-id="${p.id}">
         <div class="proyecto-imagen${p.portada.diagrama ? ' con-diagrama' : ''}">
           ${portadaHTML(p)}
@@ -163,16 +172,15 @@
           <ul class="etiquetas">${p.tecnologias.slice(0, 5).map(x => `<li class="etiqueta" data-tag="${esc(typeof x === 'object' ? x.es : x)}">${t(x)}</li>`).join('')}</ul>
           <span class="proyecto-pie" aria-hidden="true">${tx('verMas')} ${icono('flechaDer')}</span>
         </div>
-      </article>`).join('');
-    aplicarFiltro();
+      </article>`;
   }
 
   const tagsDe = p => p.tecnologias.map(x => (typeof x === 'object' ? x.es : x));
 
   function aplicarFiltro() {
     $$('.filtro').forEach(b => b.setAttribute('aria-pressed', String(!filtro.skill && b.dataset.cat === filtro.categoria)));
-    $$('.proyecto').forEach(tarjeta => {
-      const p = D.proyectos.find(x => x.id === tarjeta.dataset.id);
+    $$('.proyecto', $('#rejilla-proyectos')).forEach(tarjeta => {
+      const p = PROYECTOS.find(x => x.id === tarjeta.dataset.id);
       let visible = filtro.categoria === 'todos' || p.categorias.includes(filtro.categoria);
       if (filtro.skill) visible = filtro.skill.tags.some(tag => tagsDe(p).includes(tag));
       tarjeta.hidden = !visible;
@@ -223,9 +231,10 @@
     if (!p) return;
     actual = p;
     indice = 0;
-    const n = D.proyectos.indexOf(p);
-    const ant = D.proyectos[(n - 1 + D.proyectos.length) % D.proyectos.length];
-    const sig = D.proyectos[(n + 1) % D.proyectos.length];
+    const grupo = p.concurso ? CONCURSOS : PROYECTOS;          // anterior y siguiente, del mismo grupo
+    const n = grupo.indexOf(p);
+    const ant = grupo[(n - 1 + grupo.length) % grupo.length];
+    const sig = grupo[(n + 1) % grupo.length];
     const varias = p.galeria.length > 1;
 
     $('#ventana-caja').innerHTML = `
@@ -289,9 +298,10 @@
   ventana.addEventListener('close', () => {
     $$('video', ventana).forEach(v => v.pause());
     document.body.style.overflow = '';
+    const volver = actual && actual.concurso ? '#premios' : '#proyectos';
     actual = null;
     if (location.hash.startsWith('#proyecto/')) {
-      history.replaceState(null, '', location.pathname + location.search + '#proyectos');
+      history.replaceState(null, '', location.pathname + location.search + volver);
     }
   });
 
@@ -348,6 +358,7 @@
           ${P.enlace ? `<a class="boton boton-secundario" href="${P.enlace}" target="_blank" rel="noopener">${tx('verPost')} ${icono('externo')}</a>` : ''}
         </div>
       </article>`;
+    $('#concursos').innerHTML = CONCURSOS.map(tarjetaProyecto).join('');
     $('#certificados').innerHTML = D.certificados.map(c => `
       <article class="tarjeta certificado revelar">
         <span class="certificado-icono">${icono('certificado')}</span>
@@ -390,7 +401,7 @@
 
   // ---------- Skills ----------
   function proyectosConSkill(s) {
-    return D.proyectos.filter(p => s.tags.some(tag => tagsDe(p).includes(tag))).length;
+    return PROYECTOS.filter(p => s.tags.some(tag => tagsDe(p).includes(tag))).length;
   }
 
   // Dos formas de ver las skills: «dibujos» (una tarjeta con dibujo por familia) o «detalle»

@@ -434,6 +434,7 @@ body::before {
 .premio-entidad { font-size: .9rem; color: var(--texto-3); }
 .premio-texto p { color: var(--texto-2); }
 .premio-texto .boton { align-self: flex-start; min-height: 42px; font-size: .9rem; margin-top: 6px; }
+.rejilla-concursos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px; }
 .certificados { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-top: 20px; }
 .certificado { display: flex; gap: 16px; align-items: center; padding: 18px 20px; }
 .certificado-icono { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--acento-2-suave); color: var(--acento-2); }
@@ -575,6 +576,7 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
 
 /* ---------- Móvil ---------- */
 @media (max-width: 760px) {
+  .rejilla-concursos { grid-template-columns: 1fr; }
   .rejilla-dibujos { grid-template-columns: repeat(2, 1fr); }
   :root { --cabecera: 62px; }
   body { font-size: 16px; }

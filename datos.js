@@ -129,31 +129,6 @@ const DATOS = {
       ]
     },
     {
-      id: 'casa',
-      titulo: { es: 'Casa inteligente con app propia', en: 'Smart home with a custom app' },
-      resumen: { es: 'Home Assistant en una Raspberry Pi, dispositivos Zigbee y una app web propia con permisos por zonas.', en: 'Home Assistant on a Raspberry Pi, Zigbee devices and a custom web app with per-zone permissions.' },
-      fechas: { es: 'Sep 2026 – actualidad', en: 'Sep 2026 – present' },
-      estado: 'en-curso',
-      categorias: ['embebidos', 'software', 'cloud'],
-      equipo: { es: 'Proyecto personal', en: 'Personal project' },
-      portada: { diagrama: 'casa' },
-      contexto: {
-        es: 'Domótica de casa, montada por tandas: cada compra se usa de verdad antes de pasar a la siguiente. El cerebro es Home Assistant en una Raspberry Pi 4, con dispositivos Zigbee y acceso desde fuera por VPN, sin abrir puertos.',
-        en: 'Home automation built in stages: each purchase is used for real before moving on to the next. The brain is Home Assistant on a Raspberry Pi 4, with Zigbee devices and remote access over a VPN, with no open ports.'
-      },
-      aportacion: { es: 'Proyecto propio, de la caja del interruptor a la app.', en: 'My own project, from the wall switch box to the app.' },
-      puntos: [
-        { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
-        { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
-        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript, en tiempo real.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend.' },
-        { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
-      ],
-      tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude / MCP'],
-      galeria: [
-        { tipo: 'diagrama', src: 'casa', pie: { es: 'Arquitectura del sistema', en: 'System architecture' } }
-      ]
-    },
-    {
       id: 'skate',
       destacado: true,
       titulo: { es: 'Línea de fabricación de skateboards', en: 'Skateboard manufacturing line' },
@@ -185,55 +160,28 @@ const DATOS = {
       ]
     },
     {
-      id: 'zerospoil',
-      titulo: { es: 'ZeroSpoil: nevera inteligente contra el desperdicio', en: 'ZeroSpoil: a smart fridge against food waste' },
-      resumen: { es: 'Kit con cámara y visión artificial que convierte cualquier nevera en inteligente para tirar menos comida. Hecho en 48 horas.', en: 'A camera-and-computer-vision kit that turns any fridge into a smart one, so less food goes to waste. Built in 48 hours.' },
-      fechas: { es: 'Feb – mar 2026 · 48 h', en: 'Feb – Mar 2026 · 48 h' },
-      estado: 'terminado',
-      categorias: ['embebidos', 'software'],
-      equipo: { es: 'Invent For The Planet 2026 · UPM-ETSIDI · equipo de 5', en: 'Invent For The Planet 2026 · UPM-ETSIDI · team of 5' },
-      portada: 'assets/proyectos/zerospoil/ilustracion.svg',
-      contexto: {
-        es: 'Invent For The Planet es una competición internacional de 48 horas para estudiantes de ingeniería. En 2026 el tema eran los sistemas alimentarios y elegimos el reto del desperdicio: un tercio de la comida que se produce se pierde o se tira. Nuestra propuesta, la Smart-Shelf Box: escanear con la app, guardar, reconocer el producto y avisar antes de que se estropee.',
-        en: 'Invent For The Planet is a 48-hour international competition for engineering students. In 2026 the theme was food systems and we chose the food-waste challenge: a third of all food produced is lost or thrown away. Our proposal, the Smart-Shelf Box: scan with the app, store, recognise the product and get a warning before it goes off.'
-      },
-      aportacion: { es: 'Hice un poco de todo; la visión artificial, el pitch y la edición del vídeo fueron solo míos.', en: 'I worked on a bit of everything; the computer vision, the pitch and the video editing were mine alone.' },
-      puntos: [
-        { es: '<b>Visión artificial:</b> una demo con OpenCV que funcionaba, basada en la detección de colores.', en: '<b>Computer vision:</b> a working OpenCV demo based on colour detection.' },
-        { es: '<b>Hardware propuesto:</b> Raspberry Pi Zero 2 W con la IA en local, cámara Sony IMX708 gran angular con HDR, batería LiPo y antena wifi flexible para sacar la señal de la nevera; el prototipo, en maqueta.', en: '<b>Proposed hardware:</b> a Raspberry Pi Zero 2 W running the AI locally, a wide-angle Sony IMX708 camera with HDR, a LiPo battery and a flexible Wi-Fi antenna to get the signal out of the fridge; the prototype was a mock-up.' },
-        { es: '<b>Pitch y vídeo:</b> presenté el proyecto al jurado y edité el vídeo oficial del equipo.', en: '<b>Pitch and video:</b> I pitched the project to the judges and edited the team’s official video.' }
-      ],
-      tecnologias: ['OpenCV', { es: 'Visión artificial', en: 'Computer vision' }, 'Pitch', { es: 'Edición de vídeo', en: 'Video editing' }],
-      galeria: [
-        { tipo: 'img', src: 'assets/proyectos/zerospoil/ilustracion.svg', pie: { es: 'Ilustración del concepto (no hay fotos del prototipo)', en: 'Illustration of the concept (there are no photos of the prototype)' } }
-      ]
-    },
-    {
-      id: 'navia',
-      titulo: { es: 'EMT NAVIA: asistente de navegación con IA', en: 'EMT NAVIA: an AI navigation assistant' },
-      resumen: { es: 'Caso de negocio de un asistente con visión e IA para que una persona con discapacidad visual suba sola al autobús.', en: 'Business case for a vision-and-AI assistant that helps visually impaired people board the bus on their own.' },
+      id: 'microrred',
+      titulo: { es: 'Nodo LoRa para una estación de telecomunicaciones aislada', en: 'LoRa node for an off-grid telecom station' },
+      resumen: { es: 'Raspberry Pi que mide temperatura y humedad, detecta emergencias y lo envía todo por LoRa a la nube (The Things Network).', en: 'A Raspberry Pi that measures temperature and humidity, detects emergencies and sends it all over LoRa to the cloud (The Things Network).' },
       fechas: { es: 'Primavera de 2026', en: 'Spring 2026' },
       estado: 'terminado',
-      categorias: ['cloud'],
-      equipo: { es: 'Programa OA6 · IBM Consulting, EMT Madrid y UPM · equipo de 5', en: 'OA6 programme · IBM Consulting, EMT Madrid and UPM · team of 5' },
-      portada: 'assets/proyectos/oa6/evento.webp',
+      categorias: ['embebidos', 'cloud'],
+      equipo: { es: 'Asignatura Introduction to Hybrid Energy Systems (UPM) · en pareja', en: 'Introduction to Hybrid Energy Systems course (UPM) · team of 2' },
+      portada: 'assets/proyectos/microrred/nodo-lora.webp',
       contexto: {
-        es: 'Reto del Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA: un asistente que cubre la «última yarda», el tramo desde la parada hasta la puerta del autobús, para una persona con discapacidad visual.',
-        en: 'Challenge of the OA6 Tech Entrepreneurship Programme – AI Solutions: an assistant that covers the “last yard”, from the bus stop to the bus door, for a visually impaired person.'
+        es: 'Las estaciones base de telecomunicaciones tienen que funcionar casi siempre, y en zonas aisladas no llega la red eléctrica. En el proyecto final de la asignatura, la estación se alimenta con una microrred híbrida (paneles solares, baterías y supercondensadores) y se vigila a distancia con un nodo LoRa.',
+        en: 'Telecom base stations must be up almost all the time, and in remote areas there is no power grid. In the final project of the course, the station runs on a hybrid microgrid (solar panels, batteries and supercapacitors) and is monitored remotely with a LoRa node.'
       },
-      aportacion: { es: 'Del concepto técnico al caso de negocio, en un equipo de cinco.', en: 'From the technical concept to the business case, in a team of five.' },
+      aportacion: { es: 'Mi parte fue el nodo: la Raspberry Pi, el enlace LoRa y la comunicación con la nube. La simulación de la microrred en Simulink la hizo mi compañera.', en: 'My part was the node: the Raspberry Pi, the LoRa link and the cloud communication. My teammate did the microgrid simulation in Simulink.' },
       puntos: [
-        { es: '<b>Edge AI:</b> modelos open source con la inferencia en el propio móvil, sin coste de servidores.', en: '<b>Edge AI:</b> open-source models running inference on the phone itself, with no server costs.' },
-        { es: '<b>Privacy-by-design:</b> no se guarda ninguna imagen (RGPD).', en: '<b>Privacy by design:</b> no images are stored (GDPR).' },
-        { es: '<b>Interfaz inclusiva:</b> feedback háptico y auriculares de conducción ósea, que no tapan el ruido del tráfico.', en: '<b>Inclusive interface:</b> haptic feedback and bone-conduction headphones that do not block traffic noise.' },
-        { es: '<b>Negocio:</b> semanas de Design Thinking y Lean Canvas, validando el caso con expertos en las oficinas de IBM y EMT Madrid.', en: '<b>Business:</b> weeks of Design Thinking and Lean Canvas, validating the case with experts at IBM and EMT Madrid.' }
+        { es: '<b>Hardware:</b> Raspberry Pi 400 con un módulo LoRa Adafruit RFM9x (SPI), un sensor de temperatura y humedad Si7021 (I2C) y un LED de estado, en protoboard.', en: '<b>Hardware:</b> a Raspberry Pi 400 with an Adafruit RFM9x LoRa module (SPI), an Si7021 temperature and humidity sensor (I2C) and a status LED, on a breadboard.' },
+        { es: '<b>Enlace LoRaWAN real (868 MHz):</b> las lecturas viajan en una trama de 5 bytes, enviada con TinyLoRa desde Python, hasta una pasarela y The Things Network.', en: '<b>A real LoRaWAN link (868 MHz):</b> readings travel in a 5-byte frame, sent with TinyLoRa from Python, to a gateway and The Things Network.' },
+        { es: '<b>En la nube:</b> un decodificador en JavaScript en TTN reconstruye los datos y avisa si la temperatura sale de 10–30 °C.', en: '<b>In the cloud:</b> a JavaScript payload formatter on TTN rebuilds the data and raises an alert if the temperature leaves 10–30 °C.' },
+        { es: '<b>Alarma temprana:</b> una entrada digital hace de sensor de catástrofes (incendio o terremoto) y manda «peligro» en el mismo paquete, sin gastar más tiempo de emisión.', en: '<b>Early warning:</b> a digital input acts as a disaster sensor (fire or earthquake) and sends “danger” in the same packet, with no extra airtime.' }
       ],
-      tecnologias: ['Edge AI', { es: 'Visión artificial', en: 'Computer vision' }, 'Design Thinking', 'Lean Canvas'],
+      tecnologias: ['Raspberry Pi', 'Python', 'LoRa / LoRaWAN', 'The Things Network', 'I2C', 'SPI', 'JavaScript'],
       galeria: [
-        { tipo: 'img', src: 'assets/proyectos/oa6/evento.webp', pie: { es: 'Final del programa en la UPM', en: 'Programme final at UPM' } }
-      ],
-      enlaces: [
-        { texto: { es: 'Lo conté en LinkedIn', en: 'My LinkedIn post (Spanish)' }, url: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7463889643403440128' }
+        { tipo: 'img', src: 'assets/proyectos/microrred/nodo-lora.webp', pie: { es: 'El nodo: Raspberry Pi 400 con el módulo LoRa y los sensores en la protoboard', en: 'The node: Raspberry Pi 400 with the LoRa module and sensors on the breadboard' } }
       ]
     },
     {
@@ -263,6 +211,88 @@ const DATOS = {
         { tipo: 'video', src: 'assets/proyectos/chess/menu.mp4', poster: 'assets/proyectos/chess/tablero.webp', pie: { es: 'Menú: modo de juego, escenario y variante', en: 'Menu: game mode, board and variant' } },
         { tipo: 'img', src: 'assets/proyectos/chess/victoria.webp', pie: { es: 'Pantalla de victoria', en: 'Victory screen' } }
       ]
+    },
+    {
+      id: 'casa',
+      destacado: true,
+      titulo: { es: 'Casa inteligente con app propia', en: 'Smart home with a custom app' },
+      resumen: { es: 'Home Assistant en una Raspberry Pi, dispositivos Zigbee y una app web propia con permisos por zonas.', en: 'Home Assistant on a Raspberry Pi, Zigbee devices and a custom web app with per-zone permissions.' },
+      fechas: { es: 'Sep 2026 – actualidad', en: 'Sep 2026 – present' },
+      estado: 'en-curso',
+      categorias: ['embebidos', 'software', 'cloud'],
+      equipo: { es: 'Proyecto personal', en: 'Personal project' },
+      portada: { diagrama: 'casa' },
+      contexto: {
+        es: 'Domótica de casa, montada por tandas: cada compra se usa de verdad antes de pasar a la siguiente. El cerebro es Home Assistant en una Raspberry Pi 4, con dispositivos Zigbee y acceso desde fuera por VPN, sin abrir puertos.',
+        en: 'Home automation built in stages: each purchase is used for real before moving on to the next. The brain is Home Assistant on a Raspberry Pi 4, with Zigbee devices and remote access over a VPN, with no open ports.'
+      },
+      aportacion: { es: 'Proyecto propio, de la caja del interruptor a la app.', en: 'My own project, from the wall switch box to the app.' },
+      puntos: [
+        { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
+        { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
+        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript, en tiempo real.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend.' },
+        { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
+      ],
+      tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude / MCP'],
+      galeria: [
+        { tipo: 'diagrama', src: 'casa', pie: { es: 'Arquitectura del sistema', en: 'System architecture' } }
+      ]
+    },
+    {
+      id: 'zerospoil',
+      concurso: true,   // sale en «Premios, concursos y certificados», no en Proyectos
+      etiquetaEstado: { es: 'Concurso', en: 'Competition' },
+      titulo: { es: 'ZeroSpoil: nevera inteligente contra el desperdicio', en: 'ZeroSpoil: a smart fridge against food waste' },
+      resumen: { es: 'Kit con cámara y visión artificial que convierte cualquier nevera en inteligente para tirar menos comida. Hecho en 48 horas.', en: 'A camera-and-computer-vision kit that turns any fridge into a smart one, so less food goes to waste. Built in 48 hours.' },
+      fechas: { es: 'Feb – mar 2026 · 48 h', en: 'Feb – Mar 2026 · 48 h' },
+      estado: 'terminado',
+      categorias: ['embebidos', 'software'],
+      equipo: { es: 'Invent For The Planet 2026 · UPM-ETSIDI · equipo de 5', en: 'Invent For The Planet 2026 · UPM-ETSIDI · team of 5' },
+      portada: 'assets/proyectos/zerospoil/ilustracion.svg',
+      contexto: {
+        es: 'Invent For The Planet es una competición internacional de 48 horas para estudiantes de ingeniería. En 2026 el tema eran los sistemas alimentarios y elegimos el reto del desperdicio: un tercio de la comida que se produce se pierde o se tira. Nuestra propuesta, la Smart-Shelf Box: escanear con la app, guardar, reconocer el producto y avisar antes de que se estropee.',
+        en: 'Invent For The Planet is a 48-hour international competition for engineering students. In 2026 the theme was food systems and we chose the food-waste challenge: a third of all food produced is lost or thrown away. Our proposal, the Smart-Shelf Box: scan with the app, store, recognise the product and get a warning before it goes off.'
+      },
+      aportacion: { es: 'Hice un poco de todo; la visión artificial, el pitch y la edición del vídeo fueron solo míos.', en: 'I worked on a bit of everything; the computer vision, the pitch and the video editing were mine alone.' },
+      puntos: [
+        { es: '<b>Visión artificial:</b> una demo con OpenCV que funcionaba, basada en la detección de colores.', en: '<b>Computer vision:</b> a working OpenCV demo based on colour detection.' },
+        { es: '<b>Hardware propuesto:</b> Raspberry Pi Zero 2 W con la IA en local, cámara Sony IMX708 gran angular con HDR, batería LiPo y antena wifi flexible para sacar la señal de la nevera; el prototipo, en maqueta.', en: '<b>Proposed hardware:</b> a Raspberry Pi Zero 2 W running the AI locally, a wide-angle Sony IMX708 camera with HDR, a LiPo battery and a flexible Wi-Fi antenna to get the signal out of the fridge; the prototype was a mock-up.' },
+        { es: '<b>Pitch y vídeo:</b> presenté el proyecto al jurado y edité el vídeo oficial del equipo.', en: '<b>Pitch and video:</b> I pitched the project to the judges and edited the team’s official video.' }
+      ],
+      tecnologias: ['OpenCV', { es: 'Visión artificial', en: 'Computer vision' }, 'Pitch', { es: 'Edición de vídeo', en: 'Video editing' }],
+      galeria: [
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/ilustracion.svg', pie: { es: 'Ilustración del concepto (no hay fotos del prototipo)', en: 'Illustration of the concept (there are no photos of the prototype)' } }
+      ]
+    },
+    {
+      id: 'navia',
+      concurso: true,   // sale en «Premios, concursos y certificados», no en Proyectos
+      etiquetaEstado: { es: 'Concurso', en: 'Competition' },
+      titulo: { es: 'EMT NAVIA: asistente de navegación con IA', en: 'EMT NAVIA: an AI navigation assistant' },
+      resumen: { es: 'Caso de negocio de un asistente con visión e IA para que una persona con discapacidad visual suba sola al autobús.', en: 'Business case for a vision-and-AI assistant that helps visually impaired people board the bus on their own.' },
+      fechas: { es: 'Primavera de 2026', en: 'Spring 2026' },
+      estado: 'terminado',
+      categorias: ['cloud'],
+      equipo: { es: 'Programa OA6 · IBM Consulting, EMT Madrid y UPM · equipo de 5', en: 'OA6 programme · IBM Consulting, EMT Madrid and UPM · team of 5' },
+      portada: 'assets/proyectos/oa6/evento.webp',
+      contexto: {
+        es: 'Reto del Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA: un asistente que cubre la «última yarda», el tramo desde la parada hasta la puerta del autobús, para una persona con discapacidad visual.',
+        en: 'Challenge of the OA6 Tech Entrepreneurship Programme – AI Solutions: an assistant that covers the “last yard”, from the bus stop to the bus door, for a visually impaired person.'
+      },
+      aportacion: { es: 'Del concepto técnico al caso de negocio, en un equipo de cinco.', en: 'From the technical concept to the business case, in a team of five.' },
+      puntos: [
+        { es: '<b>Edge AI:</b> modelos open source con la inferencia en el propio móvil, sin coste de servidores.', en: '<b>Edge AI:</b> open-source models running inference on the phone itself, with no server costs.' },
+        { es: '<b>Privacy-by-design:</b> no se guarda ninguna imagen (RGPD).', en: '<b>Privacy by design:</b> no images are stored (GDPR).' },
+        { es: '<b>Interfaz inclusiva:</b> feedback háptico y auriculares de conducción ósea, que no tapan el ruido del tráfico.', en: '<b>Inclusive interface:</b> haptic feedback and bone-conduction headphones that do not block traffic noise.' },
+        { es: '<b>Negocio:</b> semanas de Design Thinking y Lean Canvas, validando el caso con expertos en las oficinas de IBM y EMT Madrid.', en: '<b>Business:</b> weeks of Design Thinking and Lean Canvas, validating the case with experts at IBM and EMT Madrid.' }
+      ],
+      tecnologias: ['Edge AI', { es: 'Visión artificial', en: 'Computer vision' }, 'Design Thinking', 'Lean Canvas'],
+      galeria: [
+        { tipo: 'img', src: 'assets/proyectos/oa6/evento.webp', pie: { es: 'Final del programa en la UPM', en: 'Programme final at UPM' } }
+      ],
+      enlaces: [
+        { texto: { es: 'Lo conté en LinkedIn', en: 'My LinkedIn post (Spanish)' }, url: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7463889643403440128' }
+      ]
     }
   ],
 
@@ -281,7 +311,6 @@ const DATOS = {
   },
 
   certificados: [
-    { titulo: { es: 'Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA', en: 'OA6 Tech Entrepreneurship Programme – AI Solutions' }, entidad: 'IBM Consulting · EMT Madrid · UPM', fecha: { es: 'May 2026', en: 'May 2026' } },
     { titulo: { es: 'AI Capabilities and Limitations', en: 'AI Capabilities and Limitations' }, entidad: 'Anthropic', fecha: { es: 'Oct 2026', en: 'Oct 2026' }, url: 'https://verify.skilljar.com/c/6cajj5chmk34' }
   ],
 
@@ -358,7 +387,8 @@ const DATOS = {
       items: [
         { n: 'C', tags: [] }, { n: 'C++', tags: ['C++'] }, { n: 'ESP32 · PlatformIO', tags: ['ESP32', 'PlatformIO'] },
         { n: 'STM32 (HAL)', tags: [] }, { n: 'Arduino', tags: ['Arduino'] }, { n: 'Raspberry Pi', tags: ['Raspberry Pi'] },
-        { n: 'VHDL', tags: [] }, { n: 'FPGA (Vivado)', tags: [] }, { n: 'I2C', tags: ['I2C'] }
+        { n: 'VHDL', tags: [] }, { n: 'FPGA (Vivado)', tags: [] }, { n: 'I2C', tags: ['I2C'] }, { n: 'SPI', tags: ['SPI'] },
+        { n: 'LoRa · LoRaWAN', tags: ['LoRa / LoRaWAN'] }
       ]
     },
     {
@@ -405,7 +435,7 @@ const DATOS = {
   // Modo «Dibujos» de la sección de skills: una tarjeta con dibujo por familia (los dibujos, en dibujos.js)
   skillsDibujos: [
     { dibujo: 'codigo', titulo: { es: 'Programación', en: 'Programming' }, texto: 'C · C++ · Python' },
-    { dibujo: 'micro', titulo: { es: 'Microcontroladores', en: 'Microcontrollers' }, texto: 'ESP32 · STM32 · Arduino · Raspberry Pi · I2C' },
+    { dibujo: 'micro', titulo: { es: 'Microcontroladores', en: 'Microcontrollers' }, texto: 'ESP32 · STM32 · Arduino · Raspberry Pi · LoRa · I2C · SPI' },
     { dibujo: 'fpga', titulo: 'FPGA', texto: 'VHDL · Vivado' },
     { dibujo: 'plc', titulo: { es: 'Automatización', en: 'Automation' }, texto: 'PLC S7-1500 · TIA Portal · GRAFCET · RFID' },
     { dibujo: 'pcb', titulo: { es: 'Electrónica', en: 'Electronics' }, texto: { es: 'Diseño de circuitos · OrCAD · OBD-II', en: 'Circuit design · OrCAD · OBD-II' } },
@@ -433,7 +463,7 @@ const DATOS = {
       enCurso: 'En curso', terminado: 'Terminado',
       contexto: 'El proyecto', aportacion: 'Mi parte', tecnologias: 'Tecnologías', cerrar: 'Cerrar',
       anterior: 'Anterior', siguiente: 'Siguiente', copiarEnlace: 'Copiar enlace', enlaceCopiado: '¡Enlace copiado!',
-      tituloPremios: 'Premios y certificados', verPost: 'Ver en LinkedIn', verificar: 'Verificar',
+      tituloPremios: 'Premios, concursos y certificados', verPost: 'Ver en LinkedIn', verificar: 'Verificar',
       tituloExperiencia: 'Experiencia y formación', trabajo: 'Experiencia', estudios: 'Formación', actual: 'Actual',
       tituloSkills: 'Skills', subSkills: 'Pulsa una para ver los proyectos donde la he usado.',
       subSkillsDibujos: 'Con lo que trabajo, de un vistazo. En «Detalle», pulsa una para ver dónde la he usado.', vistaDibujos: 'Dibujos', vistaDetalle: 'Detalle', vistaSkills: 'Cómo ver las skills', proyecto: 'proyecto', proyectos: 'proyectos',
@@ -459,7 +489,7 @@ const DATOS = {
       enCurso: 'In progress', terminado: 'Completed',
       contexto: 'The project', aportacion: 'My part', tecnologias: 'Tech stack', cerrar: 'Close',
       anterior: 'Previous', siguiente: 'Next', copiarEnlace: 'Copy link', enlaceCopiado: 'Link copied!',
-      tituloPremios: 'Awards and certificates', verPost: 'See on LinkedIn', verificar: 'Verify',
+      tituloPremios: 'Awards, competitions and certificates', verPost: 'See on LinkedIn', verificar: 'Verify',
       tituloExperiencia: 'Experience and education', trabajo: 'Experience', estudios: 'Education', actual: 'Current',
       tituloSkills: 'Skills', subSkills: 'Click one to see the projects where I have used it.',
       subSkillsDibujos: 'What I work with, at a glance. In “Detail”, click one to see where I have used it.', vistaDibujos: 'Icons', vistaDetalle: 'Detail', vistaSkills: 'How to show the skills', proyecto: 'project', proyectos: 'projects',
