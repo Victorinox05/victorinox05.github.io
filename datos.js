@@ -374,7 +374,7 @@ const DATOS = {
       icono: 'idiomas', titulo: { es: 'Idiomas', en: 'Languages' },
       items: [
         { n: { es: 'Español · nativo', en: 'Spanish · native' }, tags: [] },
-        { n: { es: 'Inglés · B2 (certificado en preparación)', en: 'English · B2 (certificate in progress)' }, tags: [] }
+        { n: { es: 'Inglés · B2', en: 'English · B2' }, tags: [] }
       ]
     }
   ],
