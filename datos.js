@@ -129,6 +129,31 @@ const DATOS = {
       ]
     },
     {
+      id: 'casa',
+      titulo: { es: 'Casa inteligente con app propia', en: 'Smart home with a custom app' },
+      resumen: { es: 'Home Assistant en una Raspberry Pi, dispositivos Zigbee y una app web propia con permisos por zonas.', en: 'Home Assistant on a Raspberry Pi, Zigbee devices and a custom web app with per-zone permissions.' },
+      fechas: { es: 'Sep 2026 – actualidad', en: 'Sep 2026 – present' },
+      estado: 'en-curso',
+      categorias: ['embebidos', 'software', 'cloud'],
+      equipo: { es: 'Proyecto personal', en: 'Personal project' },
+      portada: { diagrama: 'casa' },
+      contexto: {
+        es: 'Domótica de casa, montada por tandas: cada compra se usa de verdad antes de pasar a la siguiente. El cerebro es Home Assistant en una Raspberry Pi 4, con dispositivos Zigbee y acceso desde fuera por VPN, sin abrir puertos.',
+        en: 'Home automation built in stages: each purchase is used for real before moving on to the next. The brain is Home Assistant on a Raspberry Pi 4, with Zigbee devices and remote access over a VPN, with no open ports.'
+      },
+      aportacion: { es: 'Proyecto propio, de la caja del interruptor a la app.', en: 'My own project, from the wall switch box to the app.' },
+      puntos: [
+        { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
+        { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
+        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript, en tiempo real.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend.' },
+        { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
+      ],
+      tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude / MCP'],
+      galeria: [
+        { tipo: 'diagrama', src: 'casa', pie: { es: 'Arquitectura del sistema', en: 'System architecture' } }
+      ]
+    },
+    {
       id: 'skate',
       destacado: true,
       titulo: { es: 'Línea de fabricación de skateboards', en: 'Skateboard manufacturing line' },
@@ -160,31 +185,27 @@ const DATOS = {
       ]
     },
     {
-      id: 'chess',
-      titulo: { es: 'Chess Quest: ajedrez en C++', en: 'Chess Quest: a chess game in C++' },
-      resumen: { es: 'Videojuego de ajedrez con dos variantes y rival por IA, en C++ con POO y OpenGL.', en: 'A chess video game with two variants and an AI opponent, written in C++ with OOP and OpenGL.' },
-      fechas: { es: 'Feb – may 2025', en: 'Feb – May 2025' },
+      id: 'zerospoil',
+      titulo: { es: 'ZeroSpoil: nevera inteligente contra el desperdicio', en: 'ZeroSpoil: a smart fridge against food waste' },
+      resumen: { es: 'Kit con cámara y visión artificial que convierte cualquier nevera en inteligente para tirar menos comida. Hecho en 48 horas.', en: 'A camera-and-computer-vision kit that turns any fridge into a smart one, so less food goes to waste. Built in 48 hours.' },
+      fechas: { es: 'Feb – mar 2026 · 48 h', en: 'Feb – Mar 2026 · 48 h' },
       estado: 'terminado',
-      categorias: ['software'],
-      equipo: { es: 'Informática Industrial (3.º) · equipo de 5', en: 'Industrial Computing course (3rd year) · team of 5' },
-      portada: 'assets/proyectos/chess/portada.webp',
+      categorias: ['embebidos', 'software'],
+      equipo: { es: 'Invent For The Planet 2026 · UPM-ETSIDI · equipo de 5', en: 'Invent For The Planet 2026 · UPM-ETSIDI · team of 5' },
+      portada: 'assets/proyectos/zerospoil/ilustracion.svg',
       contexto: {
-        es: 'Trabajo final de Informática Industrial: un ajedrez con interfaz gráfica y dos variantes en tableros pequeños, Silverman 4x5 y Demichess. Estética retro de fantasía con sprites animados y sonido, modo de dos jugadores y modo contra una IA con cinco estrategias (agresiva, defensiva, táctica, aleatoria y adaptativa).',
-        en: 'Final project for Industrial Computing: a chess game with a graphical interface and two small-board variants, Silverman 4x5 and Demichess. Retro fantasy look with animated sprites and sound, a two-player mode and a mode against an AI with five strategies (aggressive, defensive, tactical, random and adaptive).'
+        es: 'Invent For The Planet es una competición internacional de 48 horas para estudiantes de ingeniería. En 2026 el tema eran los sistemas alimentarios y elegimos el reto del desperdicio: un tercio de la comida que se produce se pierde o se tira. Nuestra propuesta, la Smart-Shelf Box: escanear con la app, guardar, reconocer el producto y avisar antes de que se estropee.',
+        en: 'Invent For The Planet is a 48-hour international competition for engineering students. In 2026 the theme was food systems and we chose the food-waste challenge: a third of all food produced is lost or thrown away. Our proposal, the Smart-Shelf Box: scan with the app, store, recognise the product and get a warning before it goes off.'
       },
-      aportacion: { es: 'La lógica del tablero y la interacción del jugador.', en: 'The board logic and player interaction.' },
+      aportacion: { es: 'Hice un poco de todo; la visión artificial, el pitch y la edición del vídeo fueron solo míos.', en: 'I worked on a bit of everything; the computer vision, the pitch and the video editing were mine alone.' },
       puntos: [
-        { es: '<b>Arquitectura en clases</b> (POO): coordinador, mundo, tablero, reglas, menú y una clase abstracta para las piezas.', en: '<b>Class-based architecture</b> (OOP): coordinator, world, board, rules, menu and an abstract piece class.' },
-        { es: '<b>Tablero:</b> piezas sobre la matriz y comunicación entre el mundo y el tablero para moverlas con el ratón.', en: '<b>Board:</b> pieces on the board matrix and communication between the world and the board to move them with the mouse.' },
-        { es: '<b>Validación de jugadas</b>, resaltado de los movimientos posibles y un validador que impide las jugadas que dejarían al rey en jaque.', en: '<b>Move validation</b>, highlighting of legal moves and a validator that blocks moves leaving the king in check.' },
-        { es: '<b>Trabajo en equipo con Git y GitHub:</b> ramas, resolución de conflictos y más de 200 commits.', en: '<b>Teamwork with Git and GitHub:</b> branches, conflict resolution and more than 200 commits.' }
+        { es: '<b>Visión artificial:</b> una demo con OpenCV que funcionaba, basada en la detección de colores.', en: '<b>Computer vision:</b> a working OpenCV demo based on colour detection.' },
+        { es: '<b>Hardware propuesto:</b> Raspberry Pi Zero 2 W con la IA en local, cámara Sony IMX708 gran angular con HDR, batería LiPo y antena wifi flexible para sacar la señal de la nevera; el prototipo, en maqueta.', en: '<b>Proposed hardware:</b> a Raspberry Pi Zero 2 W running the AI locally, a wide-angle Sony IMX708 camera with HDR, a LiPo battery and a flexible Wi-Fi antenna to get the signal out of the fridge; the prototype was a mock-up.' },
+        { es: '<b>Pitch y vídeo:</b> presenté el proyecto al jurado y edité el vídeo oficial del equipo.', en: '<b>Pitch and video:</b> I pitched the project to the judges and edited the team’s official video.' }
       ],
-      tecnologias: ['C++', { es: 'POO', en: 'OOP' }, 'OpenGL', 'Git'],
+      tecnologias: ['OpenCV', { es: 'Visión artificial', en: 'Computer vision' }, 'Pitch', { es: 'Edición de vídeo', en: 'Video editing' }],
       galeria: [
-        { tipo: 'video', src: 'assets/proyectos/chess/partida.mp4', poster: 'assets/proyectos/chess/partida.webp', pie: { es: 'Partidas en los escenarios del juego', en: 'Games on the different boards' } },
-        { tipo: 'img', src: 'assets/proyectos/chess/portada.webp', pie: { es: 'Movimientos posibles resaltados en verde', en: 'Legal moves highlighted in green' } },
-        { tipo: 'video', src: 'assets/proyectos/chess/menu.mp4', poster: 'assets/proyectos/chess/tablero.webp', pie: { es: 'Menú: modo de juego, escenario y variante', en: 'Menu: game mode, board and variant' } },
-        { tipo: 'img', src: 'assets/proyectos/chess/victoria.webp', pie: { es: 'Pantalla de victoria', en: 'Victory screen' } }
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/ilustracion.svg', pie: { es: 'Ilustración del concepto (no hay fotos del prototipo)', en: 'Illustration of the concept (there are no photos of the prototype)' } }
       ]
     },
     {
@@ -216,29 +237,31 @@ const DATOS = {
       ]
     },
     {
-      id: 'casa',
-      destacado: true,
-      titulo: { es: 'Casa inteligente con app propia', en: 'Smart home with a custom app' },
-      resumen: { es: 'Home Assistant en una Raspberry Pi, dispositivos Zigbee y una app web propia con permisos por zonas.', en: 'Home Assistant on a Raspberry Pi, Zigbee devices and a custom web app with per-zone permissions.' },
-      fechas: { es: 'Sep 2026 – actualidad', en: 'Sep 2026 – present' },
-      estado: 'en-curso',
-      categorias: ['embebidos', 'software', 'cloud'],
-      equipo: { es: 'Proyecto personal', en: 'Personal project' },
-      portada: { diagrama: 'casa' },
+      id: 'chess',
+      titulo: { es: 'Chess Quest: ajedrez en C++', en: 'Chess Quest: a chess game in C++' },
+      resumen: { es: 'Videojuego de ajedrez con dos variantes y rival por IA, en C++ con POO y OpenGL.', en: 'A chess video game with two variants and an AI opponent, written in C++ with OOP and OpenGL.' },
+      fechas: { es: 'Feb – may 2025', en: 'Feb – May 2025' },
+      estado: 'terminado',
+      categorias: ['software'],
+      equipo: { es: 'Informática Industrial (3.º) · equipo de 5', en: 'Industrial Computing course (3rd year) · team of 5' },
+      portada: 'assets/proyectos/chess/portada.webp',
       contexto: {
-        es: 'Domótica de casa, montada por tandas: cada compra se usa de verdad antes de pasar a la siguiente. El cerebro es Home Assistant en una Raspberry Pi 4, con dispositivos Zigbee y acceso desde fuera por VPN, sin abrir puertos.',
-        en: 'Home automation built in stages: each purchase is used for real before moving on to the next. The brain is Home Assistant on a Raspberry Pi 4, with Zigbee devices and remote access over a VPN, with no open ports.'
+        es: 'Trabajo final de Informática Industrial: un ajedrez con interfaz gráfica y dos variantes en tableros pequeños, Silverman 4x5 y Demichess. Estética retro de fantasía con sprites animados y sonido, modo de dos jugadores y modo contra una IA con cinco estrategias (agresiva, defensiva, táctica, aleatoria y adaptativa).',
+        en: 'Final project for Industrial Computing: a chess game with a graphical interface and two small-board variants, Silverman 4x5 and Demichess. Retro fantasy look with animated sprites and sound, a two-player mode and a mode against an AI with five strategies (aggressive, defensive, tactical, random and adaptive).'
       },
-      aportacion: { es: 'Proyecto propio, de la caja del interruptor a la app.', en: 'My own project, from the wall switch box to the app.' },
+      aportacion: { es: 'La lógica del tablero y la interacción del jugador.', en: 'The board logic and player interaction.' },
       puntos: [
-        { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
-        { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
-        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript, en tiempo real.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend.' },
-        { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
+        { es: '<b>Arquitectura en clases</b> (POO): coordinador, mundo, tablero, reglas, menú y una clase abstracta para las piezas.', en: '<b>Class-based architecture</b> (OOP): coordinator, world, board, rules, menu and an abstract piece class.' },
+        { es: '<b>Tablero:</b> piezas sobre la matriz y comunicación entre el mundo y el tablero para moverlas con el ratón.', en: '<b>Board:</b> pieces on the board matrix and communication between the world and the board to move them with the mouse.' },
+        { es: '<b>Validación de jugadas</b>, resaltado de los movimientos posibles y un validador que impide las jugadas que dejarían al rey en jaque.', en: '<b>Move validation</b>, highlighting of legal moves and a validator that blocks moves leaving the king in check.' },
+        { es: '<b>Trabajo en equipo con Git y GitHub:</b> ramas, resolución de conflictos y más de 200 commits.', en: '<b>Teamwork with Git and GitHub:</b> branches, conflict resolution and more than 200 commits.' }
       ],
-      tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude / MCP'],
+      tecnologias: ['C++', { es: 'POO', en: 'OOP' }, 'OpenGL', 'Git'],
       galeria: [
-        { tipo: 'diagrama', src: 'casa', pie: { es: 'Arquitectura del sistema', en: 'System architecture' } }
+        { tipo: 'video', src: 'assets/proyectos/chess/partida.mp4', poster: 'assets/proyectos/chess/partida.webp', pie: { es: 'Partidas en los escenarios del juego', en: 'Games on the different boards' } },
+        { tipo: 'img', src: 'assets/proyectos/chess/portada.webp', pie: { es: 'Movimientos posibles resaltados en verde', en: 'Legal moves highlighted in green' } },
+        { tipo: 'video', src: 'assets/proyectos/chess/menu.mp4', poster: 'assets/proyectos/chess/tablero.webp', pie: { es: 'Menú: modo de juego, escenario y variante', en: 'Menu: game mode, board and variant' } },
+        { tipo: 'img', src: 'assets/proyectos/chess/victoria.webp', pie: { es: 'Pantalla de victoria', en: 'Victory screen' } }
       ]
     }
   ],
