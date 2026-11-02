@@ -3,68 +3,6 @@
 // 'uid' hace únicos los id de las flechas: el mismo diagrama puede salir varias veces.
 
 const DIAGRAMAS = {
-  azure(es, uid = '') {
-    const T = (a, b) => (es ? a : b);
-    return `
-<svg viewBox="0 0 720 430" role="img" aria-label="${T('Infraestructura de Azure desplegada con Terraform', 'Azure infrastructure deployed with Terraform')}">
-  <defs>
-    <marker id="fa${uid}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0L10 5L0 10z" class="dg-punta"/>
-    </marker>
-  </defs>
-
-  <!-- Terraform en el portátil -->
-  <rect x="16" y="120" width="170" height="190" rx="14" class="dg-caja dg-destacada"/>
-  <text x="101" y="152" class="dg-t dg-titulo" text-anchor="middle">Terraform</text>
-  <text x="101" y="172" class="dg-t2 dg-mono" text-anchor="middle">VS Code · az login</text>
-  <g class="dg-mono dg-t2">
-    <text x="36" y="206">main.tf</text>
-    <text x="36" y="228">variables.tf</text>
-    <text x="36" y="250">locals.tf</text>
-    <text x="36" y="272">.tfvars</text>
-    <text x="36" y="294">outputs.tf</text>
-  </g>
-
-  <path d="M190 190 H232" class="dg-flecha" marker-end="url(#fa${uid})"/>
-  <text x="211" y="180" class="dg-mono dg-acento" text-anchor="middle">apply</text>
-  <path d="M232 262 H190" class="dg-flecha dg-discontinua" marker-end="url(#fa${uid})"/>
-  <text x="209" y="284" class="dg-mono dg-t2 dg-peq" text-anchor="middle">outputs</text>
-
-  <!-- Suscripción y resource group -->
-  <rect x="236" y="14" width="468" height="402" rx="16" class="dg-contenedor"/>
-  <text x="256" y="40" class="dg-t2 dg-mono">${T('Suscripción de Azure', 'Azure subscription')}</text>
-  <rect x="252" y="54" width="436" height="346" rx="14" class="dg-contenedor dg-rg"/>
-  <text x="270" y="80" class="dg-t dg-titulo">Resource group</text>
-  <text x="434" y="80" class="dg-mono dg-t2">rg-&lt;${T('proyecto', 'project')}&gt;</text>
-
-  <!-- Red -->
-  <rect x="268" y="98" width="228" height="176" rx="12" class="dg-caja"/>
-  <text x="284" y="122" class="dg-t">${T('Red virtual (VNet)', 'Virtual network (VNet)')}</text>
-  <text x="284" y="140" class="dg-mono dg-t2">azurerm_virtual_network</text>
-  <rect x="284" y="154" width="196" height="102" rx="10" class="dg-caja dg-interior"/>
-  <text x="300" y="178" class="dg-t">${T('Subred', 'Subnet')}</text>
-  <text x="300" y="196" class="dg-mono dg-t2">azurerm_subnet</text>
-  <g transform="translate(448 210)">
-    <path d="M0 -24 L22 -16 V2 C22 16 11 24 0 30 C-11 24 -22 16 -22 2 V-16 Z" class="dg-escudo"/>
-    <text x="0" y="8" class="dg-mono dg-acento" text-anchor="middle">NSG</text>
-  </g>
-
-  <!-- Storage y Key Vault -->
-  <rect x="510" y="98" width="166" height="80" rx="12" class="dg-caja"/>
-  <text x="524" y="126" class="dg-t">Storage account</text>
-  <text x="524" y="146" class="dg-mono dg-t2 dg-peq">azurerm_storage_account</text>
-  <rect x="510" y="194" width="166" height="80" rx="12" class="dg-caja"/>
-  <text x="524" y="222" class="dg-t">Key Vault</text>
-  <text x="524" y="242" class="dg-mono dg-t2 dg-peq">azurerm_key_vault · RBAC</text>
-
-  <!-- Tags -->
-  <rect x="268" y="292" width="404" height="88" rx="12" class="dg-caja dg-interior"/>
-  <text x="284" y="318" class="dg-t">Tags</text>
-  <text x="284" y="342" class="dg-mono dg-t2">{ for k, v in var.tags : k =&gt; ... }</text>
-  <text x="284" y="364" class="dg-mono dg-t2">lifecycle { ignore_changes = [${T('tags de la Policy', 'Policy tags')}] }</text>
-</svg>`;
-  },
-
   casa(es, uid = '') {
     const T = (a, b) => (es ? a : b);
     return `

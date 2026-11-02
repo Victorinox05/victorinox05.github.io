@@ -36,8 +36,8 @@ const DATOS = {
   },
 
   // PDF del CV. Vacío = el botón «Descargar CV» no sale.
-  // Ejemplo: 'cv/CV_VictorCasanova_ES.pdf' (crea la carpeta web/cv/ y mete ahí el PDF, sin teléfono)
-  cv: { es: '', en: '' },
+  // PDF sin teléfono, generados con Cerebro/CV/generar_cv.py --web (vacío = sin botón)
+  cv: { es: 'cv/CV_Victor_Casanova_ES.pdf', en: 'cv/CV_Victor_Casanova_EN.pdf' },
 
   sobreMi: {
     es: [
@@ -130,6 +130,7 @@ const DATOS = {
     },
     {
       id: 'skate',
+      destacado: true,
       titulo: { es: 'Línea de fabricación de skateboards', en: 'Skateboard manufacturing line' },
       resumen: { es: 'PLC Siemens S7-1500 de la célula de moldeo por inyección, con la planta simulada en FlexSim.', en: 'Siemens S7-1500 PLC for the injection moulding cell, with the plant simulated in FlexSim.' },
       fechas: { es: 'Feb – may 2026', en: 'Feb – May 2026' },
@@ -184,31 +185,6 @@ const DATOS = {
         { tipo: 'img', src: 'assets/proyectos/chess/portada.webp', pie: { es: 'Movimientos posibles resaltados en verde', en: 'Legal moves highlighted in green' } },
         { tipo: 'video', src: 'assets/proyectos/chess/menu.mp4', poster: 'assets/proyectos/chess/tablero.webp', pie: { es: 'Menú: modo de juego, escenario y variante', en: 'Menu: game mode, board and variant' } },
         { tipo: 'img', src: 'assets/proyectos/chess/victoria.webp', pie: { es: 'Pantalla de victoria', en: 'Victory screen' } }
-      ]
-    },
-    {
-      id: 'azure',
-      titulo: { es: 'Infraestructura en Azure con Terraform', en: 'Azure infrastructure with Terraform' },
-      resumen: { es: 'Red, seguridad, almacenamiento y Key Vault definidos como código y desplegados desde VS Code.', en: 'Networking, security, storage and Key Vault defined as code and deployed from VS Code.' },
-      fechas: { es: 'Oct 2026', en: 'Oct 2026' },
-      estado: 'terminado',
-      categorias: ['cloud'],
-      equipo: { es: 'NTT DATA · formación', en: 'NTT DATA · training' },
-      portada: { diagrama: 'azure' },
-      contexto: {
-        es: 'Ejercicio que encargó el mentor dentro de la formación de NTT DATA (AI Engineering Talent Factory): levantar en Microsoft Azure una infraestructura básica entera con Terraform, sin tocar el portal, y destruirla al terminar.',
-        en: 'An exercise set by my mentor during the NTT DATA training programme (AI Engineering Talent Factory): build a complete basic infrastructure on Microsoft Azure with Terraform, without touching the portal, and tear it down afterwards.'
-      },
-      aportacion: { es: 'El ejercicio completo: código, plan, despliegue y destrucción.', en: 'The whole exercise: code, plan, deployment and teardown.' },
-      puntos: [
-        { es: '<b>Recursos:</b> resource group, red virtual con subred y NSG asociado, storage account y Key Vault con RBAC, con outputs.', en: '<b>Resources:</b> resource group, virtual network with a subnet and an associated NSG, storage account and Key Vault with RBAC, plus outputs.' },
-        { es: '<b>Variables y <code>.tfvars</code></b> para el proyecto y la región; tags generadas con <code>locals</code> y una expresión <code>for</code>.', en: '<b>Variables and <code>.tfvars</code></b> for the project and region; tags generated with <code>locals</code> and a <code>for</code> expression.' },
-        { es: '<b>Drift</b> causado por una Azure Policy que añade tags, resuelto con <code>lifecycle { ignore_changes }</code>.', en: '<b>Drift</b> caused by an Azure Policy that adds tags, solved with <code>lifecycle { ignore_changes }</code>.' },
-        { es: '<b>En la misma formación:</b> ruta de AZ-900, contenedores con Docker (imagen propia publicada en Docker Hub), Kubernetes y CI/CD con GitHub Actions.', en: '<b>Same programme:</b> the AZ-900 learning path, Docker containers (my own image published on Docker Hub), Kubernetes and CI/CD with GitHub Actions.' }
-      ],
-      tecnologias: ['Terraform', 'Microsoft Azure', 'Azure CLI', 'Docker', 'GitHub Actions'],
-      galeria: [
-        { tipo: 'diagrama', src: 'azure', pie: { es: 'Lo que se despliega con un terraform apply', en: 'What a single terraform apply deploys' } }
       ]
     },
     {
@@ -428,7 +404,7 @@ const DATOS = {
       avisoCorreo: 'Se abrirá tu programa de correo con el mensaje ya escrito.',
       enviado: '¡Mensaje enviado! Te responderé pronto.', errorEnvio: 'No se ha podido enviar. Escríbeme por LinkedIn o al correo.',
       asuntoCorreo: 'Contacto desde tu web',
-      pie: 'Hecha a mano con HTML, CSS y JavaScript, sin cookies ni rastreadores.'
+      pie: 'Hecha con HTML, CSS y JavaScript, sin frameworks y con ayuda de Claude Code. Sin cookies ni rastreadores.'
     },
     en: {
       saltar: 'Skip to content',
@@ -453,7 +429,7 @@ const DATOS = {
       avisoCorreo: 'Your email app will open with the message ready to send.',
       enviado: 'Message sent! I will get back to you soon.', errorEnvio: 'It could not be sent. Please reach me on LinkedIn or by email.',
       asuntoCorreo: 'Message from your website',
-      pie: 'Handmade with HTML, CSS and JavaScript. No cookies, no trackers.'
+      pie: 'Built with plain HTML, CSS and JavaScript, with help from Claude Code. No cookies, no trackers.'
     }
   }
 };

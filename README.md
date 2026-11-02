@@ -4,11 +4,11 @@ Personal portfolio of Víctor Casanova, Industrial Electronics and Automation En
 
 **→ https://victorinox05.github.io** (Spanish / English)
 
-Handmade with plain HTML, CSS and JavaScript: no frameworks, no build step, no cookies and no trackers.
+Built with plain HTML, CSS and JavaScript, with help from Claude Code: no frameworks, no build step, no cookies and no trackers.
 
 - `datos.js`: all the content (projects, experience, skills), in Spanish and English
 - `main.js`: renders the page and handles the interaction (filters, project viewer, language and theme)
-- `fondo.js`: animated PCB-trace background (canvas)
+- `fondo.js`: animated background (canvas). By default, a digital timing diagram like a logic simulator's; other modes with `?fondo=pcb|osciloscopio|fpga|puntos`
 - `diagramas.js`: hand-written SVG diagrams
 - Fonts: Space Grotesk, Inter and JetBrains Mono (SIL Open Font License), self-hosted in `assets/fuentes/`
 

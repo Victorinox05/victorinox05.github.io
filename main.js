@@ -42,7 +42,8 @@
     flechaIzq: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
     cerrar: '<path d="M6 6l12 12M18 6L6 18"/>',
     enlace: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
-    externo: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'
+    externo: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+    descarga: '<path d="M12 4v12M6 10l6 6 6-6M5 20h14"/>'
   };
   const RELLENO = {
     linkedin: '<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4z"/>',
@@ -78,8 +79,10 @@
     $('#etiqueta-premio').textContent = tx('etiquetaPremio');
     $('#boton-linkedin').href = D.contacto.linkedin;
     const cv = t(D.cv);
-    $('#boton-cv').hidden = !cv;
-    if (cv) $('#boton-cv').href = cv;
+    for (const b of [$('#boton-cv'), $('#cv-nav')]) {
+      b.hidden = !cv;
+      if (cv) b.href = cv;
+    }
 
     const aniosCrea = Math.floor((Date.now() - new Date(2023, 1, 1)) / (365.25 * 864e5));
     const cifras = [
@@ -422,6 +425,7 @@
     filas.push(`<li><a href="${C.linkedin}" target="_blank" rel="noopener"><span class="contacto-icono">${iconoRelleno('linkedin')}</span><span><span class="contacto-etiqueta">LinkedIn</span><span class="contacto-valor">${C.linkedin.replace(/^https:\/\/(www\.)?/, '')}</span></span></a></li>`);
     if (correo()) filas.push(`<li><a href="mailto:${correo()}"><span class="contacto-icono">${icono('correo')}</span><span><span class="contacto-etiqueta">${tx('correo')}</span><span class="contacto-valor">${correo()}</span></span></a></li>`);
     if (C.github) filas.push(`<li><a href="${C.github}" target="_blank" rel="noopener"><span class="contacto-icono">${iconoRelleno('github')}</span><span><span class="contacto-etiqueta">GitHub</span><span class="contacto-valor">${C.github.replace('https://', '')}</span></span></a></li>`);
+    if (t(D.cv)) filas.push(`<li><a href="${t(D.cv)}" download><span class="contacto-icono">${icono('descarga')}</span><span><span class="contacto-etiqueta">CV</span><span class="contacto-valor">${tx('descargarCV')} (PDF)</span></span></a></li>`);
     filas.push(`<li><div><span class="contacto-icono">${icono('ubicacion')}</span><span><span class="contacto-etiqueta">${tx('ubicacion')}</span><span class="contacto-valor">${t(C.ubicacion)}</span></span></div></li>`);
     $('#contacto-lista').innerHTML = filas.join('');
     $('#formulario-aviso').textContent = D.contacto.formspree ? '' : tx('avisoCorreo');
@@ -539,5 +543,5 @@
   leerHash();
 
   console.log('%c¡Hola! 👋', 'font: 700 20px sans-serif; color: #e8964a');
-  console.log('Si estás mirando el código: está hecho a mano, sin frameworks. Todo el contenido sale de datos.js.\nIf you are reading the source: handmade, no frameworks. All content comes from datos.js.');
+  console.log('Si estás mirando el código: HTML, CSS y JavaScript sin frameworks, hecho con ayuda de Claude Code. Todo el contenido sale de datos.js.\nIf you are reading the source: plain HTML, CSS and JavaScript, built with help from Claude Code. All content comes from datos.js.');
 })();

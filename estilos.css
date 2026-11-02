@@ -43,6 +43,7 @@
   --pista: rgba(232, 150, 74, .085);
   --pad: rgba(232, 150, 74, .16);
   --pulso: 245, 176, 110;
+  --pulso-2: 62, 201, 181;
 }
 
 [data-theme="light"] {
@@ -68,6 +69,7 @@
   --pista: rgba(179, 90, 27, .07);
   --pad: rgba(179, 90, 27, .13);
   --pulso: 196, 104, 36;
+  --pulso-2: 13, 127, 113;
 }
 
 /* ---------- Base ---------- */
@@ -106,7 +108,7 @@ code { font-variant-ligatures: none; font-family: var(--f-mono); font-size: .86e
 .punto-vivo { animation: latido 2.4s ease-in-out infinite; }
 @keyframes latido { 50% { box-shadow: 0 0 0 7px transparent; } }
 
-/* ---------- Fondo de pistas de PCB (fondo.js) ---------- */
+/* ---------- Fondo animado (fondo.js) ---------- */
 #fondo {
   position: fixed; inset: 0; width: 100%; height: 100%;
   z-index: -1; pointer-events: none;
@@ -160,6 +162,8 @@ body::before {
 .boton-icono:hover { color: var(--acento); border-color: var(--acento); }
 .boton-icono svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .boton-idioma { display: flex; gap: 3px; font-family: var(--f-mono); font-size: .78rem; font-weight: 600; }
+.boton-cv-nav { display: flex; gap: 6px; font-family: var(--f-mono); font-size: .78rem; font-weight: 600; color: var(--acento); }
+.boton-cv-nav svg { width: 16px; height: 16px; }
 .idioma-actual { color: var(--acento); }
 .idioma-sep, .idioma-otro { color: var(--texto-3); }
 [data-theme="dark"] .icono-sol, [data-theme="light"] .icono-luna { display: none; }
