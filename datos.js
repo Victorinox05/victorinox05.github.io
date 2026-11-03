@@ -222,7 +222,7 @@ const DATOS = {
       estado: 'en-curso',
       categorias: ['embebidos', 'software', 'cloud'],
       equipo: { es: 'Proyecto personal', en: 'Personal project' },
-      portada: { diagrama: 'casa' },
+      portada: 'assets/proyectos/casa/app.webp',
       contexto: {
         es: 'Domótica de casa, montada por tandas: cada compra se usa de verdad antes de pasar a la siguiente. El cerebro es Home Assistant en una Raspberry Pi 4, con dispositivos Zigbee y acceso desde fuera por VPN, sin abrir puertos.',
         en: 'Home automation built in stages: each purchase is used for real before moving on to the next. The brain is Home Assistant on a Raspberry Pi 4, with Zigbee devices and remote access over a VPN, with no open ports.'
@@ -231,11 +231,13 @@ const DATOS = {
       puntos: [
         { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
         { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
-        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript, en tiempo real.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend.' },
+        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript en tiempo real, con plano 2D, maqueta 3D (Three.js) e historial de quién encendió cada cosa.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend with a 2D floor plan, a 3D model (Three.js) and a history of who switched what on.' },
         { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
       ],
       tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude / MCP'],
       galeria: [
+        { tipo: 'video', src: 'assets/proyectos/casa/recorrido.mp4', poster: 'assets/proyectos/casa/recorrido.webp', pie: { es: 'Recorrido por la app en modo demostración (piso y datos inventados)', en: 'A tour of the app in demo mode (made-up flat and data)' } },
+        { tipo: 'img', src: 'assets/proyectos/casa/app.webp', pie: { es: 'Inicio, plano 2D, maqueta 3D e historial (modo demostración)', en: 'Home, 2D floor plan, 3D model and history (demo mode)' } },
         { tipo: 'diagrama', src: 'casa', pie: { es: 'Arquitectura del sistema', en: 'System architecture' } }
       ]
     },
