@@ -181,7 +181,8 @@ const DATOS = {
       ],
       tecnologias: ['Raspberry Pi', 'Python', 'LoRa / LoRaWAN', 'The Things Network', 'I2C', 'SPI', 'JavaScript'],
       galeria: [
-        { tipo: 'img', src: 'assets/proyectos/microrred/nodo-lora.webp', pie: { es: 'El nodo: Raspberry Pi 400 con el módulo LoRa y los sensores en la protoboard', en: 'The node: Raspberry Pi 400 with the LoRa module and sensors on the breadboard' } }
+        { tipo: 'img', src: 'assets/proyectos/microrred/nodo-lora.webp', pie: { es: 'El nodo: Raspberry Pi 400 con el módulo LoRa y los sensores en la protoboard', en: 'The node: Raspberry Pi 400 with the LoRa module and sensors on the breadboard' } },
+        { tipo: 'video', src: 'assets/proyectos/microrred/ttn-consola.mp4', poster: 'assets/proyectos/microrred/ttn-consola.webp', pie: { es: 'Los datos llegando a The Things Network: la consola recibe y decodifica la temperatura y la humedad', en: 'Data reaching The Things Network: the console receives and decodes temperature and humidity' } }
       ]
     },
     {
