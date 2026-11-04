@@ -246,15 +246,15 @@ const DATOS = {
       concurso: true,   // sale en «Premios, concursos y certificados», no en Proyectos
       etiquetaEstado: { es: 'Concurso', en: 'Competition' },
       titulo: { es: 'ZeroSpoil: nevera inteligente contra el desperdicio', en: 'ZeroSpoil: a smart fridge against food waste' },
-      resumen: { es: 'Kit con cámara y visión artificial que convierte cualquier nevera en inteligente para tirar menos comida. Hecho en 48 horas.', en: 'A camera-and-computer-vision kit that turns any fridge into a smart one, so less food goes to waste. Built in 48 hours.' },
+      resumen: { es: 'Kit con cámara y visión artificial que convierte cualquier nevera en inteligente para tirar menos comida. Hecho en 48 horas en Invent For The Planet, de Texas A&M University.', en: 'A camera-and-computer-vision kit that turns any fridge into a smart one, so less food goes to waste. Built in 48 hours at Invent For The Planet, run by Texas A&M University.' },
       fechas: { es: 'Feb – mar 2026 · 48 h', en: 'Feb – Mar 2026 · 48 h' },
       estado: 'terminado',
       categorias: ['embebidos', 'software'],
-      equipo: { es: 'Invent For The Planet 2026 · UPM-ETSIDI · equipo de 5', en: 'Invent For The Planet 2026 · UPM-ETSIDI · team of 5' },
+      equipo: { es: 'Invent For The Planet 2026 · Texas A&M University y UPM · equipo de 5', en: 'Invent For The Planet 2026 · Texas A&M University and UPM · team of 5' },
       portada: 'assets/proyectos/zerospoil/ilustracion.svg',
       contexto: {
-        es: 'Invent For The Planet es una competición internacional de 48 horas para estudiantes de ingeniería. En 2026 el tema eran los sistemas alimentarios y elegimos el reto del desperdicio: un tercio de la comida que se produce se pierde o se tira. Nuestra propuesta, la Smart-Shelf Box: escanear con la app, guardar, reconocer el producto y avisar antes de que se estropee.',
-        en: 'Invent For The Planet is a 48-hour international competition for engineering students. In 2026 the theme was food systems and we chose the food-waste challenge: a third of all food produced is lost or thrown away. Our proposal, the Smart-Shelf Box: scan with the app, store, recognise the product and get a warning before it goes off.'
+        es: 'Invent For The Planet es una competición internacional de 48 horas de Texas A&M University, que se celebra a la vez en universidades de todo el mundo; nosotros competimos en la sede de la UPM. En 2026 el tema eran los sistemas alimentarios y elegimos el reto del desperdicio: un tercio de la comida que se produce se pierde o se tira. Nuestra propuesta, la Smart-Shelf Box: escanear con la app, guardar, reconocer el producto y avisar antes de que se estropee.',
+        en: 'Invent For The Planet is a 48-hour international competition run by Texas A&M University and held at the same time at universities around the world; we competed at the UPM site. In 2026 the theme was food systems and we chose the food-waste challenge: a third of all food produced is lost or thrown away. Our proposal, the Smart-Shelf Box: scan with the app, store, recognise the product and get a warning before it goes off.'
       },
       aportacion: { es: 'Hice un poco de todo; la visión artificial, el pitch y la edición del vídeo fueron solo míos.', en: 'I worked on a bit of everything; the computer vision, the pitch and the video editing were mine alone.' },
       puntos: [
@@ -264,34 +264,43 @@ const DATOS = {
       ],
       tecnologias: ['OpenCV', { es: 'Visión artificial', en: 'Computer vision' }, 'Pitch', { es: 'Edición de vídeo', en: 'Video editing' }],
       galeria: [
-        { tipo: 'img', src: 'assets/proyectos/zerospoil/ilustracion.svg', pie: { es: 'Ilustración del concepto (no hay fotos del prototipo)', en: 'Illustration of the concept (there are no photos of the prototype)' } }
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/ilustracion.svg', pie: { es: 'Ilustración del concepto (no hay fotos del prototipo)', en: 'Illustration of the concept (there are no photos of the prototype)' } },
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/smart-shelf.webp', pie: { es: 'Nuestro pitch: qué es la Smart-Shelf Box (escanear, guardar, reconocer y gestionar)', en: 'Our pitch: what the Smart-Shelf Box is (scan, store, match and manage)' } },
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/componentes.webp', pie: { es: 'Componentes: Raspberry Pi Zero 2 W, cámara IMX708, batería LiPo, antena y caja', en: 'Components: Raspberry Pi Zero 2 W, IMX708 camera, LiPo battery, antenna and enclosure' } },
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/camara.webp', pie: { es: 'La cámara: reconocimiento por grupos, memoria visual y detección de frescura', en: 'The camera: recognition by clusters, visual memory and freshness detection' } }
       ]
     },
     {
       id: 'navia',
       concurso: true,   // sale en «Premios, concursos y certificados», no en Proyectos
       etiquetaEstado: { es: 'Concurso', en: 'Competition' },
-      titulo: { es: 'EMT NAVIA: asistente de navegación con IA', en: 'EMT NAVIA: an AI navigation assistant' },
-      resumen: { es: 'Caso de negocio de un asistente con visión e IA para que una persona con discapacidad visual suba sola al autobús.', en: 'Business case for a vision-and-AI assistant that helps visually impaired people board the bus on their own.' },
+      titulo: { es: 'EMT NAVIA: asistente de navegación con IA (IBM y EMT Madrid)', en: 'EMT NAVIA: an AI navigation assistant (IBM & EMT Madrid)' },
+      resumen: { es: 'Asistente con visión e IA en el móvil para que una persona con discapacidad visual suba sola al autobús. Programa OA6 de IBM Consulting.', en: 'A vision-and-AI assistant on the phone that helps visually impaired people board the bus on their own. IBM Consulting’s OA6 programme.' },
       fechas: { es: 'Primavera de 2026', en: 'Spring 2026' },
       estado: 'terminado',
       categorias: ['cloud'],
       equipo: { es: 'Programa OA6 · IBM Consulting, EMT Madrid y UPM · equipo de 5', en: 'OA6 programme · IBM Consulting, EMT Madrid and UPM · team of 5' },
       portada: 'assets/proyectos/oa6/evento.webp',
       contexto: {
-        es: 'Reto del Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA: un asistente que cubre la «última yarda», el tramo desde la parada hasta la puerta del autobús, para una persona con discapacidad visual.',
-        en: 'Challenge of the OA6 Tech Entrepreneurship Programme – AI Solutions: an assistant that covers the “last yard”, from the bus stop to the bus door, for a visually impaired person.'
+        es: 'Reto «Be My Way» del Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA, de IBM Consulting, EMT Madrid y la UPM: un asistente que cubre la «última yarda», el tramo desde la parada hasta la puerta del autobús, para una persona con discapacidad visual. En la final presentamos la idea ante un jurado profesional.',
+        en: 'The “Be My Way” challenge of the OA6 Tech Entrepreneurship Programme – AI Solutions, run by IBM Consulting, EMT Madrid and UPM: an assistant that covers the “last yard”, from the bus stop to the bus door, for a visually impaired person. At the final we pitched the idea to a professional jury.'
       },
       aportacion: { es: 'Del concepto técnico al caso de negocio, en un equipo de cinco.', en: 'From the technical concept to the business case, in a team of five.' },
       puntos: [
-        { es: '<b>Edge AI:</b> modelos open source con la inferencia en el propio móvil, sin coste de servidores.', en: '<b>Edge AI:</b> open-source models running inference on the phone itself, with no server costs.' },
-        { es: '<b>Privacy-by-design:</b> no se guarda ninguna imagen (RGPD).', en: '<b>Privacy by design:</b> no images are stored (GDPR).' },
-        { es: '<b>Interfaz inclusiva:</b> feedback háptico y auriculares de conducción ósea, que no tapan el ruido del tráfico.', en: '<b>Inclusive interface:</b> haptic feedback and bone-conduction headphones that do not block traffic noise.' },
-        { es: '<b>Negocio:</b> semanas de Design Thinking y Lean Canvas, validando el caso con expertos en las oficinas de IBM y EMT Madrid.', en: '<b>Business:</b> weeks of Design Thinking and Lean Canvas, validating the case with experts at IBM and EMT Madrid.' }
+        { es: '<b>Edge AI:</b> modelos open source (YOLOv8, MobileNet) ajustados con transfer learning, con la inferencia en el propio móvil y sin servidores.', en: '<b>Edge AI:</b> open-source models (YOLOv8, MobileNet) fine-tuned with transfer learning, running inference on the phone itself with no servers.' },
+        { es: '<b>Manos libres:</b> el móvil va en un soporte de pecho y guía hasta la puerta por voz, con vibración y con auriculares de conducción ósea, que no tapan el ruido del tráfico.', en: '<b>Hands-free:</b> the phone sits on a chest mount and guides the user to the door by voice, with vibration and bone-conduction headphones that do not block traffic noise.' },
+        { es: '<b>Precisión:</b> de los 5 m de error del GPS a unos 0,2 m al reconocer la puerta con la cámara, según nuestra estimación.', en: '<b>Accuracy:</b> from the 5 m error of GPS to about 0.2 m by recognising the door with the camera, according to our estimate.' },
+        { es: '<b>Privacy-by-design:</b> las imágenes se procesan en la memoria del móvil y se descartan al momento; no se guarda ni se envía nada (RGPD).', en: '<b>Privacy by design:</b> images are processed in the phone’s memory and discarded at once; nothing is stored or sent (GDPR).' },
+        { es: '<b>Negocio:</b> 0 € en hardware urbano (va como un módulo de la app de EMT) y semanas de Design Thinking y Lean Canvas, validando el caso con expertos en las oficinas de IBM y EMT Madrid.', en: '<b>Business:</b> €0 in street hardware (it ships as a module of the EMT app) and weeks of Design Thinking and Lean Canvas, validating the case with experts at IBM and EMT Madrid.' }
       ],
-      tecnologias: ['Edge AI', { es: 'Visión artificial', en: 'Computer vision' }, 'Design Thinking', 'Lean Canvas'],
+      tecnologias: ['Edge AI', 'YOLOv8', { es: 'Visión artificial', en: 'Computer vision' }, 'Design Thinking', 'Lean Canvas'],
       galeria: [
-        { tipo: 'img', src: 'assets/proyectos/oa6/evento.webp', pie: { es: 'Final del programa en la UPM', en: 'Programme final at UPM' } }
+        { tipo: 'img', src: 'assets/proyectos/oa6/evento.webp', pie: { es: 'Final del programa en la UPM', en: 'Programme final at UPM' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/manos-libres.webp', pie: { es: 'Nuestra presentación: la interfaz manos libres, con el móvil en el pecho y auriculares de conducción ósea', en: 'Our pitch (in Spanish): the hands-free interface, with the phone on the chest and bone-conduction headphones' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/asistente.webp', pie: { es: 'La pantalla nunca muestra el vídeo: más privacidad y menos batería', en: 'The screen never shows the video: more privacy and less battery use' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/entrenamiento.webp', pie: { es: 'Entrenamiento de la IA: transfer learning, dataset reducido e inferencia local', en: 'AI training: transfer learning, a small dataset and on-device inference' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/eficiencia.webp', pie: { es: 'Margen de error del GPS, de la megafonía exterior y de NAVIA', en: 'Error margin of GPS, of the external announcements and of NAVIA' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/coste.webp', pie: { es: '0 € en hardware urbano: todo va en el móvil del usuario', en: '€0 in street hardware: everything runs on the user’s phone' } }
       ],
       enlaces: [
         { texto: { es: 'Lo conté en LinkedIn', en: 'My LinkedIn post (Spanish)' }, url: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7463889643403440128' }
@@ -320,6 +329,9 @@ const DATOS = {
   experiencia: [
     {
       empresa: 'NTT DATA',
+      // Logo: 'mono' = SVG de un color, que se pinta con el color del texto (sirve en claro y en oscuro).
+      // Sin logo, sale un recuadro con las siglas.
+      logo: 'assets/logos/ntt-data.svg', logoMono: true,
       puesto: { es: 'Digital Architect (prácticas)', en: 'Digital Architect (intern)' },
       fechas: { es: 'Oct 2026 – actualidad', en: 'Oct 2026 – present' },
       lugar: { es: 'Madrid · híbrido', en: 'Madrid · hybrid' },
@@ -335,6 +347,7 @@ const DATOS = {
     },
     {
       empresa: 'CREA-ETSIDI',
+      siglas: 'CREA',
       puesto: { es: 'Desarrollador de robótica', en: 'Robotics developer' },
       fechas: { es: 'Feb 2023 – actualidad', en: 'Feb 2023 – present' },
       lugar: { es: 'Club de robótica de la UPM', en: 'UPM robotics club' },
@@ -349,6 +362,7 @@ const DATOS = {
     },
     {
       empresa: 'UPM MotoStudent Petrol',
+      siglas: 'MS',
       puesto: { es: 'Miembro del departamento de electrónica', en: 'Electronics department member' },
       fechas: { es: 'Nov 2024 – jun 2026', en: 'Nov 2024 – Jun 2026' },
       lugar: { es: 'Madrid', en: 'Madrid' },

@@ -369,6 +369,12 @@
   }
 
   // ---------- Experiencia y formación ----------
+  function logoEmpresa(x) {
+    if (x.logo && x.logoMono) return `<span class="hito-logo mono" style="--logo: url('${x.logo}')" role="img" aria-label="${x.empresa}"></span>`;
+    if (x.logo) return `<img class="hito-logo" src="${x.logo}" alt="${x.empresa}" width="48" height="48" loading="lazy">`;
+    return `<span class="hito-logo siglas" aria-hidden="true">${x.siglas || x.empresa.slice(0, 2)}</span>`;
+  }
+
   function pintarExperiencia() {
     $('#lista-experiencia').innerHTML = D.experiencia.map(x => `
       <li class="hito revelar ${x.actual ? 'actual' : ''}">
@@ -377,8 +383,13 @@
             <span class="hito-fechas">${t(x.fechas)}</span>
             ${x.actual ? `<span class="chip-actual">${tx('actual')}</span>` : ''}
           </div>
-          <h4>${t(x.puesto)}</h4>
-          <p class="hito-sub"><b>${x.empresa}</b> · ${t(x.lugar)}</p>
+          <div class="hito-empresa">
+            ${logoEmpresa(x)}
+            <div>
+              <h4>${t(x.puesto)}</h4>
+              <p class="hito-sub"><b>${x.empresa}</b> · ${t(x.lugar)}</p>
+            </div>
+          </div>
           <p class="hito-contexto">${t(x.contexto)}</p>
           <ul class="puntos">${x.puntos.map(p => `<li>${t(p)}</li>`).join('')}</ul>
         </div>
