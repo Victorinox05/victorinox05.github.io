@@ -29,9 +29,12 @@
   --superficie-2: #13233d;
   --borde: rgba(148, 163, 184, .14);
   --borde-fuerte: rgba(148, 163, 184, .28);
+  /* Textos medidos con APCA sobre las tarjetas (04/11/2026): Lc 95, 78 y 60. Más claro deslumbra y
+     las negritas dejan de destacar; más oscuro cansa. --texto-4, solo para los placeholders */
   --texto: #e8edf3;
-  --texto-2: #a6b3c3;
-  --texto-3: #74849a;
+  --texto-2: #cbd2dc;
+  --texto-3: #aab4c1;
+  --texto-4: #74849a;
   --acento: #5aa8ff;
   --acento-fuerte: #9ccbff;
   --acento-suave: rgba(90, 168, 255, .13);
@@ -60,6 +63,7 @@
   --texto: #151a21;
   --texto-2: #475263;
   --texto-3: #657083;
+  --texto-4: #657083;
   --acento: #1f5fcc;
   --acento-fuerte: #174a9f;
   --acento-suave: rgba(31, 95, 204, .1);
@@ -166,11 +170,13 @@ body::before {
 }
 .boton-icono:hover { color: var(--acento); border-color: var(--acento); }
 .boton-icono svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.boton-idioma { display: flex; gap: 3px; font-family: var(--f-mono); font-size: .78rem; font-weight: 600; }
+/* Banderas: la del idioma actual, a todo color; la otra, apagada */
+.boton-idioma { display: flex; gap: 6px; padding: 0 11px; }
+.boton-idioma .bandera { width: 22px; height: 15px; border-radius: 3px; stroke: none; box-shadow: 0 0 0 1px var(--borde-fuerte); opacity: .5; filter: grayscale(.6); transition: opacity .2s, filter .2s; }
+.boton-idioma .bandera.activa { opacity: 1; filter: none; }
+.boton-idioma:hover .bandera { opacity: 1; filter: none; }
 .boton-cv-nav { display: flex; gap: 6px; font-family: var(--f-mono); font-size: .78rem; font-weight: 600; color: var(--acento); }
 .boton-cv-nav svg { width: 16px; height: 16px; }
-.idioma-actual { color: var(--acento); }
-.idioma-sep, .idioma-otro { color: var(--texto-3); }
 [data-theme="dark"] .icono-sol, [data-theme="light"] .icono-luna { display: none; }
 .boton-menu { display: none; gap: 4px; align-content: center; }
 .boton-menu span { display: block; width: 16px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s, opacity .3s; }
@@ -525,7 +531,7 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
   transition: border-color .2s, box-shadow .2s;
 }
 .campo textarea { resize: vertical; min-height: 130px; }
-.campo input::placeholder, .campo textarea::placeholder { color: var(--texto-3); }
+.campo input::placeholder, .campo textarea::placeholder { color: var(--texto-4); }
 .campo input:focus, .campo textarea:focus { outline: none; border-color: var(--acento); box-shadow: 0 0 0 4px var(--acento-suave); }
 .campo.error input, .campo.error textarea { border-color: #e5484d; }
 .formulario .boton { justify-self: start; }

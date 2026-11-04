@@ -59,8 +59,7 @@
     $$('[data-t]').forEach(el => { el.textContent = tx(el.dataset.t); });
     $$('[data-t-title]').forEach(el => { el.title = tx(el.dataset.tTitle); });
     $$('[data-t-aria]').forEach(el => el.setAttribute('aria-label', tx(el.dataset.tAria)));
-    $('.idioma-actual').textContent = idioma.toUpperCase();
-    $('.idioma-otro').textContent = idioma === 'es' ? 'EN' : 'ES';
+    $$('.bandera').forEach(b => b.classList.toggle('activa', b.dataset.idioma === idioma));
     $('#f-nombre').placeholder = tx('phNombre');
     $('#f-correo').placeholder = tx('phCorreo');
     $('#f-mensaje').placeholder = tx('phMensaje');
