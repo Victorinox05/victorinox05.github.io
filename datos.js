@@ -42,17 +42,17 @@ const DATOS = {
   sobreMi: {
     es: [
       'Aunque disfruto de la parte teórica, siempre he sido de aprender haciendo: montar, programar y probar sistemas reales, y pelearme con ellos hasta que funcionan bien.',
-      'Empecé en el club de robótica CREA-ETSIDI, donde ahora doy el curso de Arduino, y desde entonces he pasado por la electrónica de una moto de competición, PLC industriales, FPGA y un enjambre de robots con el CSIC. Ahora completo esa base con cloud, infraestructura como código e IA en mis prácticas en NTT DATA.'
+      'Empecé en el club de robótica CREA-ETSIDI, donde ahora doy el curso de Arduino, y desde entonces he pasado por la electrónica de una moto de competición, PLC industriales, FPGA y un enjambre de robots con el CSIC. Ahora completo esa base con IA, cloud e infraestructura como código en mis prácticas en NTT DATA. Uso a diario herramientas de IA, sobre todo Claude Code, para programar, documentar y aprender más rápido, revisando siempre lo que generan.'
     ],
     en: [
       'Although I enjoy theory, I have always learned best by doing: building, programming and testing real systems, and working on them until they run properly.',
-      'I started at the CREA-ETSIDI robotics club, where I now teach the Arduino course. Since then I have worked on the electronics of a racing motorcycle, industrial PLCs, FPGAs and a robot swarm with CSIC. During my internship at NTT DATA I am adding cloud, infrastructure as code and AI to that background.'
+      'I started at the CREA-ETSIDI robotics club, where I now teach the Arduino course. Since then I have worked on the electronics of a racing motorcycle, industrial PLCs, FPGAs and a robot swarm with CSIC. During my internship at NTT DATA I am adding AI, cloud and infrastructure as code to that background. I use AI tools every day, Claude Code above all, to code, document and learn faster, always reviewing what they produce.'
     ]
   },
 
   ahoraMismo: [
     { icono: 'gorro', es: 'Último curso del grado: FPGA y VHDL, microcontroladores STM32 y control digital.', en: 'Final year of my degree: FPGAs and VHDL, STM32 microcontrollers and digital control.' },
-    { icono: 'nube', es: 'Prácticas en NTT DATA como Digital Architect: Azure, Terraform, contenedores e IA agéntica.', en: 'Internship at NTT DATA as a Digital Architect: Azure, Terraform, containers and agentic AI.' },
+    { icono: 'nube', es: 'Prácticas en NTT DATA como Digital Architect: desarrollo con IA (Claude Code), Git, Azure, Terraform y contenedores.', en: 'Internship at NTT DATA as a Digital Architect: AI-assisted development (Claude Code), Git, Azure, Terraform and containers.' },
     { icono: 'engranaje', es: 'Empezando el TFG: control de una planta simulada con un PLC Siemens.', en: 'Starting my bachelor’s thesis: controlling a simulated plant with a Siemens PLC.' },
     { icono: 'robot', es: 'TunaBot (CSIC) en la recta final y EUROBOT 2027 con el club CREA.', en: 'TunaBot (CSIC) in its final stretch, and EUROBOT 2027 with the CREA club.' },
     { icono: 'chip', es: 'En casa, la versión 2 del brazo robótico sobre una Raspberry Pi.', en: 'At home, version 2 of my robotic arm on a Raspberry Pi.' }
@@ -231,10 +231,10 @@ const DATOS = {
       puntos: [
         { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
         { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
-        { es: '<b>App web propia</b>, instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript en tiempo real, con plano 2D, maqueta 3D (Three.js) e historial de quién encendió cada cosa.', en: '<b>Custom web app</b>, installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend with a 2D floor plan, a 3D model (Three.js) and a history of who switched what on.' },
+        { es: '<b>App web propia</b>, desarrollada con Claude Code e instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript en tiempo real, con plano 2D, maqueta 3D (Three.js) e historial de quién encendió cada cosa.', en: '<b>Custom web app</b>, built with Claude Code and installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend with a 2D floor plan, a 3D model (Three.js) and a history of who switched what on.' },
         { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
       ],
-      tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude / MCP'],
+      tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude Code', 'Claude / MCP'],
       galeria: [
         { tipo: 'video', src: 'assets/proyectos/casa/recorrido.mp4', poster: 'assets/proyectos/casa/recorrido.webp', pie: { es: 'Recorrido por la app en modo demostración (piso y datos inventados)', en: 'A tour of the app in demo mode (made-up flat and data)' } },
         { tipo: 'img', src: 'assets/proyectos/casa/app.webp', pie: { es: 'Inicio, plano 2D, maqueta 3D e historial (modo demostración)', en: 'Home, 2D floor plan, 3D model and history (demo mode)' } },
@@ -324,10 +324,13 @@ const DATOS = {
       fechas: { es: 'Oct 2026 – actualidad', en: 'Oct 2026 – present' },
       lugar: { es: 'Madrid · híbrido', en: 'Madrid · hybrid' },
       actual: true,
-      contexto: { es: 'AI Engineering Talent Factory: formación y proyectos en Digital Architecture, DevOps e IA agéntica.', en: 'AI Engineering Talent Factory: training and projects in Digital Architecture, DevOps and agentic AI.' },
+      contexto: { es: 'AI Engineering Talent Factory: programa de formación y proyectos en Digital Architecture, DevOps e IA agéntica, orientado a clientes de banca y seguros.', en: 'AI Engineering Talent Factory: a training and project programme in Digital Architecture, DevOps and agentic AI, aimed at banking and insurance clients.' },
       puntos: [
-        { es: 'Infraestructura en Microsoft Azure definida como código con Terraform y CI/CD con GitHub Actions.', en: 'Microsoft Azure infrastructure defined as code with Terraform, and CI/CD with GitHub Actions.' },
-        { es: 'Contenedores con Docker y Kubernetes; desarrollo asistido por IA (Claude Code) con Git y code review.', en: 'Containers with Docker and Kubernetes; AI-assisted development (Claude Code) with Git and code review.' }
+        { es: '<b>Desarrollo asistido por IA:</b> Claude Code como herramienta de trabajo diaria, configurado con instrucciones por proyecto (CLAUDE.md), permisos, hooks y servidores MCP.', en: '<b>AI-assisted development:</b> Claude Code as an everyday working tool, set up with per-project instructions (CLAUDE.md), permissions, hooks and MCP servers.' },
+        { es: '<b>Git y GitHub:</b> ramas, pull requests y code review, también de los cambios que propone la IA; CI/CD con GitHub Actions.', en: '<b>Git and GitHub:</b> branches, pull requests and code review, including the changes suggested by AI; CI/CD with GitHub Actions.' },
+        { es: '<b>Agentes e IDEs agénticos:</b> formación en desarrollo asistido por IA y agentes con Claude Code y GitHub Copilot, de cara a las certificaciones de Anthropic (en curso).', en: '<b>Agents and agentic IDEs:</b> training in AI-assisted development and agents with Claude Code and GitHub Copilot, towards Anthropic’s certifications (in progress).' },
+        { es: '<b>Cloud:</b> Microsoft Azure (ruta AZ-900) e infraestructura como código con Terraform: red virtual, NSG, storage y Key Vault con RBAC.', en: '<b>Cloud:</b> Microsoft Azure (AZ-900 learning path) and infrastructure as code with Terraform: virtual network, NSG, storage and Key Vault with RBAC.' },
+        { es: '<b>Contenedores:</b> imágenes Docker multi-stage, apps con Docker Compose y despliegues en Kubernetes.', en: '<b>Containers:</b> multi-stage Docker images, apps with Docker Compose and deployments on Kubernetes.' }
       ]
     },
     {
@@ -338,8 +341,10 @@ const DATOS = {
       actual: true,
       contexto: { es: 'Club de robótica de la ETSIDI: prototipos de hardware y software para proyectos propios y competiciones universitarias.', en: 'The ETSIDI robotics club: hardware and software prototypes for our own projects and university competitions.' },
       puntos: [
-        { es: 'Instructor del curso oficial de Arduino del club: electrónica y programación en C++.', en: 'Instructor of the club’s official Arduino course: electronics and C++ programming.' },
-        { es: 'Diseño, montaje y programación de robots, de vehículos RC a TunaBot (con el CSIC) y EUROBOT 2027.', en: 'Design, assembly and programming of robots, from RC vehicles to TunaBot (with CSIC) and EUROBOT 2027.' }
+        { es: '<b>Docencia:</b> instructor del curso oficial de Arduino del club: electrónica y programación en C++.', en: '<b>Teaching:</b> instructor of the club’s official Arduino course: electronics and C++ programming.' },
+        { es: '<b>Robots desde cero:</b> diseño, montaje y programación, de vehículos de radiocontrol (RC) a TunaBot (con el CSIC) y EUROBOT 2027.', en: '<b>Robots from scratch:</b> design, assembly and programming, from radio-controlled (RC) vehicles to TunaBot (with CSIC) and EUROBOT 2027.' },
+        { es: '<b>Firmware:</b> C++ para ESP32 con PlatformIO; en TunaBot, la locomoción y el firmware de movimiento.', en: '<b>Firmware:</b> C++ for ESP32 with PlatformIO; on TunaBot, the locomotion and motion firmware.' },
+        { es: '<b>Sensores y actuadores:</b> montaje, programación y pruebas en placa.', en: '<b>Sensors and actuators:</b> assembly, programming and testing on the board.' }
       ]
     },
     {
@@ -349,8 +354,9 @@ const DATOS = {
       lugar: { es: 'Madrid', en: 'Madrid' },
       contexto: { es: 'Equipo de la UPM que diseña y construye una moto de competición para MotoStudent, la competición internacional entre universidades.', en: 'The UPM team that designs and builds a racing motorcycle for MotoStudent, the international university competition.' },
       puntos: [
-        { es: 'Desarrollo de un dashboard de telemetría a medida que lee el bus OBD-II de la moto.', en: 'Development of a custom telemetry dashboard that reads the bike’s OBD-II bus.' },
-        { es: 'Esquemas y documentación en OrCAD; diagnóstico y reparación de fallos de electrónica en competición.', en: 'Schematics and documentation in OrCAD; diagnosing and fixing electronics failures during competition.' }
+        { es: '<b>Telemetría:</b> desarrollo de un dashboard a medida que lee el bus OBD-II de la moto y muestra los datos del sistema.', en: '<b>Telemetry:</b> development of a custom dashboard that reads the bike’s OBD-II bus and displays the system data.' },
+        { es: '<b>Documentación:</b> esquemas y documentación electrónica en OrCAD para facilitar el diagnóstico.', en: '<b>Documentation:</b> electronic schematics and documentation in OrCAD to make diagnosis easier.' },
+        { es: '<b>Competición:</b> diagnóstico y reparación de fallos de sensores y electrónica durante la competición.', en: '<b>Competition:</b> diagnosing and fixing sensor and electronics failures during competition.' }
       ]
     }
   ],
@@ -368,11 +374,11 @@ const DATOS = {
     },
     {
       centro: 'NTT DATA · AI Engineering Talent Factory',
-      titulo: { es: 'Formación en cloud y DevOps', en: 'Cloud and DevOps training' },
+      titulo: { es: 'Formación en IA agéntica, cloud y DevOps', en: 'Agentic AI, cloud and DevOps training' },
       fechas: { es: 'Oct 2026 – actualidad', en: 'Oct 2026 – present' },
       texto: {
-        es: 'Microsoft Azure (ruta completa de AZ-900 con proyectos guiados), Docker, Kubernetes, Terraform y GitHub Actions, dentro de las prácticas.',
-        en: 'Microsoft Azure (full AZ-900 learning path with guided projects), Docker, Kubernetes, Terraform and GitHub Actions, as part of my internship.'
+        es: 'Desarrollo asistido por IA y agentes (Claude Code 101 de Anthropic Academy, en curso), Microsoft Azure (ruta completa de AZ-900 con proyectos guiados), Docker, Kubernetes, Terraform y GitHub Actions, dentro de las prácticas.',
+        en: 'AI-assisted development and agents (Anthropic Academy’s Claude Code 101, in progress), Microsoft Azure (full AZ-900 learning path with guided projects), Docker, Kubernetes, Terraform and GitHub Actions, as part of my internship.'
       }
     },
     {
@@ -395,6 +401,24 @@ const DATOS = {
       ]
     },
     {
+      icono: 'codigo', titulo: { es: 'Desarrollo con IA', en: 'AI-assisted development' },
+      items: [
+        { n: 'Claude Code', tags: ['Claude Code'] }, { n: { es: 'MCP y agentes', en: 'MCP & agents' }, tags: ['Claude / MCP'] },
+        { n: 'ChatGPT', tags: [] }, { n: 'GitHub Copilot', tags: [] }, { n: 'Gemini', tags: [] },
+        { n: 'Prompt engineering', tags: [] }, { n: 'Git · GitHub', tags: ['Git'] }, { n: 'GitHub Actions', tags: ['GitHub Actions'] }
+      ]
+    },
+    {
+      icono: 'nube', titulo: { es: 'Software y cloud', en: 'Software & cloud' },
+      items: [
+        { n: 'Python', tags: ['Python'] }, { n: 'OpenCV', tags: ['OpenCV'] }, { n: 'MATLAB', tags: ['MATLAB'] },
+        { n: 'OpenGL', tags: ['OpenGL'] }, { n: 'Linux', tags: [] }, { n: 'FastAPI', tags: ['FastAPI'] },
+        { n: 'React · TypeScript', tags: ['React', 'TypeScript'] }, { n: 'Microsoft Azure', tags: ['Microsoft Azure'] },
+        { n: 'Terraform', tags: ['Terraform'] }, { n: 'Docker', tags: ['Docker'] }, { n: 'Kubernetes', tags: [] },
+        { n: 'Home Assistant', tags: ['Home Assistant'] }
+      ]
+    },
+    {
       icono: 'onda', titulo: { es: 'Electrónica y diseño', en: 'Electronics & design' },
       items: [
         { n: { es: 'Diseño de circuitos', en: 'Circuit design' }, tags: ['Diseño de circuitos'] }, { n: 'OrCAD', tags: [] },
@@ -407,23 +431,6 @@ const DATOS = {
       items: [
         { n: 'PLC Siemens S7-1500', tags: ['PLC S7-1500'] }, { n: 'TIA Portal V18', tags: ['TIA Portal'] },
         { n: 'GRAFCET', tags: ['GRAFCET'] }, { n: 'FlexSim', tags: ['FlexSim'] }, { n: 'RFID', tags: ['RFID'] }
-      ]
-    },
-    {
-      icono: 'codigo', titulo: { es: 'Software', en: 'Software' },
-      items: [
-        { n: 'Python', tags: ['Python'] }, { n: 'OpenCV', tags: ['OpenCV'] }, { n: 'MATLAB', tags: ['MATLAB'] },
-        { n: 'OpenGL', tags: ['OpenGL'] }, { n: 'Git · GitHub', tags: ['Git'] }, { n: 'Linux', tags: [] },
-        { n: 'FastAPI', tags: ['FastAPI'] }, { n: 'React · TypeScript', tags: ['React', 'TypeScript'] }
-      ]
-    },
-    {
-      icono: 'nube', titulo: { es: 'Cloud, DevOps e IA', en: 'Cloud, DevOps & AI' },
-      items: [
-        { n: 'Microsoft Azure', tags: ['Microsoft Azure'] }, { n: 'Terraform', tags: ['Terraform'] },
-        { n: 'Docker', tags: ['Docker'] }, { n: 'Kubernetes', tags: [] }, { n: 'GitHub Actions', tags: ['GitHub Actions'] },
-        { n: 'Claude Code · MCP', tags: ['Claude / MCP'] }, { n: 'Prompt engineering', tags: [] },
-        { n: 'Home Assistant', tags: ['Home Assistant'] }
       ]
     },
     {
@@ -446,8 +453,8 @@ const DATOS = {
     { dibujo: 'cad', titulo: { es: 'Diseño 3D', en: '3D design' }, texto: { es: 'Fusion 360 · Impresión 3D', en: 'Fusion 360 · 3D printing' } },
     { dibujo: 'vision', titulo: { es: 'Visión y gráficos', en: 'Vision & graphics' }, texto: 'OpenCV · OpenGL' },
     { dibujo: 'nube', titulo: 'Cloud y DevOps', texto: 'Azure · Docker · Kubernetes · Terraform · GitHub Actions' },
-    { dibujo: 'ia', titulo: { es: 'IA', en: 'AI' }, texto: 'Claude Code · MCP · Prompt engineering' },
-    { dibujo: 'terminal', titulo: { es: 'Desarrollo', en: 'Development' }, texto: 'Git · Linux · FastAPI · React · Home Assistant' },
+    { dibujo: 'ia', titulo: { es: 'IA', en: 'AI' }, texto: 'Claude Code · MCP · ChatGPT · Copilot · Gemini' },
+    { dibujo: 'terminal', titulo: { es: 'Desarrollo', en: 'Development' }, texto: 'Git · GitHub · Linux · FastAPI · React · Home Assistant' },
     { dibujo: 'idiomas', titulo: { es: 'Idiomas', en: 'Languages' }, texto: { es: 'Español nativo · Inglés B2', en: 'Spanish (native) · English B2' } }
   ],
 
