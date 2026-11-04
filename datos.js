@@ -265,6 +265,7 @@ const DATOS = {
       tecnologias: ['OpenCV', { es: 'Visión artificial', en: 'Computer vision' }, 'Pitch', { es: 'Edición de vídeo', en: 'Video editing' }],
       galeria: [
         { tipo: 'img', src: 'assets/proyectos/zerospoil/ilustracion.svg', pie: { es: 'Ilustración del concepto (no hay fotos del prototipo)', en: 'Illustration of the concept (there are no photos of the prototype)' } },
+        { tipo: 'img', src: 'assets/proyectos/zerospoil/trabajando.webp', pie: { es: 'El equipo, en plenas 48 horas', en: 'The team, in the middle of the 48 hours' } },
         { tipo: 'img', src: 'assets/proyectos/zerospoil/smart-shelf.webp', pie: { es: 'Nuestro pitch: qué es la Smart-Shelf Box (escanear, guardar, reconocer y gestionar)', en: 'Our pitch: what the Smart-Shelf Box is (scan, store, match and manage)' } },
         { tipo: 'img', src: 'assets/proyectos/zerospoil/componentes.webp', pie: { es: 'Componentes: Raspberry Pi Zero 2 W, cámara IMX708, batería LiPo, antena y caja', en: 'Components: Raspberry Pi Zero 2 W, IMX708 camera, LiPo battery, antenna and enclosure' } },
         { tipo: 'img', src: 'assets/proyectos/zerospoil/camara.webp', pie: { es: 'La cámara: reconocimiento por grupos, memoria visual y detección de frescura', en: 'The camera: recognition by clusters, visual memory and freshness detection' } }
@@ -280,7 +281,7 @@ const DATOS = {
       estado: 'terminado',
       categorias: ['cloud'],
       equipo: { es: 'Programa OA6 · IBM Consulting, EMT Madrid y UPM · equipo de 5', en: 'OA6 programme · IBM Consulting, EMT Madrid and UPM · team of 5' },
-      portada: 'assets/proyectos/oa6/evento.webp',
+      portada: 'assets/proyectos/oa6/equipo.webp',
       contexto: {
         es: 'Reto «Be My Way» del Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA, de IBM Consulting, EMT Madrid y la UPM: un asistente que cubre la «última yarda», el tramo desde la parada hasta la puerta del autobús, para una persona con discapacidad visual. En la final presentamos la idea ante un jurado profesional.',
         en: 'The “Be My Way” challenge of the OA6 Tech Entrepreneurship Programme – AI Solutions, run by IBM Consulting, EMT Madrid and UPM: an assistant that covers the “last yard”, from the bus stop to the bus door, for a visually impaired person. At the final we pitched the idea to a professional jury.'
@@ -295,12 +296,14 @@ const DATOS = {
       ],
       tecnologias: ['Edge AI', 'YOLOv8', { es: 'Visión artificial', en: 'Computer vision' }, 'Design Thinking', 'Lean Canvas'],
       galeria: [
-        { tipo: 'img', src: 'assets/proyectos/oa6/evento.webp', pie: { es: 'Final del programa en la UPM', en: 'Programme final at UPM' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/equipo.webp', pie: { es: 'Mi equipo en la final del programa, en la UPM', en: 'My team at the programme final, at UPM' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/evento.webp', pie: { es: 'La cúpula de la final, con IBM, EMT Madrid y la UPM', en: 'The dome where the final took place, with IBM, EMT Madrid and UPM' } },
         { tipo: 'img', src: 'assets/proyectos/oa6/manos-libres.webp', pie: { es: 'Nuestra presentación: la interfaz manos libres, con el móvil en el pecho y auriculares de conducción ósea', en: 'Our pitch (in Spanish): the hands-free interface, with the phone on the chest and bone-conduction headphones' } },
         { tipo: 'img', src: 'assets/proyectos/oa6/asistente.webp', pie: { es: 'La pantalla nunca muestra el vídeo: más privacidad y menos batería', en: 'The screen never shows the video: more privacy and less battery use' } },
         { tipo: 'img', src: 'assets/proyectos/oa6/entrenamiento.webp', pie: { es: 'Entrenamiento de la IA: transfer learning, dataset reducido e inferencia local', en: 'AI training: transfer learning, a small dataset and on-device inference' } },
         { tipo: 'img', src: 'assets/proyectos/oa6/eficiencia.webp', pie: { es: 'Margen de error del GPS, de la megafonía exterior y de NAVIA', en: 'Error margin of GPS, of the external announcements and of NAVIA' } },
-        { tipo: 'img', src: 'assets/proyectos/oa6/coste.webp', pie: { es: '0 € en hardware urbano: todo va en el móvil del usuario', en: '€0 in street hardware: everything runs on the user’s phone' } }
+        { tipo: 'img', src: 'assets/proyectos/oa6/coste.webp', pie: { es: '0 € en hardware urbano: todo va en el móvil del usuario', en: '€0 in street hardware: everything runs on the user’s phone' } },
+        { tipo: 'img', src: 'assets/proyectos/oa6/grupo.webp', pie: { es: 'Participantes y organizadores del programa OA6', en: 'Participants and organisers of the OA6 programme' } }
       ],
       enlaces: [
         { texto: { es: 'Lo conté en LinkedIn', en: 'My LinkedIn post (Spanish)' }, url: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7463889643403440128' }
