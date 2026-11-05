@@ -326,6 +326,7 @@ const DATOS = {
   },
 
   certificados: [
+    { titulo: { es: 'Claude Code 101', en: 'Claude Code 101' }, entidad: 'Anthropic', fecha: { es: 'Nov 2026', en: 'Nov 2026' }, url: 'https://verify.skilljar.com/c/7thxntndacp9' },
     { titulo: { es: 'AI Capabilities and Limitations', en: 'AI Capabilities and Limitations' }, entidad: 'Anthropic', fecha: { es: 'Oct 2026', en: 'Oct 2026' }, url: 'https://verify.skilljar.com/c/6cajj5chmk34' }
   ],
 
