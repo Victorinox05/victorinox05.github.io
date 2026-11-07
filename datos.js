@@ -8,13 +8,15 @@ const DATOS = {
   persona: {
     nombre: 'Víctor Casanova',
     nombreCompleto: 'Víctor Humberto Casanova Bernal',
-    foto: 'assets/foto.webp',
+    foto: 'assets/retrato.webp',
     distintivo: { es: 'Madrid · 4.º de Ingeniería en la UPM', en: 'Madrid · 4th-year engineering student at UPM' },
-    // La línea que se va escribiendo sola en la portada
-    roles: {
-      es: ['los sistemas embebidos', 'las FPGA', 'la robótica', 'la automatización', 'el cacharreo'],
-      en: ['embedded systems', 'FPGAs', 'robotics', 'industrial automation', 'tinkering with hardware']
-    },
+    // Las áreas que salen del procesador de la portada
+    chips: [
+      { area: { es: 'Embebidos', en: 'Embedded' } },
+      { area: { es: 'FPGA y VHDL', en: 'FPGA & VHDL' } },
+      { area: { es: 'Robótica', en: 'Robotics' } },
+      { area: { es: 'Automatización', en: 'Automation' } }
+    ],
     bio: {
       es: 'Estudiante de último curso de <strong>Ingeniería Electrónica Industrial y Automática</strong> en la Universidad Politécnica de Madrid. Perfil práctico de hardware y software: me gusta ver cómo una idea acaba siendo algo que se puede tocar, programar y testear.',
       en: 'Final-year student of <strong>Industrial Electronics and Automation Engineering</strong> at the Technical University of Madrid (UPM). A hands-on hardware and software profile: I enjoy watching an idea turn into something you can touch, program and test.'
@@ -35,9 +37,9 @@ const DATOS = {
     ubicacion: { es: 'Madrid, España', en: 'Madrid, Spain' }
   },
 
-  // PDF del CV. Vacío = el botón «Descargar CV» no sale.
-  // PDF sin teléfono, generados con Cerebro/CV/generar_cv.py --web (vacío = sin botón)
-  cv: { es: 'cv/CV_Victor_Casanova_ES.pdf', en: 'cv/CV_Victor_Casanova_EN.pdf' },
+  // PDF del CV. Vacío = el botón «Descargar CV» no sale (así desde el 07/11/2026).
+  // Para volver a ponerlo: Cerebro/CV/generar_cv.py --web y 'cv/CV_Victor_Casanova_ES.pdf' aquí
+  cv: { es: '', en: '' },
 
   sobreMi: {
     es: [
@@ -58,37 +60,28 @@ const DATOS = {
     { icono: 'chip', es: 'En casa, la versión 2 del brazo robótico sobre una Raspberry Pi.', en: 'At home, version 2 of my robotic arm on a Raspberry Pi.' }
   ],
 
-  // Categorías de los filtros de proyectos
-  categorias: {
-    embebidos: { es: 'Embebidos', en: 'Embedded' },
-    robotica: { es: 'Robótica', en: 'Robotics' },
-    automatizacion: { es: 'Automatización', en: 'Automation' },
-    software: { es: 'Software', en: 'Software' },
-    cloud: { es: 'Cloud e IA', en: 'Cloud & AI' }
-  },
-
   // Los proyectos salen en este orden. 'portada' es la foto de la tarjeta.
+  // Textos cortos: resumen de una línea (sale en la tarjeta), contexto en 1-2 frases
+  // y 3 puntos de una línea con solo lo que hice yo. Con quién, en 'equipo'.
   // Galería: { tipo: 'img' | 'video' | 'diagrama', src, poster (vídeos), pie: {es, en} }
   proyectos: [
     {
       id: 'tunabot',
       destacado: true,   // tarjeta ancha (ocupa dos columnas)
       titulo: { es: 'TunaBot: enjambre de robots coordinados (CSIC)', en: 'TunaBot: a coordinated robot swarm (CSIC)' },
-      resumen: { es: 'Locomoción y firmware de movimiento en ESP32 para un enjambre de robots que huye de un «cazador».', en: 'Locomotion and ESP32 motion firmware for a robot swarm that escapes from a “hunter”.' },
+      resumen: { es: 'Firmware de movimiento en ESP32 para un enjambre de robots.', en: 'ESP32 motion firmware for a swarm of robots.' },
       fechas: { es: 'Abr 2026 – actualidad', en: 'Apr 2026 – present' },
       estado: 'en-curso',
-      categorias: ['embebidos', 'robotica'],
       equipo: { es: 'CREA-ETSIDI · departamento de movimiento', en: 'CREA-ETSIDI · motion team' },
       portada: 'assets/proyectos/tunabot/base.webp',
       contexto: {
-        es: 'Proyecto del club de robótica CREA-ETSIDI en colaboración con el CSIC: un enjambre de pequeños robots terrestres que comparten su posición y se coordinan para huir de un robot «cazador», imitando a un banco de peces.',
-        en: 'A project of the CREA-ETSIDI robotics club in collaboration with CSIC, the Spanish National Research Council: a swarm of small ground robots that share their position and coordinate to escape from a “hunter” robot, like a school of fish.'
+        es: 'Enjambre de pequeños robots del club CREA-ETSIDI y el CSIC que se coordinan para huir de un robot «cazador», como un banco de peces.',
+        en: 'A swarm of small robots, built by the CREA-ETSIDI club with CSIC (the Spanish National Research Council), that coordinate to escape from a “hunter” robot, like a school of fish.'
       },
-      aportacion: { es: 'Departamento de movimiento: cómo se mueve cada robot, de los motores al firmware.', en: 'Motion team: how each robot moves, from the motors to the firmware.' },
       puntos: [
-        { es: '<b>Locomoción:</b> comparativa de sistemas de locomoción y de motores, y elección de ruedas omnidireccionales.', en: '<b>Locomotion:</b> comparison of drive systems and motor types, and the choice of omni wheels.' },
-        { es: '<b>Firmware de movimiento</b> en ESP32 (C++, PlatformIO): el robot se controla con un vector de dirección y módulo relativo al propio robot.', en: '<b>Motion firmware</b> on an ESP32 (C++, PlatformIO): the robot is driven by a direction-and-magnitude vector in its own frame.' },
-        { es: '<b>Placa del robot:</b> diseño de la distribución (ESP32, drivers ULN2003 y motores paso a paso) y depuración de un cortocircuito en la versión anterior.', en: '<b>Robot board:</b> layout design (ESP32, ULN2003 drivers and stepper motors) and debugging of a short circuit in the previous version.' }
+        { es: 'Comparativa de sistemas de locomoción y elección de ruedas omnidireccionales.', en: 'Comparison of drive systems and the choice of omni wheels.' },
+        { es: 'Firmware en ESP32 (C++, PlatformIO): el robot se mueve con un vector de dirección y módulo.', en: 'ESP32 firmware (C++, PlatformIO): the robot is driven by a direction-and-magnitude vector.' },
+        { es: 'Distribución de la placa (ESP32, drivers ULN2003, motores paso a paso) y depuración de un cortocircuito.', en: 'Board layout (ESP32, ULN2003 drivers, stepper motors) and debugging of a short circuit.' }
       ],
       tecnologias: ['ESP32', 'C++', 'PlatformIO', { es: 'Motores paso a paso', en: 'Stepper motors' }, { es: 'Diseño de circuitos', en: 'Circuit design' }],
       galeria: [
@@ -102,23 +95,20 @@ const DATOS = {
     {
       id: 'brazo',
       titulo: { es: 'Brazo robótico con visión artificial', en: 'Robotic arm with computer vision' },
-      resumen: { es: 'Brazo de 3 grados de libertad que localiza objetos con una cámara (Python, OpenCV) y calcula cómo llegar a ellos.', en: 'A 3-DOF arm that locates objects with a camera (Python, OpenCV) and works out how to reach them.' },
+      resumen: { es: 'Brazo de 3 grados de libertad que localiza objetos con visión artificial.', en: 'A 3-DOF arm that locates objects with computer vision.' },
       fechas: { es: 'Feb – may 2025 · v2 desde jul 2026', en: 'Feb – May 2025 · v2 since Jul 2026' },
       estado: 'en-curso',
       etiquetaEstado: { es: 'v2 en curso', en: 'v2 in progress' },
-      categorias: ['robotica', 'embebidos', 'software'],
       equipo: { es: 'Hardware y software', en: 'Hardware and software' },
       portada: 'assets/proyectos/brazo/portada.webp',
       contexto: {
-        es: 'Brazo robótico que detecta objetos con una cámara y calcula sus coordenadas para ir a cogerlos. La primera versión (2025) reparte el trabajo entre un PC, que hace la visión, y un Arduino, que mueve los motores. La segunda (2026) es un proyecto personal rehecho desde cero sobre una Raspberry Pi.',
-        en: 'A robotic arm that detects objects with a camera and computes their coordinates to pick them up. Version 1 (2025) splits the work between a PC, which runs the vision, and an Arduino, which drives the motors. Version 2 (2026) is a personal project rebuilt from scratch on a Raspberry Pi.'
+        es: 'Detecta objetos con una cámara y calcula cómo llegar a ellos. La v1 (2025) hace la visión en un PC y mueve los motores con un Arduino; la v2 (2026) está rehecha desde cero en una Raspberry Pi.',
+        en: 'It detects objects with a camera and works out how to reach them. v1 (2025) runs the vision on a PC and drives the motors with an Arduino; v2 (2026) is rebuilt from scratch on a Raspberry Pi.'
       },
-      aportacion: { es: 'Desarrollo de hardware y software: diseño, montaje y programación.', en: 'Hardware and software development: design, assembly and programming.' },
       puntos: [
-        { es: '<b>Visión en tiempo real</b> con Python y OpenCV: detección de objetivos por color y cálculo de sus coordenadas.', en: '<b>Real-time vision</b> with Python and OpenCV: colour-based target detection and coordinate calculation.' },
-        { es: '<b>Control de los actuadores</b> en C/C++ (Arduino) con órdenes enviadas desde el PC: servos y motores paso a paso, con giroscopio y encoder.', en: '<b>Actuator control</b> in C/C++ (Arduino) with commands sent from the PC: servos and stepper motors, with a gyroscope and an encoder.' },
-        { es: '<b>Diseño mecánico</b> en Fusion 360 e impresión 3D; cinemática simulada en MATLAB para validar movimientos y alcance.', en: '<b>Mechanical design</b> in Fusion 360 and 3D printing; kinematics simulated in MATLAB to validate motion and reach.' },
-        { es: '<b>v2:</b> todo en una Raspberry Pi 4 con un PCA9685 por I2C (PWM por hardware y alimentación de los servos aislada), sin pantalla y con el vídeo de la cámara por streaming web.', en: '<b>v2:</b> everything on a Raspberry Pi 4 with a PCA9685 over I2C (hardware PWM and isolated servo power), headless, with the camera feed streamed to a web page.' }
+        { es: 'Visión en tiempo real con Python y OpenCV: detección por color y coordenadas del objetivo.', en: 'Real-time vision with Python and OpenCV: colour detection and target coordinates.' },
+        { es: 'Mecánica en Fusion 360 e impresión 3D; servos y motores paso a paso desde Arduino.', en: 'Mechanics in Fusion 360 and 3D printing; servos and stepper motors driven by an Arduino.' },
+        { es: 'v2 en una Raspberry Pi 4: PWM por hardware (PCA9685, I2C) y vídeo por streaming web.', en: 'v2 on a Raspberry Pi 4: hardware PWM (PCA9685, I2C) and video streamed to a web page.' }
       ],
       tecnologias: ['Python', 'OpenCV', 'C++', 'Arduino', 'Fusion 360', 'MATLAB', 'Raspberry Pi', 'I2C', { es: 'Impresión 3D', en: '3D printing' }],
       galeria: [
@@ -132,21 +122,19 @@ const DATOS = {
       id: 'skate',
       destacado: true,
       titulo: { es: 'Línea de fabricación de skateboards', en: 'Skateboard manufacturing line' },
-      resumen: { es: 'PLC Siemens S7-1500 de la célula de moldeo por inyección, con la planta simulada en FlexSim.', en: 'Siemens S7-1500 PLC for the injection moulding cell, with the plant simulated in FlexSim.' },
+      resumen: { es: 'PLC Siemens S7-1500 de una célula de inyección, simulada en FlexSim.', en: 'Siemens S7-1500 PLC for an injection moulding cell, simulated in FlexSim.' },
       fechas: { es: 'Feb – may 2026', en: 'Feb – May 2026' },
       estado: 'terminado',
-      categorias: ['automatizacion'],
       equipo: { es: 'Automatización Industrial (3.º) · en grupo', en: 'Industrial Automation course (3rd year) · team project' },
       portada: 'assets/proyectos/skate/grafcet.webp',
       contexto: {
-        es: 'Trabajo de Automatización Industrial: diseño y automatización de una línea que fabrica cinco modelos de skateboard (penny, waveboard, classic, longboard y cruiser) con piezas de plástico y de madera. Incluye el diseño de la planta (celdas, almacenes, transporte con AGV y cintas), su simulación en FlexSim y el control de la célula de moldeo por inyección.',
-        en: 'Industrial Automation coursework: design and automation of a line that builds five skateboard models (penny, waveboard, classic, longboard and cruiser) from plastic and wooden parts. It covers the plant design (cells, storage, AGV and conveyor transport), its simulation in FlexSim and the control of the injection moulding cell.'
+        es: 'Trabajo de Automatización Industrial: una línea que fabrica cinco modelos de skateboard, diseñada y simulada en FlexSim.',
+        en: 'Industrial Automation coursework: a line that builds five skateboard models, designed and simulated in FlexSim.'
       },
-      aportacion: { es: 'La programación del PLC de la célula de moldeo por inyección.', en: 'Programming the PLC of the injection moulding cell.' },
       puntos: [
-        { es: '<b>GRAFCET de nivel 2</b> del proceso y código en bloques de función multiinstancia (FB/FC) para la inyectora, el robot, los pistones y las cintas.', en: '<b>Level-2 GRAFCET</b> of the process, coded as multi-instance function blocks (FB/FC) for the injection machine, the robot, the pistons and the conveyors.' },
-        { es: '<b>Señales analógicas</b> con escalado: temperatura por termopar y clasificación de piezas por peso.', en: '<b>Analogue signals</b> with scaling: thermocouple temperature and part sorting by weight.' },
-        { es: '<b>Modos de marcha y paradas de emergencia</b>, identificación de moldes por RFID y pruebas unitarias de los bloques.', en: '<b>Operating modes and emergency stops</b>, mould identification via RFID, and unit tests of the blocks.' }
+        { es: '<b>PLC de la célula de inyección:</b> GRAFCET de nivel 2 y bloques multiinstancia (FB/FC) en TIA Portal.', en: '<b>PLC of the injection cell:</b> level-2 GRAFCET and multi-instance blocks (FB/FC) in TIA Portal.' },
+        { es: 'Señales analógicas escaladas: temperatura por termopar y clasificación de piezas por peso.', en: 'Scaled analogue signals: thermocouple temperature and part sorting by weight.' },
+        { es: 'Modos de marcha, paradas de emergencia, moldes por RFID y pruebas unitarias.', en: 'Operating modes, emergency stops, RFID mould identification and unit tests.' }
       ],
       tecnologias: ['PLC S7-1500', 'TIA Portal', 'GRAFCET', 'FlexSim', 'RFID'],
       galeria: [
@@ -162,22 +150,19 @@ const DATOS = {
     {
       id: 'microrred',
       titulo: { es: 'Nodo LoRa para una estación de telecomunicaciones aislada', en: 'LoRa node for an off-grid telecom station' },
-      resumen: { es: 'Raspberry Pi que mide temperatura y humedad, detecta emergencias y lo envía todo por LoRa a la nube (The Things Network).', en: 'A Raspberry Pi that measures temperature and humidity, detects emergencies and sends it all over LoRa to the cloud (The Things Network).' },
+      resumen: { es: 'Raspberry Pi que vigila una estación aislada y lo envía por LoRaWAN.', en: 'A Raspberry Pi that monitors an off-grid station and reports over LoRaWAN.' },
       fechas: { es: 'Primavera de 2026', en: 'Spring 2026' },
       estado: 'terminado',
-      categorias: ['embebidos', 'cloud'],
       equipo: { es: 'Asignatura Introduction to Hybrid Energy Systems (UPM) · en pareja', en: 'Introduction to Hybrid Energy Systems course (UPM) · team of 2' },
       portada: 'assets/proyectos/microrred/nodo-lora.webp',
       contexto: {
-        es: 'Las estaciones base de telecomunicaciones tienen que funcionar casi siempre, y en zonas aisladas no llega la red eléctrica. En el proyecto final de la asignatura, la estación se alimenta con una microrred híbrida (paneles solares, baterías y supercondensadores) y se vigila a distancia con un nodo LoRa.',
-        en: 'Telecom base stations must be up almost all the time, and in remote areas there is no power grid. In the final project of the course, the station runs on a hybrid microgrid (solar panels, batteries and supercapacitors) and is monitored remotely with a LoRa node.'
+        es: 'Vigila a distancia una estación de telecomunicaciones sin red eléctrica, alimentada por una microrred híbrida.',
+        en: 'It remotely monitors a telecom station with no grid connection, powered by a hybrid microgrid.'
       },
-      aportacion: { es: 'Mi parte fue el nodo: la Raspberry Pi, el enlace LoRa y la comunicación con la nube. La simulación de la microrred en Simulink la hizo mi compañera.', en: 'My part was the node: the Raspberry Pi, the LoRa link and the cloud communication. My teammate did the microgrid simulation in Simulink.' },
       puntos: [
-        { es: '<b>Hardware:</b> Raspberry Pi 400 con un módulo LoRa Adafruit RFM9x (SPI), un sensor de temperatura y humedad Si7021 (I2C) y un LED de estado, en protoboard.', en: '<b>Hardware:</b> a Raspberry Pi 400 with an Adafruit RFM9x LoRa module (SPI), an Si7021 temperature and humidity sensor (I2C) and a status LED, on a breadboard.' },
-        { es: '<b>Enlace LoRaWAN real (868 MHz):</b> las lecturas viajan en una trama de 5 bytes, enviada con TinyLoRa desde Python, hasta una pasarela y The Things Network.', en: '<b>A real LoRaWAN link (868 MHz):</b> readings travel in a 5-byte frame, sent with TinyLoRa from Python, to a gateway and The Things Network.' },
-        { es: '<b>En la nube:</b> un decodificador en JavaScript en TTN reconstruye los datos y avisa si la temperatura sale de 10–30 °C.', en: '<b>In the cloud:</b> a JavaScript payload formatter on TTN rebuilds the data and raises an alert if the temperature leaves 10–30 °C.' },
-        { es: '<b>Alarma temprana:</b> una entrada digital hace de sensor de catástrofes (incendio o terremoto) y manda «peligro» en el mismo paquete, sin gastar más tiempo de emisión.', en: '<b>Early warning:</b> a digital input acts as a disaster sensor (fire or earthquake) and sends “danger” in the same packet, with no extra airtime.' }
+        { es: 'Raspberry Pi 400 con un módulo LoRa (SPI) y un sensor de temperatura y humedad (I2C).', en: 'A Raspberry Pi 400 with a LoRa module (SPI) and a temperature and humidity sensor (I2C).' },
+        { es: 'Enlace LoRaWAN real (868 MHz) hasta The Things Network, con un decodificador en JavaScript.', en: 'A real LoRaWAN link (868 MHz) to The Things Network, with a JavaScript payload formatter.' },
+        { es: 'Alarmas de temperatura y de catástrofe en la misma trama de 5 bytes.', en: 'Temperature and disaster alerts in the same 5-byte frame.' }
       ],
       tecnologias: ['Raspberry Pi', 'Python', 'LoRa / LoRaWAN', 'The Things Network', 'I2C', 'SPI', 'JavaScript'],
       galeria: [
@@ -188,22 +173,19 @@ const DATOS = {
     {
       id: 'chess',
       titulo: { es: 'Chess Quest: ajedrez en C++', en: 'Chess Quest: a chess game in C++' },
-      resumen: { es: 'Videojuego de ajedrez con dos variantes y rival por IA, en C++ con POO y OpenGL.', en: 'A chess video game with two variants and an AI opponent, written in C++ with OOP and OpenGL.' },
+      resumen: { es: 'Ajedrez en C++ con POO y OpenGL, dos variantes y rival por IA.', en: 'Chess in C++ with OOP and OpenGL, two variants and an AI opponent.' },
       fechas: { es: 'Feb – may 2025', en: 'Feb – May 2025' },
       estado: 'terminado',
-      categorias: ['software'],
       equipo: { es: 'Informática Industrial (3.º) · equipo de 5', en: 'Industrial Computing course (3rd year) · team of 5' },
       portada: 'assets/proyectos/chess/portada.webp',
       contexto: {
-        es: 'Trabajo final de Informática Industrial: un ajedrez con interfaz gráfica y dos variantes en tableros pequeños, Silverman 4x5 y Demichess. Estética retro de fantasía con sprites animados y sonido, modo de dos jugadores y modo contra una IA con cinco estrategias (agresiva, defensiva, táctica, aleatoria y adaptativa).',
-        en: 'Final project for Industrial Computing: a chess game with a graphical interface and two small-board variants, Silverman 4x5 and Demichess. Retro fantasy look with animated sprites and sound, a two-player mode and a mode against an AI with five strategies (aggressive, defensive, tactical, random and adaptive).'
+        es: 'Trabajo final de Informática Industrial: ajedrez con interfaz gráfica, dos variantes en tableros pequeños y una IA con cinco estrategias.',
+        en: 'Final project for Industrial Computing: chess with a graphical interface, two small-board variants and an AI with five strategies.'
       },
-      aportacion: { es: 'La lógica del tablero y la interacción del jugador.', en: 'The board logic and player interaction.' },
       puntos: [
-        { es: '<b>Arquitectura en clases</b> (POO): coordinador, mundo, tablero, reglas, menú y una clase abstracta para las piezas.', en: '<b>Class-based architecture</b> (OOP): coordinator, world, board, rules, menu and an abstract piece class.' },
-        { es: '<b>Tablero:</b> piezas sobre la matriz y comunicación entre el mundo y el tablero para moverlas con el ratón.', en: '<b>Board:</b> pieces on the board matrix and communication between the world and the board to move them with the mouse.' },
-        { es: '<b>Validación de jugadas</b>, resaltado de los movimientos posibles y un validador que impide las jugadas que dejarían al rey en jaque.', en: '<b>Move validation</b>, highlighting of legal moves and a validator that blocks moves leaving the king in check.' },
-        { es: '<b>Trabajo en equipo con Git y GitHub:</b> ramas, resolución de conflictos y más de 200 commits.', en: '<b>Teamwork with Git and GitHub:</b> branches, conflict resolution and more than 200 commits.' }
+        { es: 'Lógica del tablero: piezas sobre la matriz y movimiento con el ratón.', en: 'Board logic: pieces on the board matrix, moved with the mouse.' },
+        { es: 'Jugadas posibles resaltadas y un validador que impide dejar al rey en jaque.', en: 'Highlighted legal moves and a validator that blocks moves leaving the king in check.' },
+        { es: 'Git y GitHub en equipo: ramas, resolución de conflictos y más de 200 commits.', en: 'Git and GitHub as a team: branches, conflict resolution and over 200 commits.' }
       ],
       tecnologias: ['C++', { es: 'POO', en: 'OOP' }, 'OpenGL', 'Git'],
       galeria: [
@@ -217,22 +199,19 @@ const DATOS = {
       id: 'casa',
       destacado: true,
       titulo: { es: 'Casa inteligente con app propia', en: 'Smart home with a custom app' },
-      resumen: { es: 'Home Assistant en una Raspberry Pi, dispositivos Zigbee y una app web propia con permisos por zonas.', en: 'Home Assistant on a Raspberry Pi, Zigbee devices and a custom web app with per-zone permissions.' },
+      resumen: { es: 'Home Assistant, dispositivos Zigbee y una app web propia con permisos.', en: 'Home Assistant, Zigbee devices and a custom web app with permissions.' },
       fechas: { es: 'Sep 2026 – actualidad', en: 'Sep 2026 – present' },
       estado: 'en-curso',
-      categorias: ['embebidos', 'software', 'cloud'],
       equipo: { es: 'Proyecto personal', en: 'Personal project' },
       portada: 'assets/proyectos/casa/app.webp',
       contexto: {
-        es: 'Domótica de casa, montada por tandas: cada compra se usa de verdad antes de pasar a la siguiente. El cerebro es Home Assistant en una Raspberry Pi 4, con dispositivos Zigbee y acceso desde fuera por VPN, sin abrir puertos.',
-        en: 'Home automation built in stages: each purchase is used for real before moving on to the next. The brain is Home Assistant on a Raspberry Pi 4, with Zigbee devices and remote access over a VPN, with no open ports.'
+        es: 'Domótica montada por tandas: Home Assistant en una Raspberry Pi 4, dispositivos Zigbee y acceso remoto por VPN, sin abrir puertos.',
+        en: 'Home automation built in stages: Home Assistant on a Raspberry Pi 4, Zigbee devices and remote access over a VPN, with no open ports.'
       },
-      aportacion: { es: 'Proyecto propio, de la caja del interruptor a la app.', en: 'My own project, from the wall switch box to the app.' },
       puntos: [
-        { es: '<b>Instalación:</b> Home Assistant OS en una Raspberry Pi 4, coordinador Zigbee, interruptor sin neutro y sensor de presencia; copias de seguridad diarias.', en: '<b>Setup:</b> Home Assistant OS on a Raspberry Pi 4, a Zigbee coordinator, a no-neutral wall switch and a presence sensor; daily backups.' },
-        { es: '<b>Acceso remoto</b> con Tailscale (VPN), sin abrir puertos del router.', en: '<b>Remote access</b> through Tailscale (VPN), with no router ports open.' },
-        { es: '<b>App web propia</b>, desarrollada con Claude Code e instalable en el móvil (PWA): backend en FastAPI + SQLite con login (Argon2 + JWT) y permisos por zona con denegación por defecto; frontend en React + TypeScript en tiempo real, con plano 2D, maqueta 3D (Three.js) e historial de quién encendió cada cosa.', en: '<b>Custom web app</b>, built with Claude Code and installable on a phone (PWA): FastAPI + SQLite backend with login (Argon2 + JWT) and deny-by-default per-zone permissions; real-time React + TypeScript frontend with a 2D floor plan, a 3D model (Three.js) and a history of who switched what on.' },
-        { es: '<b>IA:</b> Claude conectado a Home Assistant por MCP para consultar el estado de la casa y el historial de los sensores.', en: '<b>AI:</b> Claude connected to Home Assistant over MCP to query the state of the house and the sensor history.' }
+        { es: 'Coordinador Zigbee, interruptor sin neutro, sensor de presencia y copias de seguridad diarias.', en: 'A Zigbee coordinator, a no-neutral wall switch, a presence sensor and daily backups.' },
+        { es: 'App web instalable (PWA) hecha con Claude Code: FastAPI + React, login y permisos por zona.', en: 'An installable web app (PWA) built with Claude Code: FastAPI + React, login and per-zone permissions.' },
+        { es: 'Claude conectado a Home Assistant por MCP para consultar la casa y sus sensores.', en: 'Claude connected to Home Assistant over MCP to query the house and its sensors.' }
       ],
       tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude Code', 'Claude / MCP'],
       galeria: [
@@ -246,21 +225,19 @@ const DATOS = {
       concurso: true,   // sale en «Premios, concursos y certificados», no en Proyectos
       etiquetaEstado: { es: 'Concurso', en: 'Competition' },
       titulo: { es: 'ZeroSpoil: nevera inteligente contra el desperdicio', en: 'ZeroSpoil: a smart fridge against food waste' },
-      resumen: { es: 'Kit con cámara y visión artificial que convierte cualquier nevera en inteligente para tirar menos comida. Hecho en 48 horas en Invent For The Planet, de Texas A&M University.', en: 'A camera-and-computer-vision kit that turns any fridge into a smart one, so less food goes to waste. Built in 48 hours at Invent For The Planet, run by Texas A&M University.' },
+      resumen: { es: 'Kit con cámara que hace inteligente cualquier nevera, hecho en 48 horas.', en: 'A camera kit that makes any fridge smart, built in 48 hours.' },
       fechas: { es: 'Feb – mar 2026 · 48 h', en: 'Feb – Mar 2026 · 48 h' },
       estado: 'terminado',
-      categorias: ['embebidos', 'software'],
       equipo: { es: 'Invent For The Planet 2026 · Texas A&M University y UPM · equipo de 5', en: 'Invent For The Planet 2026 · Texas A&M University and UPM · team of 5' },
       portada: 'assets/proyectos/zerospoil/ilustracion.svg',
       contexto: {
-        es: 'Invent For The Planet es una competición internacional de 48 horas de Texas A&M University, que se celebra a la vez en universidades de todo el mundo; nosotros competimos en la sede de la UPM. En 2026 el tema eran los sistemas alimentarios y elegimos el reto del desperdicio: un tercio de la comida que se produce se pierde o se tira. Nuestra propuesta, la Smart-Shelf Box: escanear con la app, guardar, reconocer el producto y avisar antes de que se estropee.',
-        en: 'Invent For The Planet is a 48-hour international competition run by Texas A&M University and held at the same time at universities around the world; we competed at the UPM site. In 2026 the theme was food systems and we chose the food-waste challenge: a third of all food produced is lost or thrown away. Our proposal, the Smart-Shelf Box: scan with the app, store, recognise the product and get a warning before it goes off.'
+        es: 'Competición internacional de 48 horas de Texas A&M University, en la sede de la UPM. Nuestra idea: una caja con cámara que reconoce la comida de la nevera y avisa antes de que se estropee.',
+        en: 'A 48-hour international competition run by Texas A&M University, at the UPM site. Our idea: a box with a camera that recognises the food in the fridge and warns you before it goes off.'
       },
-      aportacion: { es: 'Hice un poco de todo; la visión artificial, el pitch y la edición del vídeo fueron solo míos.', en: 'I worked on a bit of everything; the computer vision, the pitch and the video editing were mine alone.' },
       puntos: [
-        { es: '<b>Visión artificial:</b> una demo con OpenCV que funcionaba, basada en la detección de colores.', en: '<b>Computer vision:</b> a working OpenCV demo based on colour detection.' },
-        { es: '<b>Hardware propuesto:</b> Raspberry Pi Zero 2 W con la IA en local, cámara Sony IMX708 gran angular con HDR, batería LiPo y antena wifi flexible para sacar la señal de la nevera; el prototipo, en maqueta.', en: '<b>Proposed hardware:</b> a Raspberry Pi Zero 2 W running the AI locally, a wide-angle Sony IMX708 camera with HDR, a LiPo battery and a flexible Wi-Fi antenna to get the signal out of the fridge; the prototype was a mock-up.' },
-        { es: '<b>Pitch y vídeo:</b> presenté el proyecto al jurado y edité el vídeo oficial del equipo.', en: '<b>Pitch and video:</b> I pitched the project to the judges and edited the team’s official video.' }
+        { es: 'Demo de visión artificial con OpenCV, basada en la detección de colores.', en: 'A computer vision demo with OpenCV, based on colour detection.' },
+        { es: 'Pitch ante el jurado y edición del vídeo oficial del equipo.', en: 'The pitch to the judges and the editing of the team’s official video.' },
+        { es: 'Hardware propuesto: Raspberry Pi Zero 2 W con la IA en local y cámara IMX708; el prototipo, en maqueta.', en: 'Proposed hardware: a Raspberry Pi Zero 2 W running the AI locally and an IMX708 camera; the prototype was a mock-up.' }
       ],
       tecnologias: ['OpenCV', { es: 'Visión artificial', en: 'Computer vision' }, 'Pitch', { es: 'Edición de vídeo', en: 'Video editing' }],
       galeria: [
@@ -276,23 +253,19 @@ const DATOS = {
       concurso: true,   // sale en «Premios, concursos y certificados», no en Proyectos
       etiquetaEstado: { es: 'Concurso', en: 'Competition' },
       titulo: { es: 'EMT NAVIA: asistente de navegación con IA (IBM y EMT Madrid)', en: 'EMT NAVIA: an AI navigation assistant (IBM & EMT Madrid)' },
-      resumen: { es: 'Asistente con visión e IA en el móvil para que una persona con discapacidad visual suba sola al autobús. Programa OA6 de IBM Consulting.', en: 'A vision-and-AI assistant on the phone that helps visually impaired people board the bus on their own. IBM Consulting’s OA6 programme.' },
+      resumen: { es: 'Asistente con IA en el móvil para que una persona con discapacidad visual suba sola al autobús.', en: 'An AI assistant on the phone that helps visually impaired people board the bus alone.' },
       fechas: { es: 'Primavera de 2026', en: 'Spring 2026' },
       estado: 'terminado',
-      categorias: ['cloud'],
       equipo: { es: 'Programa OA6 · IBM Consulting, EMT Madrid y UPM · equipo de 5', en: 'OA6 programme · IBM Consulting, EMT Madrid and UPM · team of 5' },
       portada: 'assets/proyectos/oa6/equipo.webp',
       contexto: {
-        es: 'Reto «Be My Way» del Programa de Emprendimiento Tecnológico OA6 – Soluciones de IA, de IBM Consulting, EMT Madrid y la UPM: un asistente que cubre la «última yarda», el tramo desde la parada hasta la puerta del autobús, para una persona con discapacidad visual. En la final presentamos la idea ante un jurado profesional.',
-        en: 'The “Be My Way” challenge of the OA6 Tech Entrepreneurship Programme – AI Solutions, run by IBM Consulting, EMT Madrid and UPM: an assistant that covers the “last yard”, from the bus stop to the bus door, for a visually impaired person. At the final we pitched the idea to a professional jury.'
+        es: 'Reto «Be My Way» del programa OA6 de IBM Consulting, EMT Madrid y la UPM: guiar a una persona con discapacidad visual desde la parada hasta la puerta del autobús.',
+        en: 'The “Be My Way” challenge of the OA6 programme, run by IBM Consulting, EMT Madrid and UPM: guiding a visually impaired person from the bus stop to the bus door.'
       },
-      aportacion: { es: 'Del concepto técnico al caso de negocio, en un equipo de cinco.', en: 'From the technical concept to the business case, in a team of five.' },
       puntos: [
-        { es: '<b>Edge AI:</b> modelos open source (YOLOv8, MobileNet) ajustados con transfer learning, con la inferencia en el propio móvil y sin servidores.', en: '<b>Edge AI:</b> open-source models (YOLOv8, MobileNet) fine-tuned with transfer learning, running inference on the phone itself with no servers.' },
-        { es: '<b>Manos libres:</b> el móvil va en un soporte de pecho y guía hasta la puerta por voz, con vibración y con auriculares de conducción ósea, que no tapan el ruido del tráfico.', en: '<b>Hands-free:</b> the phone sits on a chest mount and guides the user to the door by voice, with vibration and bone-conduction headphones that do not block traffic noise.' },
-        { es: '<b>Precisión:</b> de los 5 m de error del GPS a unos 0,2 m al reconocer la puerta con la cámara, según nuestra estimación.', en: '<b>Accuracy:</b> from the 5 m error of GPS to about 0.2 m by recognising the door with the camera, according to our estimate.' },
-        { es: '<b>Privacy-by-design:</b> las imágenes se procesan en la memoria del móvil y se descartan al momento; no se guarda ni se envía nada (RGPD).', en: '<b>Privacy by design:</b> images are processed in the phone’s memory and discarded at once; nothing is stored or sent (GDPR).' },
-        { es: '<b>Negocio:</b> 0 € en hardware urbano (va como un módulo de la app de EMT) y semanas de Design Thinking y Lean Canvas, validando el caso con expertos en las oficinas de IBM y EMT Madrid.', en: '<b>Business:</b> €0 in street hardware (it ships as a module of the EMT app) and weeks of Design Thinking and Lean Canvas, validating the case with experts at IBM and EMT Madrid.' }
+        { es: 'Edge AI: YOLOv8 y MobileNet ajustados con transfer learning, con la inferencia en el propio móvil.', en: 'Edge AI: YOLOv8 and MobileNet fine-tuned with transfer learning, running on the phone itself.' },
+        { es: 'Guiado manos libres por voz y vibración: de los 5 m de error del GPS a unos 0,2 m (estimado).', en: 'Hands-free guidance by voice and vibration: from the 5 m error of GPS to about 0.2 m (estimated).' },
+        { es: 'Privacy-by-design (no se guarda ni se envía nada) y caso de negocio con 0 € en hardware urbano.', en: 'Privacy by design (nothing is stored or sent) and a business case with €0 in street hardware.' }
       ],
       tecnologias: ['Edge AI', 'YOLOv8', { es: 'Visión artificial', en: 'Computer vision' }, 'Design Thinking', 'Lean Canvas'],
       galeria: [
@@ -320,7 +293,8 @@ const DATOS = {
     },
     fotos: [
       { src: 'assets/premios/alia-certificado.webp', pie: { es: 'Certificado de ganador', en: 'Winner’s certificate' } },
-      { src: 'assets/premios/alia-entrega.webp', pie: { es: 'Entrega de premios', en: 'Award ceremony' } }
+      { src: 'assets/premios/alia-sofa.webp', pie: { es: 'Con los certificados en el escenario', en: 'With our certificates on stage' } },
+      { src: 'assets/premios/alia-grupo.webp', pie: { es: 'Ganadores y organizadores del Desafío ALIA', en: 'Winners and organisers of the ALIA Challenge' } }
     ],
     enlace: 'https://www.linkedin.com/feed/update/urn%3Ali%3AugcPost%3A7421991732231430144'
   },
@@ -482,14 +456,14 @@ const DATOS = {
       saltar: 'Saltar al contenido',
       navSobreMi: 'Sobre mí', navProyectos: 'Proyectos', navExperiencia: 'Experiencia', navSkills: 'Skills', navContacto: 'Contacto',
       tema: 'Cambiar entre tema claro y oscuro', idioma: 'Read in English', menu: 'Abrir el menú',
-      hola: 'Hola, soy', apasionado: 'Apasionado por', etiquetaPremio: '1.er Premio Nacional · Promptathon ALIA',
+      hola: 'Hola, soy', apasionado: 'Apasionado por', chipTexto: 'APASIONADO POR', etiquetaPremio: '1.er Premio Nacional · Promptathon ALIA',
       verProyectos: 'Ver proyectos', conectar: 'Conectemos', descargarCV: 'Descargar CV',
-      statCurso: 'curso de GIEIA en la UPM', statCrea: 'años en el club de robótica', statProyectos: 'proyectos en esta web', statPremio: 'premio nacional de IA (ALIA)',
+      statCurso: 'curso de Ingeniería Electrónica Industrial y Automática', statCrea: 'años en el club de robótica', statProyectos: 'proyectos en esta web', statPremio: 'premio nacional de IA (ALIA)',
       tituloSobreMi: 'Sobre mí', ahoraMismo: 'Ahora mismo', actualizado: 'Actualizado en',
       tituloProyectos: 'Proyectos', subProyectos: 'Lo que he diseñado, montado y programado: en clase, en el club de robótica y por mi cuenta.',
-      todos: 'Todos', filtrandoPor: 'Mostrando proyectos con', quitarFiltro: 'Quitar filtro', verMas: 'Ver más',
-      enCurso: 'En curso', terminado: 'Terminado',
-      contexto: 'El proyecto', aportacion: 'Mi parte', tecnologias: 'Tecnologías', cerrar: 'Cerrar',
+      filtrandoPor: 'Mostrando proyectos con', quitarFiltro: 'Quitar filtro', verMas: 'Ver más',
+      enCurso: 'En curso',
+      tecnologias: 'Tecnologías', cerrar: 'Cerrar',
       anterior: 'Anterior', siguiente: 'Siguiente', copiarEnlace: 'Copiar enlace', enlaceCopiado: '¡Enlace copiado!',
       tituloPremios: 'Premios, concursos y certificados', verPost: 'Ver en LinkedIn', verificar: 'Verificar',
       tituloExperiencia: 'Experiencia y formación', trabajo: 'Experiencia', estudios: 'Formación', actual: 'Actual',
@@ -508,14 +482,14 @@ const DATOS = {
       saltar: 'Skip to content',
       navSobreMi: 'About', navProyectos: 'Projects', navExperiencia: 'Experience', navSkills: 'Skills', navContacto: 'Contact',
       tema: 'Toggle light and dark theme', idioma: 'Leer en español', menu: 'Open the menu',
-      hola: 'Hi, I’m', apasionado: 'Passionate about', etiquetaPremio: '1st National Prize · ALIA Promptathon',
+      hola: 'Hi, I’m', apasionado: 'Passionate about', chipTexto: 'PASSIONATE ABOUT', etiquetaPremio: '1st National Prize · ALIA Promptathon',
       verProyectos: 'See my projects', conectar: 'Let’s connect', descargarCV: 'Download CV',
-      statCurso: 'year of my engineering degree at UPM', statCrea: 'years in the robotics club', statProyectos: 'projects on this site', statPremio: 'national AI prize (ALIA)',
+      statCurso: 'year of Industrial Electronics and Automation Engineering', statCrea: 'years in the robotics club', statProyectos: 'projects on this site', statPremio: 'national AI prize (ALIA)',
       tituloSobreMi: 'About me', ahoraMismo: 'Right now', actualizado: 'Updated',
       tituloProyectos: 'Projects', subProyectos: 'Things I have designed, built and programmed: at university, at the robotics club and on my own.',
-      todos: 'All', filtrandoPor: 'Showing projects with', quitarFiltro: 'Clear filter', verMas: 'Read more',
-      enCurso: 'In progress', terminado: 'Completed',
-      contexto: 'The project', aportacion: 'My part', tecnologias: 'Tech stack', cerrar: 'Close',
+      filtrandoPor: 'Showing projects with', quitarFiltro: 'Clear filter', verMas: 'Read more',
+      enCurso: 'In progress',
+      tecnologias: 'Tech stack', cerrar: 'Close',
       anterior: 'Previous', siguiente: 'Next', copiarEnlace: 'Copy link', enlaceCopiado: 'Link copied!',
       tituloPremios: 'Awards, competitions and certificates', verPost: 'See on LinkedIn', verificar: 'Verify',
       tituloExperiencia: 'Experience and education', trabajo: 'Experience', estudios: 'Education', actual: 'Current',

@@ -1,5 +1,5 @@
 // Pinta la web a partir de datos.js y se encarga de la interacción:
-// idioma, tema, filtros, ventana de cada proyecto, skills y formulario.
+// idioma, tema, ventana de cada proyecto, skills (y su filtro de proyectos) y formulario.
 
 (function () {
   const D = DATOS;
@@ -93,30 +93,106 @@
     $('#cifras').innerHTML = cifras
       .map(([n, texto]) => `<li><span class="cifra">${n}</span><span class="cifra-texto">${texto}</span></li>`)
       .join('');
-    escribir();
+    pintarRotulo();
   }
 
-  // Rótulo que se escribe y se borra solo
-  let temporizador;
-  function escribir() {
-    clearTimeout(temporizador);
-    const el = $('#escribiendo');
-    const roles = t(D.persona.roles);
-    let i = 0, letras = 0, borrando = false;
-    if (sinMovimiento) {
-      el.textContent = roles[0];
-      temporizador = setInterval(() => { i = (i + 1) % roles.length; el.textContent = roles[i]; }, 3000);
-      return;
+  // ---------- Rótulo de la portada: árbol de reloj ----------
+  // Un procesador «APASIONADO POR» del que sale una pista que se divide en 2 y en 4, hacia las áreas.
+  // Un pulso va a una rama cada vez y enciende su área, que se apaga al llegar el siguiente.
+  let animacion;
+
+  function pintarRotulo() {
+    cancelAnimationFrame(animacion);
+    const caja = $('#portada-rol');
+    const areas = D.persona.chips.map(c => t(c.area));
+    caja.className = 'portada-rol';
+    caja.setAttribute('aria-label', `${tx('apasionado')}: ${areas.join(', ')}`);
+    rotuloArbol(caja, areas);
+  }
+
+  // Las pistas dependen del tamaño: si cambia el ancho de la ventana, se vuelven a dibujar
+  let anchoAntes = innerWidth, redimension;
+  addEventListener('resize', () => {
+    if (innerWidth === anchoAntes) return;
+    anchoAntes = innerWidth;
+    clearTimeout(redimension);
+    redimension = setTimeout(pintarRotulo, 150);
+  });
+
+  // Centro de un elemento, en coordenadas de la placa
+  function centro(el, placa) {
+    const a = el.getBoundingClientRect(), b = placa.getBoundingClientRect();
+    return { x: a.left - b.left + a.width / 2, y: a.top - b.top + a.height / 2, w: a.width, h: a.height };
+  }
+
+  // Pista de PCB que pasa por unos puntos, con las esquinas cortadas a 45°
+  function trazar(puntos, r = 12) {
+    const p = puntos.filter((q, i) => i === 0 || Math.hypot(q.x - puntos[i - 1].x, q.y - puntos[i - 1].y) > 0.5);
+    let d = `M${p[0].x} ${p[0].y}`;
+    for (let i = 1; i < p.length - 1; i++) {
+      const a = p[i - 1], b = p[i], c = p[i + 1];
+      const l1 = Math.hypot(b.x - a.x, b.y - a.y), l2 = Math.hypot(c.x - b.x, c.y - b.y);
+      const e = Math.min(r, l1 / 2, l2 / 2);
+      d += ` L${b.x - (b.x - a.x) / l1 * e} ${b.y - (b.y - a.y) / l1 * e} L${b.x + (c.x - b.x) / l2 * e} ${b.y + (c.y - b.y) / l2 * e}`;
     }
-    (function paso() {
-      const palabra = roles[i];
-      letras += borrando ? -1 : 1;
-      el.textContent = palabra.slice(0, letras);
-      let espera = borrando ? 35 : 75;
-      if (!borrando && letras === palabra.length) { borrando = true; espera = 1800; }
-      else if (borrando && letras === 0) { borrando = false; i = (i + 1) % roles.length; espera = 350; }
-      temporizador = setTimeout(paso, espera);
-    })();
+    const z = p[p.length - 1];
+    return d + ` L${z.x} ${z.y}`;
+  }
+
+  // Bucle de animación: cuadro(t), con t en segundos. Sin movimiento, una sola vez con t = null
+  function animar(cuadro) {
+    if (sinMovimiento) return cuadro(null);
+    const inicio = performance.now();
+    (function bucle(ahora) {
+      cuadro(Math.max(0, ahora - inicio) / 1000);   // el primer fotograma puede llegar con hora anterior
+      animacion = requestAnimationFrame(bucle);
+    })(inicio);
+  }
+
+  function rotuloArbol(caja, areas) {
+    caja.innerHTML = `
+      <div class="placa arbol">
+        <svg class="pistas" aria-hidden="true"></svg>
+        <span class="micro cpu"><span class="micro-cuerpo"><i class="led"></i><b>${tx('chipTexto')}</b></span></span>
+        <div class="hojas">${areas.map(a => `<span class="pad-area">${esc(a)}</span>`).join('')}</div>
+      </div>`;
+    const placa = $('.placa', caja), svg = $('.pistas', caja), pads = $$('.pad-area', caja);
+    const cpu = centro($('.cpu', caja), placa), h = pads.map(p => centro(p, placa));
+
+    // El árbol: tronco, primera bifurcación (x1) y segunda (x2), una pista entera por área
+    const x0 = cpu.x + cpu.w / 2, xFin = h[0].x - h[0].w / 2;
+    const x1 = x0 + (xFin - x0) * 0.3, x2 = x0 + (xFin - x0) * 0.66;
+    const yA = (h[0].y + h[1].y) / 2, yB = (h[2].y + h[3].y) / 2;
+    const tramos = h.map((d, k) => {
+      const y = k < 2 ? yA : yB;
+      return [{ x: x0, y: cpu.y }, { x: x1, y: cpu.y }, { x: x1, y }, { x: x2, y }, { x: x2, y: d.y }, { x: xFin, y: d.y }];
+    });
+    const vias = [{ x: x1 - 12, y: cpu.y }, { x: x2 - 12, y: yA }, { x: x2 - 12, y: yB }];
+    svg.innerHTML = tramos.map(p => `<path d="${trazar(p)}"/>`).join('') +
+      vias.map(v => `<circle class="via" cx="${v.x}" cy="${v.y}" r="3.5"/>`).join('') +
+      '<circle class="pulso-svg" r="4"/>';
+    const pistas = $$('path', svg), pulso = $('.pulso-svg', svg);
+    const largos = pistas.map(p => p.getTotalLength());
+
+    // Un pulso va del chip al área k; tarda «viaje» segundos
+    const viaje = 1.2;
+    function pulsoHacia(k, fase) {
+      pulso.style.opacity = fase < viaje ? 1 : 0;
+      if (fase >= viaje) return;
+      const q = pistas[k].getPointAtLength(fase / viaje * largos[k]);
+      pulso.setAttribute('cx', q.x);
+      pulso.setAttribute('cy', q.y);
+    }
+    const encender = cual => pads.forEach((p, n) => p.classList.toggle('activo', cual(n)));
+
+    animar(t => {
+      if (t === null) { pulso.style.opacity = 0; return encender(() => true); }
+      // Una sola área encendida: la última a la que ha llegado el pulso
+      const paso = 2.4, k = Math.floor(t / paso) % 4, fase = t % paso;
+      pulsoHacia(k, fase);
+      const ultima = fase >= viaje ? k : (k + 3) % 4;
+      encender(n => n === ultima);
+    });
   }
 
   // ---------- Sobre mí ----------
@@ -129,7 +205,7 @@
   }
 
   // ---------- Proyectos ----------
-  const filtro = { categoria: 'todos', skill: null };
+  let filtroSkill = null;   // skill pulsada en la vista «Detalle»: solo se ven sus proyectos
 
   function portadaHTML(p) {
     if (p.portada && p.portada.diagrama) {
@@ -142,33 +218,28 @@
   const PROYECTOS = D.proyectos.filter(p => !p.concurso);
   const CONCURSOS = D.proyectos.filter(p => p.concurso);
 
-  function etiquetaEstado(p) {
-    return p.etiquetaEstado ? t(p.etiquetaEstado) : tx(p.estado === 'en-curso' ? 'enCurso' : 'terminado');
+  // Etiqueta de estado: solo si está en curso o lleva una propia («v2 en curso», «Concurso»)
+  function htmlEstado(p) {
+    const texto = p.etiquetaEstado ? t(p.etiquetaEstado) : (p.estado === 'en-curso' ? tx('enCurso') : '');
+    return texto ? `<span class="estado ${p.estado}">${texto}</span>` : '';
   }
 
   function pintarProyectos() {
-    const cats = Object.keys(D.categorias);
-    const cuenta = c => PROYECTOS.filter(p => p.categorias.includes(c)).length;
-    $('#filtros').innerHTML =
-      `<button class="filtro" type="button" data-cat="todos">${tx('todos')}<span class="filtro-cuenta">${PROYECTOS.length}</span></button>` +
-      cats.map(c => `<button class="filtro" type="button" data-cat="${c}">${t(D.categorias[c])}<span class="filtro-cuenta">${cuenta(c)}</span></button>`).join('');
-
     $('#rejilla-proyectos').innerHTML = PROYECTOS.map(tarjetaProyecto).join('');
     aplicarFiltro();
   }
 
+  // Tarjeta: foto, título y una línea. Fechas y tecnologías van en la ventana.
   function tarjetaProyecto(p) {
     return `
       <article class="proyecto revelar${p.destacado ? ' ancho' : ''}" data-id="${p.id}">
         <div class="proyecto-imagen${p.portada.diagrama ? ' con-diagrama' : ''}">
           ${portadaHTML(p)}
-          <span class="estado ${p.estado}">${etiquetaEstado(p)}</span>
+          ${htmlEstado(p)}
         </div>
         <div class="proyecto-cuerpo">
-          <p class="proyecto-meta">${t(p.fechas)}</p>
           <h3><a class="proyecto-enlace" href="#proyecto/${p.id}">${t(p.titulo)}</a></h3>
           <p>${t(p.resumen)}</p>
-          <ul class="etiquetas">${p.tecnologias.slice(0, 5).map(x => `<li class="etiqueta" data-tag="${esc(typeof x === 'object' ? x.es : x)}">${t(x)}</li>`).join('')}</ul>
           <span class="proyecto-pie" aria-hidden="true">${tx('verMas')} ${icono('flechaDer')}</span>
         </div>
       </article>`;
@@ -177,30 +248,18 @@
   const tagsDe = p => p.tecnologias.map(x => (typeof x === 'object' ? x.es : x));
 
   function aplicarFiltro() {
-    $$('.filtro').forEach(b => b.setAttribute('aria-pressed', String(!filtro.skill && b.dataset.cat === filtro.categoria)));
     $$('.proyecto', $('#rejilla-proyectos')).forEach(tarjeta => {
       const p = PROYECTOS.find(x => x.id === tarjeta.dataset.id);
-      let visible = filtro.categoria === 'todos' || p.categorias.includes(filtro.categoria);
-      if (filtro.skill) visible = filtro.skill.tags.some(tag => tagsDe(p).includes(tag));
-      tarjeta.hidden = !visible;
-      $$('.etiqueta', tarjeta).forEach(e => e.classList.toggle('coincide', !!filtro.skill && filtro.skill.tags.includes(e.dataset.tag)));
+      tarjeta.hidden = !!filtroSkill && !filtroSkill.tags.some(tag => tagsDe(p).includes(tag));
     });
-    $('#rejilla-proyectos').classList.toggle('completa', filtro.categoria === 'todos' && !filtro.skill);
+    $('#rejilla-proyectos').classList.toggle('completa', !filtroSkill);
     const aviso = $('#filtro-skill');
-    aviso.hidden = !filtro.skill;
-    if (filtro.skill) {
-      aviso.innerHTML = `<span>${tx('filtrandoPor')} <strong>${esc(t(filtro.skill.n))}</strong></span><button type="button" id="quitar-filtro">${tx('quitarFiltro')}</button>`;
-      $('#quitar-filtro').addEventListener('click', () => { filtro.skill = null; aplicarFiltro(); });
+    aviso.hidden = !filtroSkill;
+    if (filtroSkill) {
+      aviso.innerHTML = `<span>${tx('filtrandoPor')} <strong>${esc(t(filtroSkill.n))}</strong></span><button type="button" id="quitar-filtro">${tx('quitarFiltro')}</button>`;
+      $('#quitar-filtro').addEventListener('click', () => { filtroSkill = null; aplicarFiltro(); });
     }
   }
-
-  $('#filtros').addEventListener('click', e => {
-    const b = e.target.closest('.filtro');
-    if (!b) return;
-    filtro.categoria = b.dataset.cat;
-    filtro.skill = null;
-    aplicarFiltro();
-  });
 
   // ---------- Ventana de proyecto ----------
   const ventana = $('#ventana');
@@ -244,13 +303,10 @@
       </div>
       <div class="ventana-info">
         <button class="ventana-cerrar" type="button" id="ventana-cerrar" aria-label="${tx('cerrar')}">${icono('cerrar')}</button>
-        <p class="proyecto-meta"><span>${t(p.fechas)}</span><span class="estado ${p.estado}">${etiquetaEstado(p)}</span></p>
+        <p class="proyecto-meta"><span>${t(p.fechas)}</span>${htmlEstado(p)}</p>
         <h2 id="ventana-titulo">${t(p.titulo)}</h2>
         <p class="ventana-equipo">${t(p.equipo)}</p>
-        <h3>${tx('contexto')}</h3>
         <p class="texto">${t(p.contexto)}</p>
-        <h3>${tx('aportacion')}</h3>
-        <p class="aportacion">${t(p.aportacion)}</p>
         <ul class="puntos">${p.puntos.map(x => `<li>${t(x)}</li>`).join('')}</ul>
         <h3>${tx('tecnologias')}</h3>
         <ul class="etiquetas">${p.tecnologias.map(x => `<li class="etiqueta">${t(x)}</li>`).join('')}</ul>
@@ -459,7 +515,7 @@
   $('#rejilla-skills').addEventListener('click', e => {
     const b = e.target.closest('button.skill');
     if (!b) return;
-    filtro.skill = D.skills[b.dataset.g].items[b.dataset.s];
+    filtroSkill = D.skills[b.dataset.g].items[b.dataset.s];
     aplicarFiltro();
     $('#proyectos').scrollIntoView({ behavior: sinMovimiento ? 'auto' : 'smooth' });
   });

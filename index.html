@@ -49,7 +49,7 @@
     "name": "Víctor Humberto Casanova Bernal",
     "alternateName": "Víctor Casanova",
     "url": "https://victorinox05.github.io/",
-    "image": "https://victorinox05.github.io/assets/foto.webp",
+    "image": "https://victorinox05.github.io/assets/retrato.webp",
     "jobTitle": "Estudiante de Ingeniería Electrónica Industrial y Automática",
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Politécnica de Madrid" },
     "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
@@ -109,7 +109,7 @@
       <div class="portada-texto">
         <p class="distintivo"><span class="punto" aria-hidden="true"></span><span id="distintivo"></span></p>
         <h1 class="portada-titulo"><span data-t="hola">Hola, soy</span> <span class="degradado" id="nombre">Víctor Casanova</span></h1>
-        <p class="portada-rol"><span data-t="apasionado">Apasionado por</span> <span class="escribiendo" id="escribiendo"></span><span class="cursor" aria-hidden="true">_</span></p>
+        <div class="portada-rol" id="portada-rol"></div>
         <p class="portada-bio" id="bio"></p>
         <div class="portada-botones">
           <a class="boton boton-principal" href="#proyectos"><span data-t="verProyectos">Ver proyectos</span>
@@ -124,12 +124,12 @@
       </div>
       <figure class="portada-foto">
         <div class="foto-marco">
-          <img id="foto" src="assets/foto.webp" alt="Víctor Casanova" width="720" height="900" fetchpriority="high">
+          <img id="foto" src="assets/retrato.webp" alt="Víctor Casanova" width="720" height="900" fetchpriority="high">
         </div>
         <figcaption class="foto-etiqueta etiqueta-premio">
           <span aria-hidden="true">🏆</span><span id="etiqueta-premio"></span>
         </figcaption>
-        <span class="foto-etiqueta etiqueta-chip mono" aria-hidden="true">ESP32 · FPGA · PLC</span>
+        <span class="foto-etiqueta etiqueta-chip mono" aria-hidden="true">ARTIX-7 · STM32 · S7-1500</span>
       </figure>
       <ul class="cifras" id="cifras" aria-label="Datos rápidos"></ul>
     </section>
@@ -151,7 +151,6 @@
     <section class="seccion contenedor" id="proyectos">
       <h2 class="seccion-titulo"><span class="mono numero">02</span> <span data-t="tituloProyectos">Proyectos</span></h2>
       <p class="seccion-sub" data-t="subProyectos"></p>
-      <div class="filtros" id="filtros" role="toolbar" aria-label="Filtrar proyectos"></div>
       <p class="filtro-skill" id="filtro-skill" hidden></p>
       <div class="rejilla-proyectos" id="rejilla-proyectos"></div>
     </section>

@@ -214,10 +214,49 @@ body::before {
 }
 .portada-titulo { font-size: clamp(2.5rem, 5.6vw, 4.4rem); font-weight: 700; letter-spacing: -.035em; margin-bottom: 18px; }
 .degradado { background: var(--degradado); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.portada-rol { font-family: var(--f-titulos); font-size: clamp(1.3rem, 2.6vw, 1.85rem); font-weight: 600; color: var(--texto); margin-bottom: 22px; min-height: 1.4em; }
-.escribiendo { color: var(--acento); }
-.cursor { color: var(--acento-2); animation: parpadeo 1s steps(1) infinite; margin-left: 2px; }
-@keyframes parpadeo { 50% { opacity: 0; } }
+/* Rótulo de la portada: el procesador «APASIONADO POR» y el árbol de reloj hacia las áreas */
+.portada-rol { font-family: var(--f-mono); margin-bottom: 28px; }
+
+/* La placa: las pistas van en un SVG por detrás del chip y de las áreas */
+.placa { position: relative; max-width: 560px; padding: 6px 0; }
+.pistas { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.pistas path { fill: none; stroke: var(--acento); stroke-opacity: .4; stroke-width: 2; stroke-linejoin: round; }
+.pistas .via { fill: var(--fondo); stroke: var(--acento); stroke-opacity: .7; stroke-width: 2; }
+.pulso-svg { fill: #fff; filter: drop-shadow(0 0 4px var(--acento)) drop-shadow(0 0 8px var(--acento)); }
+
+/* El procesador (QFP): el cuerpo encima y las patillas asomando por los 4 lados */
+.micro { position: relative; z-index: 1; display: block; aspect-ratio: 1; }
+.micro::before, .micro::after { content: ''; position: absolute; z-index: 0; }
+.micro::before { inset: -6px 14%; background: repeating-linear-gradient(90deg, #aeb9c8 0 3px, transparent 3px 9px); }
+.micro::after { inset: 14% -6px; background: repeating-linear-gradient(180deg, #aeb9c8 0 3px, transparent 3px 9px); }
+.micro-cuerpo {
+  position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-radius: 6px; background: linear-gradient(145deg, #1c2638, #0a101b); border: 1px solid rgba(148, 163, 184, .3);
+  text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+}
+.led { position: absolute; left: 9px; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #5aa8ff; box-shadow: 0 0 8px 2px rgba(90, 168, 255, .7); }
+.cpu { width: 116px; }
+.cpu b { padding: 0 14px; font-size: .74rem; font-weight: 700; line-height: 1.45; letter-spacing: .07em; color: #dce5f2; }
+
+/* Las áreas: se encienden despacio y se apagan más despacio todavía (nada de parpadeos) */
+.pad-area {
+  position: relative; z-index: 1; padding: 8px 12px; border-radius: 8px; text-align: center;
+  font-family: var(--f-texto); font-size: .86rem; font-weight: 600; color: var(--texto-2);
+  background: var(--superficie); border: 1px solid var(--borde); transition: color 1.2s, border-color 1.2s, box-shadow 1.2s;
+}
+.pad-area.activo { color: var(--texto); border-color: var(--acento); box-shadow: 0 0 0 1px var(--acento), 0 0 18px var(--acento-suave); transition-duration: .4s; }
+
+/* Chip a la izquierda y las áreas en columna a la derecha */
+.arbol { display: grid; grid-template-columns: auto minmax(70px, 150px) minmax(0, 180px); align-items: center; }
+.hojas { grid-column: 3; display: grid; gap: 10px; }
+
+@media (max-width: 520px) {
+  .cpu { width: 96px; }
+  .cpu b { padding: 0 8px; font-size: .64rem; }
+  .arbol { grid-template-columns: auto minmax(44px, 1fr) minmax(0, 150px); }
+  .pad-area { padding: 7px 6px; font-size: .76rem; }
+}
+
 .portada-bio { font-size: 1.08rem; color: var(--texto-2); max-width: 36em; margin-bottom: 34px; }
 .portada-botones { display: flex; flex-wrap: wrap; gap: 14px; }
 
@@ -286,16 +325,6 @@ body::before {
 .ahora-fecha { margin-top: 10px; font-size: .74rem; color: var(--texto-3); }
 
 /* ---------- Proyectos ---------- */
-.filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-.filtro {
-  padding: 8px 16px; border-radius: 999px; border: 1px solid var(--borde-fuerte);
-  background: var(--superficie); color: var(--texto-2); font-size: .9rem; font-weight: 500;
-  transition: all .2s;
-}
-.filtro:hover { color: var(--texto); border-color: var(--acento); }
-.filtro[aria-pressed="true"] { background: var(--acento); border-color: var(--acento); color: #fff; }
-[data-theme="dark"] .filtro[aria-pressed="true"] { color: var(--sobre-acento); }
-.filtro-cuenta { font-family: var(--f-mono); font-size: .75rem; opacity: .7; margin-left: 4px; }
 .filtro-skill {
   display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;
   font-size: .92rem; color: var(--texto-2);
@@ -339,7 +368,6 @@ body::before {
   padding: 3px 10px; border-radius: 7px; font-family: var(--f-mono); font-size: .72rem; font-weight: 500;
   background: var(--acento-2-suave); color: var(--acento-2); border: 1px solid transparent;
 }
-.etiqueta.coincide { border-color: var(--acento-2); }
 .proyecto-pie { margin-top: auto; padding-top: 18px; display: flex; align-items: center; gap: 8px; font-size: .9rem; font-weight: 600; color: var(--acento); }
 .proyecto-pie svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; transition: transform .25s; }
 .proyecto:hover .proyecto-pie svg { transform: translateX(4px); }
@@ -414,7 +442,7 @@ body::before {
 .ventana-equipo { color: var(--texto-2); font-size: .92rem; margin-bottom: 18px; }
 .ventana-info h3 { font-family: var(--f-mono); font-size: .76rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--acento); margin: 22px 0 8px; }
 .ventana-info > p, .ventana-info .texto { color: var(--texto-2); font-size: .97rem; }
-.ventana-info .aportacion { padding: 12px 16px; border-left: 3px solid var(--acento); background: var(--acento-suave); border-radius: 0 10px 10px 0; color: var(--texto); font-size: .97rem; }
+.ventana-info .texto { margin-bottom: 16px; }
 .puntos { display: grid; gap: 10px; margin-top: 4px; }
 .puntos li { position: relative; padding-left: 22px; color: var(--texto-2); font-size: .95rem; line-height: 1.55; }
 .puntos li::before { content: ''; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; border: 2px solid var(--acento-2); transform: rotate(45deg); }
@@ -428,9 +456,11 @@ body::before {
 
 /* ---------- Premios ---------- */
 .premio { display: grid; grid-template-columns: 1.05fr 1fr; overflow: hidden; margin-top: 26px; }
-.premio-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--borde); }
+.premio-fotos { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: 4px; background: var(--borde); }
+/* Con tres fotos, la primera (el certificado) ocupa toda la altura a la izquierda */
+.premio-fotos figure:first-child:nth-last-child(3) { grid-row: span 2; }
 .premio-fotos figure { position: relative; overflow: hidden; }
-.premio-fotos img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; transition: transform .6s var(--curva); }
+.premio-fotos img { width: 100%; height: 100%; min-height: 170px; object-fit: cover; transition: transform .6s var(--curva); }
 .premio-fotos figure:hover img { transform: scale(1.04); }
 .premio-fotos figcaption { position: absolute; left: 10px; bottom: 10px; padding: 3px 10px; border-radius: 7px; font-size: .74rem; background: rgba(10, 14, 20, .75); color: #fff; }
 .premio-texto { padding: 34px 36px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
@@ -611,7 +641,7 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
   .seccion { padding-top: 72px; }
   .seccion-titulo .numero { display: none; }
   .rejilla-proyectos, .rejilla-skills, .certificados { grid-template-columns: 1fr; }
-  .premio-fotos img { min-height: 200px; }
+  .premio-fotos img { min-height: 130px; }
   .premio-texto { padding: 26px 22px; }
   .ventana { width: 100%; max-height: 100dvh; height: 100dvh; border-radius: 0; border: 0; margin: 0; }
   .ventana-caja { max-height: 100dvh; height: 100%; }
@@ -641,7 +671,7 @@ button.skill:hover { border-color: var(--acento-2); color: var(--acento-2); tran
 
 /* Impresión: solo el contenido, sin fondo ni botones */
 @media print {
-  #fondo, .cabecera, .portada-botones, .filtros, .formulario, .foto-etiqueta, body::before { display: none !important; }
+  #fondo, .cabecera, .portada-botones, .formulario, .foto-etiqueta, body::before { display: none !important; }
   body { background: #fff; color: #000; }
   .revelar { opacity: 1; transform: none; }
   .seccion { padding-top: 24px; break-inside: avoid-page; }
