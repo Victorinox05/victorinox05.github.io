@@ -501,6 +501,7 @@ body::before {
 .hito-empresa .hito-sub { margin-bottom: 0; }
 .hito-logo { flex: none; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; background: var(--superficie-2); border: 1px solid var(--borde); }
 img.hito-logo { object-fit: contain; padding: 5px; background: #fff; }
+img.hito-logo.lleno { padding: 0; background: #000; }
 .hito-logo.mono::after { content: ''; width: 30px; height: 30px; background: var(--texto); -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
 .hito-logo.siglas { font-family: var(--f-mono); font-size: .72rem; font-weight: 700; color: var(--acento); }
 .hito-contexto { font-size: .9rem; color: var(--texto-3); margin-bottom: 8px; }

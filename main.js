@@ -425,10 +425,12 @@
   }
 
   // ---------- Experiencia y formación ----------
+  // Logo de una empresa o un centro de estudios (experiencia y formación)
   function logoEmpresa(x) {
-    if (x.logo && x.logoMono) return `<span class="hito-logo mono" style="--logo: url('${x.logo}')" role="img" aria-label="${x.empresa}"></span>`;
-    if (x.logo) return `<img class="hito-logo" src="${x.logo}" alt="${x.empresa}" width="48" height="48" loading="lazy">`;
-    return `<span class="hito-logo siglas" aria-hidden="true">${x.siglas || x.empresa.slice(0, 2)}</span>`;
+    const nombre = x.empresa || x.centro;
+    if (x.logo && x.logoMono) return `<span class="hito-logo mono" style="--logo: url('${x.logo}')" role="img" aria-label="${nombre}"></span>`;
+    if (x.logo) return `<img class="hito-logo${x.logoLleno ? ' lleno' : ''}" src="${x.logo}" alt="${nombre}" width="48" height="48" loading="lazy">`;
+    return `<span class="hito-logo siglas" aria-hidden="true">${x.siglas || nombre.slice(0, 2)}</span>`;
   }
 
   function pintarExperiencia() {
@@ -458,8 +460,13 @@
             <span class="hito-fechas">${t(x.fechas)}</span>
             ${x.actual ? `<span class="chip-actual">${tx('actual')}</span>` : ''}
           </div>
-          <h4>${t(x.titulo)}</h4>
-          <p class="hito-sub"><b>${x.centro}</b></p>
+          <div class="hito-empresa">
+            ${logoEmpresa(x)}
+            <div>
+              <h4>${t(x.titulo)}</h4>
+              <p class="hito-sub"><b>${x.centro}</b></p>
+            </div>
+          </div>
           ${x.texto ? `<p class="hito-contexto">${t(x.texto)}</p>` : ''}
         </div>
       </li>`).join('');

@@ -300,6 +300,8 @@ const DATOS = {
   },
 
   certificados: [
+    // url vacía = sin botón «Verificar»
+    { titulo: { es: 'Claude Code in Action', en: 'Claude Code in Action' }, entidad: 'Anthropic', fecha: { es: 'Nov 2026', en: 'Nov 2026' }, url: 'https://verify.skilljar.com/c/3g2tkibikb79' },
     { titulo: { es: 'Claude Code 101', en: 'Claude Code 101' }, entidad: 'Anthropic', fecha: { es: 'Nov 2026', en: 'Nov 2026' }, url: 'https://verify.skilljar.com/c/7thxntndacp9' },
     { titulo: { es: 'AI Capabilities and Limitations', en: 'AI Capabilities and Limitations' }, entidad: 'Anthropic', fecha: { es: 'Oct 2026', en: 'Oct 2026' }, url: 'https://verify.skilljar.com/c/6cajj5chmk34' }
   ],
@@ -308,7 +310,7 @@ const DATOS = {
     {
       empresa: 'NTT DATA',
       // Logo: 'mono' = SVG de un color, que se pinta con el color del texto (sirve en claro y en oscuro).
-      // Sin logo, sale un recuadro con las siglas.
+      // Sin logo, sale un recuadro con las siglas. Formación usa los mismos campos.
       logo: 'assets/logos/ntt-data.svg', logoMono: true,
       puesto: { es: 'Digital Architect (prácticas)', en: 'Digital Architect (intern)' },
       fechas: { es: 'Oct 2026 – actualidad', en: 'Oct 2026 – present' },
@@ -325,7 +327,7 @@ const DATOS = {
     },
     {
       empresa: 'CREA-ETSIDI',
-      siglas: 'CREA',
+      logo: 'assets/logos/crea.webp',
       puesto: { es: 'Desarrollador de robótica', en: 'Robotics developer' },
       fechas: { es: 'Feb 2023 – actualidad', en: 'Feb 2023 – present' },
       lugar: { es: 'Club de robótica de la UPM', en: 'UPM robotics club' },
@@ -340,7 +342,7 @@ const DATOS = {
     },
     {
       empresa: 'UPM MotoStudent Petrol',
-      siglas: 'MS',
+      logo: 'assets/logos/motostudent.webp', logoLleno: true,   // logo cuadrado con fondo negro: sin margen
       puesto: { es: 'Miembro del departamento de electrónica', en: 'Electronics department member' },
       fechas: { es: 'Nov 2024 – jun 2026', en: 'Nov 2024 – Jun 2026' },
       lugar: { es: 'Madrid', en: 'Madrid' },
@@ -356,6 +358,7 @@ const DATOS = {
   formacion: [
     {
       centro: 'Universidad Politécnica de Madrid · ETSIDI',
+      logo: 'assets/logos/upm.webp',
       titulo: { es: 'Grado en Ingeniería Electrónica Industrial y Automática', en: 'BSc in Industrial Electronics and Automation Engineering' },
       fechas: { es: 'Sep 2022 – jun 2027 (previsto)', en: 'Sep 2022 – Jun 2027 (expected)' },
       actual: true,
@@ -366,15 +369,17 @@ const DATOS = {
     },
     {
       centro: 'NTT DATA · AI Engineering Talent Factory',
+      logo: 'assets/logos/ntt-data.svg', logoMono: true,
       titulo: { es: 'Formación en IA agéntica, cloud y DevOps', en: 'Agentic AI, cloud and DevOps training' },
       fechas: { es: 'Oct 2026 – actualidad', en: 'Oct 2026 – present' },
       texto: {
-        es: 'Desarrollo asistido por IA y agentes (Claude Code 101 de Anthropic Academy, en curso), Microsoft Azure (ruta completa de AZ-900 con proyectos guiados), Docker, Kubernetes, Terraform y GitHub Actions, dentro de las prácticas.',
-        en: 'AI-assisted development and agents (Anthropic Academy’s Claude Code 101, in progress), Microsoft Azure (full AZ-900 learning path with guided projects), Docker, Kubernetes, Terraform and GitHub Actions, as part of my internship.'
+        es: 'Desarrollo asistido por IA y agentes (certificados de Anthropic Academy: Claude Code 101 y Claude Code in Action), Microsoft Azure (ruta completa de AZ-900 con proyectos guiados), Docker, Kubernetes, Terraform y GitHub Actions, dentro de las prácticas.',
+        en: 'AI-assisted development and agents (Anthropic Academy certificates: Claude Code 101 and Claude Code in Action), Microsoft Azure (full AZ-900 learning path with guided projects), Docker, Kubernetes, Terraform and GitHub Actions, as part of my internship.'
       }
     },
     {
       centro: 'IES Magallanes · Tenerife',
+      siglas: 'IES',
       titulo: { es: 'Bachillerato científico-tecnológico', en: 'High school diploma, science and technology track' },
       fechas: { es: '2020 – 2022', en: '2020 – 2022' }
     }
