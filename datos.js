@@ -86,10 +86,7 @@ const DATOS = {
       tecnologias: ['ESP32', 'C++', 'PlatformIO', { es: 'Motores paso a paso', en: 'Stepper motors' }, { es: 'Diseño de circuitos', en: 'Circuit design' }],
       galeria: [
         { tipo: 'img', src: 'assets/proyectos/tunabot/base.webp', pie: { es: 'Base del robot con ruedas omnidireccionales y sus drivers', en: 'Robot base with omni wheels and its drivers' } },
-        { tipo: 'video', src: 'assets/proyectos/tunabot/prueba-motores.mp4', poster: 'assets/proyectos/tunabot/prueba-motores.webp', pie: { es: 'Prueba de los motores con el ESP32', en: 'Motor test driven by the ESP32' } },
-        { tipo: 'img', src: 'assets/proyectos/tunabot/placa-v3.webp', pie: { es: 'Placa perforada v3: ESP32, drivers y conectores', en: 'Perfboard v3: ESP32, drivers and connectors' } },
-        { tipo: 'img', src: 'assets/proyectos/tunabot/placa-v2.webp', pie: { es: 'Placa v2, la del cortocircuito', en: 'Board v2, the one with the short circuit' } },
-        { tipo: 'img', src: 'assets/proyectos/tunabot/driver.webp', pie: { es: 'Driver ULN2003 de un motor paso a paso', en: 'ULN2003 stepper motor driver' } }
+        { tipo: 'video', src: 'assets/proyectos/tunabot/prueba-motores.mp4', poster: 'assets/proyectos/tunabot/prueba-motores.webp', pie: { es: 'Prueba de los motores con el ESP32', en: 'Motor test driven by the ESP32' } }
       ]
     },
     {
@@ -126,7 +123,7 @@ const DATOS = {
       fechas: { es: 'Feb – may 2026', en: 'Feb – May 2026' },
       estado: 'terminado',
       equipo: { es: 'Automatización Industrial (3.º) · en grupo', en: 'Industrial Automation course (3rd year) · team project' },
-      portada: 'assets/proyectos/skate/grafcet.webp',
+      portada: { diagrama: 'skate' },   // esquema del programa en TIA Portal (diagramas.js)
       contexto: {
         es: 'Trabajo de Automatización Industrial: una línea que fabrica cinco modelos de skateboard, diseñada y simulada en FlexSim.',
         en: 'Industrial Automation coursework: a line that builds five skateboard models, designed and simulated in FlexSim.'
@@ -138,13 +135,15 @@ const DATOS = {
       ],
       tecnologias: ['PLC S7-1500', 'TIA Portal', 'GRAFCET', 'FlexSim', 'RFID'],
       galeria: [
-        { tipo: 'img', src: 'assets/proyectos/skate/grafcet.webp', pie: { es: 'GRAFCET general de la célula de inyección', en: 'Overall GRAFCET of the injection cell' } },
-        { tipo: 'img', src: 'assets/proyectos/skate/celda.webp', pie: { es: 'Distribución de la célula de inyección', en: 'Injection cell layout' } },
-        { tipo: 'img', src: 'assets/proyectos/skate/grafcet-robot.webp', pie: { es: 'GRAFCET del robot de la célula', en: 'GRAFCET of the cell robot' } },
-        { tipo: 'img', src: 'assets/proyectos/skate/codigo.webp', pie: { es: 'Gestión de la emergencia en el PLC', en: 'Emergency handling in the PLC' } },
+        { tipo: 'diagrama', src: 'skate', pie: { es: 'Estructura del programa del PLC en TIA Portal', en: 'Structure of the PLC program in TIA Portal' } },
         { tipo: 'img', src: 'assets/proyectos/skate/flexsim.webp', pie: { es: 'Modelo de la planta en FlexSim', en: 'Plant model in FlexSim' } },
         { tipo: 'img', src: 'assets/proyectos/skate/estados.webp', pie: { es: 'Ocupación de las máquinas en la simulación', en: 'Machine utilisation in the simulation' } },
-        { tipo: 'img', src: 'assets/proyectos/skate/layout.webp', pie: { es: 'Plano de la planta', en: 'Plant layout drawing' } }
+        { tipo: 'img', src: 'assets/proyectos/skate/codigo.webp', pie: { es: 'Gestión de la emergencia en el PLC (TIA Portal)', en: 'Emergency handling in the PLC (TIA Portal)' } },
+        { tipo: 'img', src: 'assets/proyectos/skate/codigo-escalado.webp', pie: { es: 'Escalado de la temperatura del termopar (SCALE) en TIA Portal', en: 'Thermocouple temperature scaling (SCALE) in TIA Portal' } },
+        { tipo: 'img', src: 'assets/proyectos/skate/layout.webp', pie: { es: 'Plano de la planta', en: 'Plant layout drawing' } },
+        { tipo: 'img', src: 'assets/proyectos/skate/celda.webp', pie: { es: 'Distribución de la célula de inyección', en: 'Injection cell layout' } },
+        { tipo: 'img', src: 'assets/proyectos/skate/grafcet.webp', pie: { es: 'GRAFCET general de la célula de inyección', en: 'Overall GRAFCET of the injection cell' } },
+        { tipo: 'img', src: 'assets/proyectos/skate/grafcet-robot.webp', pie: { es: 'GRAFCET del robot de la célula', en: 'GRAFCET of the cell robot' } }
       ]
     },
     {
@@ -361,11 +360,7 @@ const DATOS = {
       logo: 'assets/logos/upm.webp',
       titulo: { es: 'Grado en Ingeniería Electrónica Industrial y Automática', en: 'BSc in Industrial Electronics and Automation Engineering' },
       fechas: { es: 'Sep 2022 – jun 2027 (previsto)', en: 'Sep 2022 – Jun 2027 (expected)' },
-      actual: true,
-      texto: {
-        es: 'Asignaturas relevantes: Sistemas Electrónicos Digitales (VHDL en FPGA con Vivado; C en STM32F4 con HAL), Automatización Industrial (TIA Portal, S7-1500, GRAFCET), Ingeniería de Control e Informática Industrial (C++).',
-        en: 'Relevant courses: Digital Electronic Systems (VHDL on FPGA with Vivado; C on STM32F4 with HAL), Industrial Automation (TIA Portal, S7-1500, GRAFCET), Control Engineering and Industrial Computing (C++).'
-      }
+      actual: true
     },
     {
       centro: 'NTT DATA · AI Engineering Talent Factory',

@@ -68,5 +68,46 @@ const DIAGRAMAS = {
   <text x="656" y="296" class="dg-mono dg-t2" text-anchor="middle">React + TS</text>
   <path d="M604 269 H560" class="dg-flecha" marker-start="url(#fc${uid})" marker-end="url(#fc${uid})"/>
 </svg>`;
+  },
+
+  // Estructura del programa del PLC de la línea de skateboards, sacada del anexo de TIA Portal
+  skate(es, uid = '') {
+    const T = (a, b) => (es ? a : b);
+    const grupos = [
+      [T('Emergencias', 'Emergency handling'), T('FC3 parada · FC4 tratamiento · FC2 conexión', 'FC3 stop · FC4 handling · FC2 connection')],
+      [T('Inyectoras ×2', 'Injection machines ×2'), T('FB11 → FB9 control · FC1 temperatura (SCALE)', 'FB11 → FB9 control · FC1 temperature (SCALE)')],
+      ['Robot', T('FB7 → recoge · molde · carry · maniobra', 'FB7 → pick · mould · carry · manoeuvre')],
+      [T('Pistones ×3', 'Pistons ×3'), T('FB1 take ×2 · FB8 salida → FB2 maniobra', 'FB1 take ×2 · FB8 exit → FB2 manoeuvre')],
+      [T('Cinta y peso', 'Conveyor and scale'), T('FB10 cinta → FB3 maniobra · FB6 peso', 'FB10 conveyor → FB3 manoeuvre · FB6 weight')]
+    ];
+    const cajas = grupos.map(([titulo, bloques], i) => {
+      const y = 20 + i * 82;
+      return `
+  <path d="M232 152 C266 152 266 ${y + 32} 296 ${y + 32}" class="dg-flecha" marker-end="url(#fs${uid})"/>
+  <rect x="300" y="${y}" width="404" height="64" rx="12" class="dg-caja"/>
+  <text x="316" y="${y + 27}" class="dg-t">${titulo}</text>
+  <text x="316" y="${y + 49}" class="dg-mono dg-t2">${bloques}</text>`;
+    }).join('');
+    return `
+<svg viewBox="0 0 720 430" role="img" aria-label="${T('Estructura del programa del PLC en TIA Portal', 'Structure of the PLC program in TIA Portal')}">
+  <defs>
+    <marker id="fs${uid}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" class="dg-punta"/>
+    </marker>
+  </defs>
+
+  <!-- El PLC: el OB1 llama a todo en cada ciclo -->
+  <rect x="16" y="20" width="230" height="392" rx="16" class="dg-contenedor dg-rg"/>
+  <text x="32" y="50" class="dg-t dg-titulo">PLC S7-1500</text>
+  <text x="32" y="72" class="dg-mono dg-acento">TIA Portal V18</text>
+  <rect x="32" y="110" width="198" height="84" rx="10" class="dg-caja dg-destacada"/>
+  <text x="48" y="144" class="dg-t">OB1 · Main</text>
+  <text x="48" y="168" class="dg-mono dg-t2">${T('ciclo del PLC', 'PLC scan cycle')}</text>
+  <rect x="32" y="306" width="198" height="88" rx="10" class="dg-caja dg-interior"/>
+  <text x="48" y="336" class="dg-t">${T('Bloques de datos', 'Data blocks')}</text>
+  <text x="48" y="358" class="dg-mono dg-t2">${T('DB9 producción', 'DB9 production')}</text>
+  <text x="48" y="378" class="dg-mono dg-t2">${T('DB10·11 modos', 'DB10·11 modes')}</text>
+${cajas}
+</svg>`;
   }
 };
