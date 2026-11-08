@@ -44,11 +44,11 @@ const DATOS = {
   sobreMi: {
     es: [
       'Aunque disfruto de la parte teórica, siempre he sido de aprender haciendo: montar, programar y probar sistemas reales, y pelearme con ellos hasta que funcionan bien.',
-      'Actualmente estoy de prácticas en NTT DATA como Digital Architect, trabajando con cloud (Microsoft Azure), infraestructura como código, contenedores y desarrollo de software asistido por IA. Me permite completar mi base en electrónica y automatización con la parte de software e infraestructura, cada vez más unida al hardware.'
+      'Actualmente estoy de prácticas en NTT DATA como Digital Architect, trabajando con cloud (Microsoft Azure), infraestructura como código, contenedores y desarrollo de software asistido por IA. Me permite completar mi base en electrónica y automatización con la parte de software e infraestructura, cada vez más unida al hardware. Además, me da otra perspectiva sobre cómo se construyen los sistemas y una forma de trabajar (Git, revisión de código, integración continua) que puedo complementar cada vez más con lo que más me apasiona: las FPGA, los microcontroladores y los sistemas embebidos.'
     ],
     en: [
       'Although I enjoy theory, I have always learned best by doing: building, programming and testing real systems, and working on them until they run properly.',
-      'I am currently an intern at NTT DATA as a Digital Architect, working with cloud (Microsoft Azure), infrastructure as code, containers and AI-assisted software development. It lets me complement my background in electronics and automation with the software and infrastructure side, which is increasingly tied to hardware.'
+      'I am currently an intern at NTT DATA as a Digital Architect, working with cloud (Microsoft Azure), infrastructure as code, containers and AI-assisted software development. It lets me complement my background in electronics and automation with the software and infrastructure side, which is increasingly tied to hardware. It also gives me a different perspective on how systems are built, and ways of working (Git, code review, continuous integration) that I can increasingly combine with what I am most passionate about: FPGAs, microcontrollers and embedded systems.'
     ]
   },
 
