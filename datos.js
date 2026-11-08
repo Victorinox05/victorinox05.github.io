@@ -204,13 +204,13 @@ const DATOS = {
       equipo: { es: 'Proyecto personal', en: 'Personal project' },
       portada: 'assets/proyectos/casa/app.webp',
       contexto: {
-        es: 'Domótica montada por tandas: Home Assistant en una Raspberry Pi 4, dispositivos Zigbee y acceso remoto por VPN, sin abrir puertos.',
-        en: 'Home automation built in stages: Home Assistant on a Raspberry Pi 4, Zigbee devices and remote access over a VPN, with no open ports.'
+        es: 'Domótica con Home Assistant, dispositivos Zigbee y una app web propia para controlar la casa desde el móvil.',
+        en: 'Home automation with Home Assistant, Zigbee devices and a custom web app to control the house from a phone.'
       },
       puntos: [
-        { es: 'Coordinador Zigbee, interruptor sin neutro, sensor de presencia y copias de seguridad diarias.', en: 'A Zigbee coordinator, a no-neutral wall switch, a presence sensor and daily backups.' },
-        { es: 'App web instalable (PWA) hecha con Claude Code: FastAPI + React, login y permisos por zona.', en: 'An installable web app (PWA) built with Claude Code: FastAPI + React, login and per-zone permissions.' },
-        { es: 'Claude conectado a Home Assistant por MCP para consultar la casa y sus sensores.', en: 'Claude connected to Home Assistant over MCP to query the house and its sensors.' }
+        { es: 'Home Assistant OS en una Raspberry Pi 4 con coordinador Zigbee.', en: 'Home Assistant OS on a Raspberry Pi 4 with a Zigbee coordinator.' },
+        { es: 'Acceso remoto con Tailscale (VPN).', en: 'Remote access with Tailscale (VPN).' },
+        { es: 'App web instalable (PWA) hecha con Claude Code: FastAPI + React, login, permisos por habitación, plano 2D y maqueta 3D.', en: 'An installable web app (PWA) built with Claude Code: FastAPI + React, login, per-room permissions, a 2D floor plan and a 3D model.' }
       ],
       tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude Code', 'Claude / MCP'],
       galeria: [
