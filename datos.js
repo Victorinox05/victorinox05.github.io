@@ -204,13 +204,13 @@ const DATOS = {
       equipo: { es: 'Proyecto personal', en: 'Personal project' },
       portada: 'assets/proyectos/casa/app.webp',
       contexto: {
-        es: 'Domótica con Home Assistant, dispositivos Zigbee y una app web propia para controlar la casa desde el móvil.',
-        en: 'Home automation with Home Assistant, Zigbee devices and a custom web app to control the house from a phone.'
+        es: 'Domótica propia sobre Home Assistant en una Raspberry Pi 4: un sistema real en el que aplico IoT, redes y desarrollo web, y que irá creciendo por fases hacia un servidor propio (homelab).',
+        en: 'My own home automation system on Home Assistant and a Raspberry Pi 4: a real system where I apply IoT, networking and web development, and which will grow in stages into a home server (homelab).'
       },
       puntos: [
-        { es: 'Home Assistant OS en una Raspberry Pi 4 con coordinador Zigbee.', en: 'Home Assistant OS on a Raspberry Pi 4 with a Zigbee coordinator.' },
-        { es: 'Acceso remoto con Tailscale (VPN).', en: 'Remote access with Tailscale (VPN).' },
-        { es: 'App web instalable (PWA) hecha con Claude Code: FastAPI + React, login, permisos por habitación, plano 2D y maqueta 3D.', en: 'An installable web app (PWA) built with Claude Code: FastAPI + React, login, per-room permissions, a 2D floor plan and a 3D model.' }
+        { es: 'Dispositivos Zigbee, mensajería MQTT y acceso remoto por VPN.', en: 'Zigbee devices, MQTT messaging and remote access over a VPN.' },
+        { es: 'App web instalable (PWA) hecha con Claude Code: FastAPI + React, login y permisos por zona.', en: 'An installable web app (PWA) built with Claude Code: FastAPI + React, login and per-zone permissions.' },
+        { es: 'Claude conectado a Home Assistant por MCP para consultar la casa y sus sensores.', en: 'Claude connected to Home Assistant over MCP to query the house and its sensors.' }
       ],
       tecnologias: ['Raspberry Pi', 'Home Assistant', 'Zigbee', 'MQTT', 'Python', 'FastAPI', 'React', 'TypeScript', 'Claude Code', 'Claude / MCP'],
       galeria: [
