@@ -18,8 +18,8 @@ const DATOS = {
       { area: { es: 'Automatización', en: 'Automation' } }
     ],
     bio: {
-      es: 'Estudiante de último curso de <strong>Ingeniería Electrónica Industrial y Automática</strong> en la Universidad Politécnica de Madrid. Perfil práctico de hardware y software: me gusta ver cómo una idea acaba siendo algo que se puede tocar, programar y testear.',
-      en: 'Final-year student of <strong>Industrial Electronics and Automation Engineering</strong> at the Technical University of Madrid (UPM). A hands-on hardware and software profile: I enjoy watching an idea turn into something you can touch, program and test.'
+      es: 'Estudiante de último curso de <strong>Ingeniería Electrónica Industrial y Automática</strong> en la Universidad Politécnica de Madrid. Me considero un perfil práctico de hardware y software al que le encanta ver cómo una idea acaba siendo algo que se puede tocar, programar y testear.',
+      en: 'Final-year student of <strong>Industrial Electronics and Automation Engineering</strong> at the Technical University of Madrid (UPM). I see myself as a hands-on hardware and software person who loves watching an idea turn into something you can touch, program and test.'
     }
   },
 
