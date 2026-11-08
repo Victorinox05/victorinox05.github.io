@@ -44,11 +44,11 @@ const DATOS = {
   sobreMi: {
     es: [
       'Aunque disfruto de la parte teórica, siempre he sido de aprender haciendo: montar, programar y probar sistemas reales, y pelearme con ellos hasta que funcionan bien.',
-      'Empecé en el club de robótica CREA-ETSIDI, donde ahora doy el curso de Arduino, y desde entonces he pasado por la electrónica de una moto de competición, PLC industriales, FPGA y un enjambre de robots con el CSIC. Ahora completo esa base con IA, cloud e infraestructura como código en mis prácticas en NTT DATA. Uso a diario herramientas de IA, sobre todo Claude Code, para programar, documentar y aprender más rápido, revisando siempre lo que generan.'
+      'Actualmente estoy de prácticas en NTT DATA como Digital Architect, trabajando con cloud (Microsoft Azure), infraestructura como código, contenedores y desarrollo de software asistido por IA. Me permite completar mi base en electrónica y automatización con la parte de software e infraestructura, cada vez más unida al hardware.'
     ],
     en: [
       'Although I enjoy theory, I have always learned best by doing: building, programming and testing real systems, and working on them until they run properly.',
-      'I started at the CREA-ETSIDI robotics club, where I now teach the Arduino course. Since then I have worked on the electronics of a racing motorcycle, industrial PLCs, FPGAs and a robot swarm with CSIC. During my internship at NTT DATA I am adding AI, cloud and infrastructure as code to that background. I use AI tools every day, Claude Code above all, to code, document and learn faster, always reviewing what they produce.'
+      'I am currently an intern at NTT DATA as a Digital Architect, working with cloud (Microsoft Azure), infrastructure as code, containers and AI-assisted software development. It lets me complement my background in electronics and automation with the software and infrastructure side, which is increasingly tied to hardware.'
     ]
   },
 
