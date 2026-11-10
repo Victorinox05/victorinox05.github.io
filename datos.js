@@ -69,14 +69,14 @@ const DATOS = {
       id: 'tunabot',
       destacado: true,   // tarjeta ancha (ocupa dos columnas)
       titulo: { es: 'TunaBot: enjambre de robots coordinados (CSIC)', en: 'TunaBot: a coordinated robot swarm (CSIC)' },
-      resumen: { es: 'Firmware de movimiento en ESP32 para un enjambre de robots.', en: 'ESP32 motion firmware for a swarm of robots.' },
+      resumen: { es: 'Firmware de movimiento en ESP32 para un enjambre de 6 robots.', en: 'ESP32 motion firmware for a swarm of six robots.' },
       fechas: { es: 'Abr 2026 – actualidad', en: 'Apr 2026 – present' },
       estado: 'en-curso',
       equipo: { es: 'CREA-ETSIDI · departamento de movimiento', en: 'CREA-ETSIDI · motion team' },
       portada: 'assets/proyectos/tunabot/base.webp',
       contexto: {
-        es: 'Enjambre de pequeños robots del club CREA-ETSIDI y el CSIC que se coordinan para huir de un robot «cazador», como un banco de peces.',
-        en: 'A swarm of small robots, built by the CREA-ETSIDI club with CSIC (the Spanish National Research Council), that coordinate to escape from a “hunter” robot, like a school of fish.'
+        es: 'Enjambre de 6 pequeños robots del club CREA-ETSIDI y el CSIC que se coordinan para huir de un robot «cazador», como un banco de peces.',
+        en: 'A swarm of six small robots, built by the CREA-ETSIDI club with CSIC (the Spanish National Research Council), that coordinate to escape from a “hunter” robot, like a school of fish.'
       },
       puntos: [
         { es: 'Comparativa de sistemas de locomoción y elección de ruedas omnidireccionales.', en: 'Comparison of drive systems and the choice of omni wheels.' },
@@ -388,7 +388,7 @@ const DATOS = {
       items: [
         { n: 'C', tags: [] }, { n: 'C++', tags: ['C++'] }, { n: 'ESP32 · PlatformIO', tags: ['ESP32', 'PlatformIO'] },
         { n: 'STM32 (HAL)', tags: [] }, { n: 'Arduino', tags: ['Arduino'] }, { n: 'Raspberry Pi', tags: ['Raspberry Pi'] },
-        { n: 'VHDL', tags: [] }, { n: 'FPGA (Vivado)', tags: [] }, { n: 'I2C', tags: ['I2C'] }, { n: 'SPI', tags: ['SPI'] },
+        { n: 'VHDL', tags: [] }, { n: 'FPGA (Vivado)', tags: [] }, { n: { es: 'Máquinas de estados (FSM)', en: 'State machines (FSM)' }, tags: [] }, { n: 'I2C', tags: ['I2C'] }, { n: 'SPI', tags: ['SPI'] },
         { n: 'LoRa · LoRaWAN', tags: ['LoRa / LoRaWAN'] }
       ]
     },
