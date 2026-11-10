@@ -81,7 +81,7 @@ const DATOS = {
       puntos: [
         { es: 'Comparativa de sistemas de locomoción y elección de ruedas omnidireccionales.', en: 'Comparison of drive systems and the choice of omni wheels.' },
         { es: 'Firmware en ESP32 (C++, PlatformIO): el robot se mueve con un vector de dirección y módulo.', en: 'ESP32 firmware (C++, PlatformIO): the robot is driven by a direction-and-magnitude vector.' },
-        { es: 'Distribución de la placa (ESP32, drivers ULN2003, motores paso a paso) y depuración de un cortocircuito.', en: 'Board layout (ESP32, ULN2003 drivers, stepper motors) and debugging of a short circuit.' }
+        { es: 'Distribución de la placa (ESP32, drivers ULN2003, motores paso a paso).', en: 'Board layout (ESP32, ULN2003 drivers, stepper motors).' }
       ],
       tecnologias: ['ESP32', 'C++', 'PlatformIO', { es: 'Motores paso a paso', en: 'Stepper motors' }, { es: 'Diseño de circuitos', en: 'Circuit design' }],
       galeria: [
